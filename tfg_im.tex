@@ -1,0 +1,219 @@
+\documentclass[a4paper,11pt,titlepage]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+% \usepackage[style=list, number=none]{glossary} %si se va a usar glosario, quitar marca de comentario
+%\usepackage{titlesec}
+%\usepackage{palatino} %usar fot palatino en vez de times roman
+
+%\decimalpoint %revisar
+%\usepackage{dcolumn} %revisat
+%\newcolumntype{.}{D{.}{\esperiod}{-1}}
+%\makeatletter
+%\addto\shorthandsspanish{\let\esperiod\es@period@code}
+%\makeatother
+
+
+%\usepackage[chapter]{algorithm}
+%\RequirePackage{verbatim}
+%\RequirePackage[Glenn]{fncychap}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{afterpage}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{csquotes}
+\usepackage{lscape}
+\definecolor{portada}{RGB}{239,206,53}
+\definecolor{base}{RGB}{35,31,32}
+\usepackage{pdfpages}
+
+
+%Instrucciones para poder escribir código y mostrarlo de manera elegante:
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+\definecolor{gray30}{gray}{.94}
+
+\usepackage{listings}
+\lstset{ frame=Ltb,
+framerule=0pt,
+aboveskip=0.5cm,
+framextopmargin=3pt,
+framexbottommargin=3pt,
+framexleftmargin=0.4cm,
+framesep=0pt,
+rulesep=.4pt,
+backgroundcolor=\color{gray97},
+rulesepcolor=\color{black},
+%
+stringstyle=\ttfamily,
+showstringspaces = false,
+basicstyle=\small\ttfamily,
+commentstyle=\color{gray45},
+keywordstyle=\bfseries,
+%
+numbers=left,
+numbersep=15pt,
+numberstyle=\tiny,
+numberfirstline = false,
+breaklines=true,
+literate={á}{{\'a}}1 {Á}{{\'A}}1 {é}{{\'e}}1 {É}{{\'e}}1 {í}{{\'i}}1  {Í}{{\'I}}1  {ó}{{\'o}}1  {Ó}{{\'O}}1  {ú}{{\'u}}1  {Ú}{{\'U}}1  {Ñ}{{\~N}}1 {ñ}{{\~n}}1 ,
+}
+
+
+
+% minimizar fragmentado de listados
+\lstnewenvironment{listing}[1][]
+   {\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+
+\lstdefinestyle{Consola}
+   {basicstyle=\scriptsize\bf\ttfamily,
+    backgroundcolor=\color{gray30},
+    frame=single,
+    numbers=none
+   }
+\lstdefinestyle{C}
+	{basicstyle=\scriptsize,
+	frame=single,
+	language=C,
+	numbers=left
+	}
+\lstdefinestyle{CodigoC++}
+        {basicstyle=\small,
+	frame=single,
+	backgroundcolor=\color{gray30},
+	language=C++,
+	numbers=left
+ 	}
+\lstdefinestyle{PHP}
+	{basicstyle=\scriptsize,
+%        {basicstyle=\small,
+	frame=single,
+	language=PHP,
+	numbers=left
+	}
+	
+
+
+
+% ********************************************************************
+% Información sobre el TFG. Comentar lo que NO se desee añadir y sustituir con la información correcta.
+% ********************************************************************
+\newcommand{\myTitle}{NjoyCoking}
+\newcommand{\mySubtitle}{Web de geolocalización de recetas}
+\newcommand{\myDegree}{Grado en Ingeniería Multimedia}
+\newcommand{\myName}{Luis Cobo García}
+\newcommand{\myProf}{Pedro Pernías Peco}
+\newcommand{\myOtherProf}{Manuel Marco Such}
+\newcommand{\myFaculty}{Escuela Politécnica Superior de la Universidad de Alicante}
+\newcommand{\myFacultyShort}{EPS UA}
+\newcommand{\depTutorOne}{Lenguajes y sistemas informáticos}
+\newcommand{\depTutorTwo}{Lenguajes y sistemas informáticos}
+
+
+\newcommand{\myUni}{\protect{Universidad de Alicante}}
+\newcommand{\myLocation}{Alicante}
+\newcommand{\myTime}{\today}
+%\newcommand{\myVersion}{Version 0.1}
+
+\newcommand{\logoGrado}{imagenes/logoim.jpg}
+\newcommand{\logoFacultad}{imagenes/logoeps.jpg}
+\newcommand{\logoUniversidad}{imagenes/logoua.jpg}
+
+\usepackage{url}
+
+% Definición de comandos que me son útiles:
+%\renewcommand{\indexname}{Índice alfabético}
+%\renewcommand{\glossaryname}{Glosario}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\leftmark}
+\fancyhead[RE]{\rightmark}
+\fancyhead[RO,LE]{\textbf{\thepage}}
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}}
+
+
+\setlength{\headheight}{1.5\headheight}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+%Definimos los tipos teorema, ejemplo y definición podremos usar estos tipos
+%simplemente poniendo \begin{teorema} \end{teorema} ...
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{ejemplo}{Ejemplo}[chapter]
+\newtheorem{definicion}{Definición}[chapter]
+ 
+\newcommand{\bigrule}{\titlerule[0.5mm]}
+
+
+%Para conseguir que en las páginas en blanco no ponga cabeceras
+\makeatletter
+\def\clearpage{%
+  \ifvmode
+    \ifnum \@dbltopnum =\m@ne
+      \ifdim \pagetotal <\topskip
+        \hbox{}
+      \fi
+    \fi
+  \fi
+  \newpage
+  \thispagestyle{empty}
+  \write\m@ne{}
+  \vbox{}
+  \penalty -\@Mi
+}
+\makeatother
+
+\usepackage[pdfborder={000}]{hyperref} %referencia
+\hypersetup{
+pdfauthor = {\myName (email (en) ua (punto) es)},
+pdftitle = {\myTitle},
+pdfsubject = {},
+pdfkeywords = {palabra_clave1, palabra_clave2, palabra_clave3, ...},
+pdfcreator = {LaTeX con el paquete ....},
+pdfproducer = {pdflatex}
+}
+%AQUI COMIENZA LA LISTA DE FICHEROS A INCLUIR
+
+\renewcommand{\baselinestretch}{1.5} %interlineado
+
+\begin{document}
+\renewcommand{\listtablename}{Índice de tablas} %para sustituir la palabra cuadro por tabla
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\lstlistingname}{Listado}
+\renewcommand{\lstlistlistingname}{Índice de \lstlistingname s}
+
+\frontmatter
+\input{portada/portada} %la portada en color
+\input{portada/portada_2} %la portada en b/n
+\input{capitulos/preliminares} %editar este texto (capitulos/preliminares.tex) para cambiar preámbulo, agradecimientos y dedicatorias
+\tableofcontents
+\listoffigures
+%\listoftables
+%\lstlistoflistings
+
+\mainmatter %entre frontmatter y mainmatter, la numeración es en romanos.
+
+%a continuación se propone un esquema de trabajo que puede ser alterado justificadamente.
+\input{capitulos/Introduccion}
+\input{capitulos/marcoteorico}
+\input{capitulos/objetivos}
+\input{capitulos/metodologia}
+%\input{capitulos/arquitectura}
+\input{capitulos/desarrollo}
+%input{capitulos/resultados}
+%input{capitulos/conclusiones}
+
+%%\nocite{*} %incluye TODOS los documentos de la base de datos bibliográfica sean o no citados en el texto
+%\bibliography{bibliografia/bibliografia}\addcontentsline{toc}{chapter}{Bibliografía} %sustituir bibliografía con el nombre del fichero bibtex con la bibliografía
+%\bibliographystyle{apalike}
+%
+\appendix
+%\input{anexos/anexo_I}
+%\input{glosario/entradas_glosario}
+% \addcontentsline{toc}{chapter}{Glosario} %si se usa glosario hay que añadirlo al índice
+% \printglossary %muestra el glosario
+
+\end{document}
