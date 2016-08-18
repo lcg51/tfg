@@ -1,0 +1,64 @@
+\chapter{Implementación}
+
+\section{Software}
+
+Para diseñar una interfaz de usuario real, en la que poder basarme para luego representarla mediante HTML y CSS he utilizado diversos programas de diseño web.
+
+\begin{itemize}
+
+\item \textbf{Sketch}: Sketch es una aplicación de diseño vectorial, que te permite diseñar interfaces para aplicaciones móviles o web de una manera sencilla y con una gran potencia.
+\item \textbf{Illustrator}: Esta herramienta de adobe tan famosa, te permite el diseño de logotipos de forma vectorial,
+\item \textbf{Spectrum}: Programa sencillo que te permite crear paletas de colores, de forma que puedas seleccionar colores complementarios o de gama monocromática y utilizarlos para la interfaz de la aplicación.
+
+\end{itemize}
+
+\section{Tecnologías}
+
+Para la realización de la aplicación web, se ha llevado a cabo un análisis de las tecnologías disponibles, y se han seleccionado las que mejor se adaptaban a las necesidades del proyecto.
+
+\subsection{Front-End(Cliente)}
+
+Las dos principales e indispensables tecnologías que se usan para la parte del cliente son el lenguaje de etiquetas HTML5 y las hojas de etilos CSS3. Estas son dos de las tecnologías fundamentales en las que se basa el desarrollo web.
+
+ \vspace{5 mm}
+
+ Con la finalidad de conseguir una apariencia cuidada e intuitiva del sitio web, sin la necesidad de crear las hojas de estilos propias, se planteó la idea de usar el framework Bootstrap. Finalmente debido al objetivo de personalizar al máximo la apariencia de la web, se descartó Bootstra y se optó por añadir clases propias mediante css.
+
+\vspace{5 mm}
+
+Para maquetar el sitio web con Css3 de forma más rápida y refactorizable utilizo \textbf{Sass}. Sass es un lenguaje de preprocesado de Css, que te permite escribir Css de forma más cómoda, permitiendote declarar variables,mixins, herencia de clases, etc. Hay diversas formas de utilizar Sass en tu proyecto. Mediante un programa como Prepros, mediante un automatizador de tareas como Grunt, o mediante un terminal con los comandos de Sass. Para el proyecto yo he optado usar el terminal para ejecutar Sass, ya que su ejecución es mucho más ligera y consume menos RAM que con programas como Prepros. Para que empezar a usar Sass en el proyecto, dentro de nuestra carpeta padre donde se encuentre el css, se crea una carpeta sass donde se incluirán todos los ficheros .scss. Con el terminal situado en la carpeta padre escribimos sass --watch sass(nombre de la carpeta donde se encuentran los ficheros .scss). Al compilarlo, nos generará un fichero style.css que será el estilo a usar.
+
+\vspace{5 mm}
+
+Para añadir el dinamismo a la web, se ha optado por utilizar un framework de Javascript como \textbf{JQuery} que permite simplificar la manera de interactuar con los documentos HTML, manipular el DOM, desarrollar animaciones y agregar peticiones AJAX. Además de que JQuery es software libre.
+
+\vspace{5 mm}
+
+Como última tecnología Front-End se utiliza la API de Google Maps, indispensable para el sitio web ya que la principal proposición de valor de la aplicación es la geolocalización de recetas, y para su representación necesitamos la API de Google.
+
+
+\subsection{Back-End(Servidor)}
+
+Después de barajar diversos lenguajes para desarrollar el back-end de la aplicación, finalmente me decanté por PHP. Además de ser el lenguaje más utlizado para el desarrollo web, es uno de los lenguajes más potentes y flexibles, pudiendo ser utilizado en la mayoría de los servidores web y sistemas operativos. Además PHP esta publicado bajo licencia de software libre, por lo que no supone ningun coste.
+
+
+\vspace{5 mm}
+
+Para montar la arquitectura MVC en la aplicación, utilizo el framwework Laravel. Laravel agiliza el desarrollo de las aplicaciones web, permitiendo multitud de funcionalidades. Con este framework, desarrollado de forma elegante y simple se evita la creación de código espagueti, faciltando su refactorización y/o su modificación. Algunas de las carácterísticas de Laravel: 
+
+
+\begin{itemize}
+
+\item \textbf{Plantillas}: Laravel utiliza platillas Blade. Blade permite tener un sitema de vistas modular de forma que se tenga que repetir la menor cantidad de código. Para ello se genera una plantilla base o layout, que es donde se representa la estructura de la web y se volcará el contenido para cada página. Mediante la directiva include(nombre\_template), se podrá incluir una vista parcial de contenido HTML, esta directiva se utiliza para contenido que no cambia por ejemplo para incluir la cabecera o el footer de la aplicación. Luego mediante la sentencia yield(nombre\_template) permitiremos crear una futura sección en el HTML que se definirá en las vistas que son heredadas de este template. Mediante la sentencia extends(nombre\_template) le diremos a Laravel que vistas se van a usar como futuras secciones. Con estas sentencias se conseguirá volcar el contenido especifíco para cada página de la web duplicando el menor numero de codigo HTML y de forma más modular.
+
+\item \textbf{ORM}: Es una implementación de registro activo para trabajar con la base de datos de forma que cada tabla de la base de datos tiene un Modelo correspondiente asociado con el mismo nombre. Esta implementación te permite también métodos predefinidos para llamar a la base de datos como save(),create(),get(),find().
+
+\item \textbf{Caché}: Laravel, cuenta con un robusto sistema de caché, el cual se puede ajustar, para que se produzca una carga rápida de la web y generar una mejor experiencia al usuario.
+
+\item \textbf{MiddleWare}: Usa HTTP Middleware, que proporcionan un correcto mecanismo para filtrar las peticiones en la aplicación. Un ejemplo de middleware que incluye laravel, es el usado para verificar si el usuario esta autenticado en la aplicación.
+
+\end{itemize}
+
+\vspace{5 mm}
+
+Para la base de datos, se utiliza el sistema de gestión relacional MySQL, ya que es uno de los sistemas más utilizados y con mayor documentación para el desarrollo web. Además, de la perfecta integración con Laravel.

@@ -26,14 +26,132 @@ También podrá gestionar el contenido del sistema
 
 \section{Análisis}
 
+Para el desarrollo de la aplicación se lleva a cabo previamente un análisis de las diferentes herramientas utilizadas.
 
-\subsection{Tweet}
+\subsection{Twitter}
 
-\subsection{API de Twitter}
+Twitter es la red social de \textquote{microblogging} más conocida actualmente. Esta red social tiene mas de 500 millones de usuarios, generando un número aproximado de 65 millones de tweets al dia. Es por ello que se optó por Twitter, ya que es una gran fuente de información.
+
+\vspace{5 mm}
+
+Toda la información proveniente de Twitter es guardada en la base de datos de la aplicación. Para obtener la información, Twitter porporciona una REST API que proporciona a los desarrolladores un acceso a la lectura y escritura de toda la información disponible en la red social.
+
+\vspace{5 mm}
+
+\textbf{Twitter API}
+
+\vspace{5 mm}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/estructura-tweet.png}
+\caption{Estrucutra de un tweet}
+\label{tweet}
+\end{center}
+\end{figure}
+
+La REST API de Twitter nos proporciona los datos en formato JSON listos para ser procesados. Un Tweet, contiene una estructura(ver figura \ref{tweet}) elaborada con toda la información relacionada. La estructura de un Tweet consta de los siguientes elementos:
+
+\begin{itemize}
+
+\item \textbf{created\_at}: Fecha de creación del Tweet, contiene el dia, mes, hora, zona horaria y año cuando se ha creado el Tweet.
+\item \textbf{id}: Identificador único del Tweet
+\item \textbf{id\_str}: El identificador del Tweet en formato de cadena de texto. Este campo esta creado para ciertos lenguajes que no soportan enteros mayores de 53 bits, como es el caso de Javascript.
+\item \textbf{text}: Contiene la información del Tweet(máximo de 140 caracteres).
+\item \textbf{truncated}: Booleano que especifíca si el valor del campo text está cortado. El texto truncado terminará con los tres puntos suspensivos.
+\item \textbf{entities}: Proporciona metadatos asociados al contenido del tweet. Entities es un objeto que contiene los siguientes elementos:
+
+\begin{itemize}
+
+\item \textbf{hashtags}: Representa un array con los hashtags parseados en el contenido del tweet. Cada hastag contiene un campo de texto con el contenido del hashtag y un array de enteros indicando la posicion inicial y final que ocupa en el Tweet.
+
+\item \textbf{media}: Array de objetos que representa el contenido multimedia subido en el Tweet. Este array contiene la url para mostrar a los clientes(display\_url). Una versión expandida de la url(expanded\_url). El id del fichero y el id en formato de cadena de texto(id\_str). Un array con los indíces de la posiciones inicial y final de la url en el texto. Una url apuntando directamente al fichero subido(media\_url) y una url para páginas https(media\_url\_https). Un objeto con los tamaños disponibles para el fichero(sizes).Para aquellos tweets que tiene contenido multimedia asociado a otros tweets, se guarda un identificador que apunta al Tweet con el contenido original(source\_status\_id). El tipo de fichero(type) y la url incrustada en el contenido del Tweet(url).
+
+\item  \textbf{url}: Contiene un array de objetos que representan las urls incluidas en el texto. Contiene la url de visualización, la url expandida y los indices donde se encuentra la url.
+
+\item \textbf{user\_mentions}: Representa otros usuarios de twitter mencionados en el texto del tweet. Este array tiene el id del usuario mencionado, el id en string, los indices y el nombre(name).
+
+\end{itemize}
+
+
+\item \textbf{metadata}: Array de objetos metadatos asociados al tweet.
+
+\begin{itemize}
+
+\item \textbf{iso\_language\_code}: Codificación iso del lenguaje del tweet.
+
+\item \textbf{result\_type}: Especifica el tipo de resultado de tweet que quieres recibir. El valor por defecto es recent que devuelve un resultado con los tweets más recientes. También están los valores popular que devuelve los tweets más populares y mixed que incluye ambos tipos mencionados anteriormente.
+
+\end{itemize}
+
+
+\item \textbf{in\_reply\_to\_status\_id}: Si el tweet es una respuesta de otro tweet, este campo tendrá el id del tweet orginal.
+
+\item \textbf{in\_reply\_to\_user\_id}: Contendrá el id del usuario del Tweet original.
+
+\item \textbf{user}: Contiene un array de objetos con toda la información relativa a el usuario que ha publicado el Tweet.
+
+\begin{itemize}
+
+\item \textbf{id}: id del usuario que pública el Tweet.
+
+\item \textbf{name}: Nombre del usuario.
+
+\item \textbf{location}: Cadena de caracteres con el sitio geaográfico al que pertenece el usuario.
+
+\item \textbf{description}: Pequeño resumen descriptivo sobre el usuario.
+
+\item \textbf{url}: Url proporcionada por el usuario asociada con su perfil.
+
+\item \textbf{followers\_count}: Número de seguidores que tiene el usuario.
+
+\item \textbf{friends\_count}: Número de personas a las que sigue el usuario.
+
+\item \textbf{protected}: Indica si la cuenta del usuario esta protegida, es decir que sus Tweets solo pueden ser vistos con el consentimiento del usuario.
+
+\item \textbf{geo\_enabled}: Indica si el usuario a activado la posibilidad de geoetiquetar sus Tweets, es decir, agregar información geográfica en los metadatos del tweet.
+
+
+\end{itemize}
+
+\item \textbf{coordinates}: Representa la posicion geográfica del Tweet. El array de coordenadas esta en geoJSON, donde la longitud es el primer elemento del array y la latitud el segundo.
+
+\item \textbf{place}: Cuando el Tweet esta asociado a un lugar, pero no necesariamente es orginado de ahí.
+
+\item \textbf{retweet\_count}: Numero de veces que el Tweet ha sido retweeteado.
+
+\item \textbf{lang}: Idioma en el que esta escrito el Tweet. 
+
+\end{itemize}
+
+\vspace{5 mm}
+
+Con el análisis de la estructura de un Tweet realizado, se procede a buscar información en Twitter sobre datos relevantes para la aplicación. Para encontrar los datos relevantes que se ajusten a los requisitos para la aplicación, la API de Twitter proporciona unas opciones de búsqueda que permiten buscar los Tweets por palabras clave, idioma, localización y número.
+
+\vspace{5 mm}
+
+Para el caso de Njoycooking, se pretendía inicialmente buscar Tweets en español de la zona de la península Ibérica que tuvieran la palabra receta, cocina o comida en el Tweet. Para ello Twitter proporciona los siguientes parametros:
+
+\begin{itemize}
+
+\item \textbf{q}: Parámetro para realizar un consulta de búsqueda por palabras.
+
+\item \textbf{geocode}: Parámetro que permite encontrar Tweets de usuarios localizados en un radio alrededor de un punto central proporcionado en latitud/longitud. Por ejemplo para buscar Tweets de la peninsula establecemos el centro en Madrid que en coordenadas lat/long es (39.8952506,-3.46863775058), y le decimos el radio de alcance, aproximadamente unos  500km.
+
+\item \textbf{lang}: Parámetro que restringe la búsqueda de Tweets al idioma dado. Si solo utilizaramos el parámetro geocode twitter también nos sacaría resultados de Tweets en portugues, para ello se añade este parámetro indicandole que busque por el idioma español(es).
+
+\item \textbf{count}: Parámetro que sirve para definir el número de Tweets a devolver por consulta. Por defecto son 15 y se puede buscar hasta un máximo de 100.
+
+
+\item \textbf{until}: Devuelve los Tweets creados antes de la fecha dada. Este parámetro no tiene mucho sentido que se utilize, ya que lo que se pretende es buscar los últimos Tweets en tiempo real y no buscar por una fecha determinada.
+
+\item \textbf{result\_type}: Parámetro para especificar el tipo de resultado de búsqueda. Los tipos son mixed,recent,popular. Para la aplicación interesa el tipo de resultados recent, ya que nos devuelve los Tweets más recientes. 
+
+\end{itemize}
+
 
 \subsection{Google Maps}
 
-\subsection{API de Google}
 
 
 \section{Especificación de Requisitos}
@@ -44,8 +162,10 @@ Para este apartado se ha seguido el estándar IEEE 830 de especificación de req
 
 Para ordenar los requisitos funcionales, se ha considerado que la forma más adecuada es por tipo de rol y relevancia. Los identificadores de los requisitos que pertenezcan al rol de administrador empezarán por A, los que pertenezcan al rol de usuario empezarán por U, los que pertenezcan al sistema empezarán por S. Para ordenar por relevancia, se especificán tres casos: Los requisitos que sean funcionalidades básicas de la aplicación empezarán por FB, los requisitos que sean funcionalidades secundarias empezarán FS.
 
+\vspace{5 mm}
 
-%Requisito 1
+
+%Requisito 1 usuario
 \begin{table}[h!]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
@@ -59,7 +179,7 @@ Requisitos lógicos & Podrán existir una serie de datos generados por usuarios,
 \end{table}
 
 
-%Requisito 2
+%Requisito 2 usuario
 \begin{table}[h!]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
@@ -73,7 +193,7 @@ Requisitos lógicos & La información estará normalizada, existiendo una serie 
 \end{table}
 
 
-%Requisito 3
+%Requisito 3 usuario
 \begin{table}[h!]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
@@ -86,12 +206,12 @@ Requisitos lógicos & La información estará normalizada, existiendo una serie 
 \end{tabular}
 \end{table}
 
-%Requisito 4
+%Requisito 4 usuario
 \begin{table}[h!]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
-Identificador & FB-U-03 \\ \hline
+Identificador & FB-U-04 \\ \hline
 Actor involucrado & Usuario \\ \hline
 Nombre & Ver listado de tweets\\ \hline
 Descripción & En el mapa de la aplicación se geoposicionarán los tweets  \\ \hline
@@ -100,15 +220,80 @@ Requisitos lógicos & Los tweets \\ \hline
 \end{table}
 
 
-%Requisito 4
+%Requisito 5 usuario
 \begin{table}[h!]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
-Identificador & FB-U-04 \\ \hline
+Identificador & FB-U-05 \\ \hline
 Actor involucrado & Usuario \\ \hline
 Nombre & Filtrar listado de tweets\\ \hline
 Descripción & En el detalle de la entrada,  \\ \hline
+Requisitos lógicos & La información estará normalizada, existiendo una serie de datos comunes a todas las entradas, pero podrán existir ciertos datos adicionales según el tipo de entrada. También podrán existir una serie de datos generados por usuarios, como valoraciones y comentarios. \\ \hline
+\end{tabular}
+\end{table}
+
+%Requisito 6 usuario
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline
+Identificador & FB-U-06 \\ \hline
+Actor involucrado & Usuario \\ \hline
+Nombre & Login\\ \hline
+Descripción & El usuario podrá loguearse en la aplicación como colaborador o administrador mediante un formulario de registro.  \\ \hline
+Requisitos lógicos & Para loguearse será necesario introducir los campos de usuario y contraseña en el formulario.\\ \hline
+\end{tabular}
+\end{table}
+
+%Requisito 1 admin
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline
+Identificador & FB-A-01 \\ \hline
+Actor involucrado & Administrador \\ \hline
+Nombre & Ver listado de admin de entradas del blog\\ \hline
+Descripción & En la sección de ver entradas, el administrador tendrá la opción de ver un listado de las entradas disponibles en la aplicación. En el caso de que quiera editar una entrada el usuario deberá ir al detalle. \\ \hline
+
+\end{tabular}
+\end{table}
+
+%Requisito 2 admin
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline
+Identificador & FB-A-02 \\ \hline
+Actor involucrado & Administrador \\ \hline
+Nombre & Gestionar una entrada de blog\\ \hline
+Descripción & En el detalle de la entrada, el administrador podrá gestionar el contenido de la entrada  \\ \hline
+Requisitos lógicos & La gestión del contenido implica la modificación de los campos de la entrada y el borrado. \\ \hline
+\end{tabular}
+\end{table}
+
+%Requisito 3 admin
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline
+Identificador & FB-A-03 \\ \hline
+Actor involucrado & Administrador \\ \hline
+Nombre & Moderar comentarios\\ \hline
+Descripción & En el detalle de la entrada, se mostrarán los comentarios asociados a la entrada que el administrador podrá moderar si sobrepasan las normas de comportamiento. \\ \hline
+Requisitos lógicos & La información estará normalizada, existiendo una serie de datos comunes a todas las entradas, pero podrán existir ciertos datos adicionales según el tipo de entrada. También podrán existir una serie de datos generados por usuarios, como valoraciones y comentarios. \\ \hline
+\end{tabular}
+\end{table}
+
+ %Requisito 4 admin
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline
+Identificador & FB-A-04 \\ \hline
+Actor involucrado & Administrador \\ \hline
+Nombre & Moderar comentarios\\ \hline
+Descripción & En el detalle de la entrada, se mostrarán los comentarios asociados a la entrada que el administrador podrá moderar si sobrepasan las normas de comportamiento. \\ \hline
 Requisitos lógicos & La información estará normalizada, existiendo una serie de datos comunes a todas las entradas, pero podrán existir ciertos datos adicionales según el tipo de entrada. También podrán existir una serie de datos generados por usuarios, como valoraciones y comentarios. \\ \hline
 \end{tabular}
 \end{table}
@@ -145,100 +330,42 @@ Por último esta el \textbf{administrador}, el rol de administrador, es el de su
 
 \subsection{Arquitectura MVC}
 
-La rama de la ingenieria del software se preocupa por crear productos robustos y de calidad. Una de las principales soluciones para conseguir esos objetivos, es la arquitectura basada en capas, que separa el código en función de sus responsabilidades.Una de las arquitecturas más populares basada en capas para el desarrollo de aplicaciones web, es la arquitectura MVC(Modelo-Vista-Controlador). Mediante esta arquitectura se divide el sistema en tres capas:
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/arquitectura.png}
+\caption{Arquitectura de la aplicación}
+\label{arquitectura}
+\end{center}
+\end{figure}
+
+
+
+La rama de la ingenieria del software se preocupa por crear productos robustos y de calidad. Una de las principales soluciones para conseguir esos objetivos, es la arquitectura basada en capas, que separa el código en función de sus responsabilidades.Una de las arquitecturas más populares basada en capas para el desarrollo de aplicaciones web, es la arquitectura MVC(Modelo-Vista-Controlador). En la figura \ref{arquitectura} se muestra un esquema de la arquitectura de la aplicación.
 
 \begin{itemize}
 
-\item \textbf{El Modelo}: Capa que trabaja con los datos, contiene mecanismos para acceder a la información. A través del modelo accederemos a la base de datos donde estarán los datos.
-\item \textbf{El Controlador}: Responde generalmente a acciones del usuario, e invoca esas peticiones al modelo, como por ejemplo un registro en una base de datos. También responde al envío de datos a la vista.
-\item \textbf{La Vista}: Es la capa encargada de presentar la información de nuestra página. El código que nos permitirá renderizar los estados de nuestra aplicación en HTML.
+\item \textbf{Modelo de datos}: Capa que trabaja con los datos, contiene mecanismos para acceder a la información. A través del modelo accederemos a la base de datos donde,estará la información almacenada. Mediante los modelos también se accederá a los datos de servicios externos que posteriormente se guradarán en la base de datos.
+
+\item \textbf{Controladores}: Responde generalmente a acciones del usuario, e invoca esas peticiones al modelo. También responde al envío de datos a la vista. Los controladores son el núcleo de la aplicación, ya que es aquí donde se procesan todos lo datos antes de ser enviados a la vista. Un controlador consta de varios métodos, cada método se corresponde con una vista y hace uso de las diferentes clases de la capa de modelos de datos. 
+
+\item \textbf{Vistas}: Es la capa encargada de presentar la información de nuestra página. Los datos provenientes del controlador se presentan en las vistas para que luego ser renderizada por el navegador.
 
 \end{itemize}
 
-\vspace{5 mm}
-
-El diagrama de la figura \ref{logo_mvc} muestra los modos de colaboración de las diferentes capas de una aplicación MVC. Incialmente el usuario realiza una solicitud a la aplicación web, y esta le llega al controlador. El controlador que se comunica tanto con el modelo como con la vista, le solicita los datos al modelo o manda actualizaciones de los datos y una vez realizadas las operaciones pertinentes le solicita la salida de los datos a la vista. Por último las vistas envían al usuario la salida.
+ EL flujo de la información en la aplicación sería el siguiente: El usuario accederá a una ruta a través del navegador. Cada ruta de la aplicación se corresponde con una vista, que a su vez esta asociada a un controlador. En el controlador correspondiente se llama a las distintas clases de los modelos. Los modelos conectan con la base de datos, esta le devuelve la información, y es recibida y procesada por los controladores que la envían a la vista para que se visualize en el navegador. 
 
 
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.5]{imagenes/mvc.png}
-\caption{Diagrama MVC}
-\label{logo_mvc}
-\end{center}
-\end{figure}
+%El diagrama de la figura \ref{logo_mvc}
 
 \vspace{5 mm}
 
 Crear una aplicación web basada en la arquitectura MVC nos ofrece ciertas ventajas. Por ejemplo, se puede dividir la lógica del negocio del diseño del sistema, haciendo el proyecto más escalable. Otra ventaja, es la existencia  de muchos frameworks basados en MVC como Laravel o Yii Framework, que permiten facilitar el trabajo de los desarrolladores. La implementación de URLs amigables, el control del uso de la memoria caché o el control de los recursos del servidor son tres de las principales ventajas de usar un framework MVC.
 
 
-\section{Software}
-
-Para diseñar una interfaz de usuario real, en la que poder basarme para luego representarla mediante HTML y CSS he utilizado diversos programas de diseño web.
-
-\begin{itemize}
-
-\item \textbf{Sketch}: Sketch es una aplicación de diseño vectorial, que te permite diseñar interfaces para aplicaciones móviles o web de una manera sencilla y con una gran potencia.
-\item \textbf{Illustrator}: Esta herramienta de adobe tan famosa, te permite el diseño de logotipos de forma vectorial,
-\item \textbf{Spectrum}: Programa sencillo que te permite crear paletas de colores, de forma que puedas seleccionar colores complementarios o de gama monocromática y utilizarlos para la interfaz de la aplicación.
-
-\end{itemize}
-
-\section{Tecnologías}
-
-Para la realización de la aplicación web, se ha llevado a cabo un análisis de las tecnologías disponibles, y se han seleccionado las que mejor se adaptaban a las necesidades del proyecto.
-
-\subsection{Front-End(Cliente)}
-
-Las dos principales e indispensables tecnologías que se usan para la parte del cliente son el lenguaje de etiquetas HTML5 y las hojas de etilos CSS3. Estas son dos de las tecnologías fundamentales en las que se basa el desarrollo web.
-
- \vspace{5 mm}
-
- Con la finalidad de conseguir una apariencia cuidada e intuitiva del sitio web, sin la necesidad de crear las hojas de estilos propias, se planteó la idea de usar el framework Bootstrap. Finalmente debido al objetivo de personalizar al máximo la apariencia de la web, se descartó Bootstra y se optó por añadir clases propias mediante css.
-
-\vspace{5 mm}
-
-Para maquetar el sitio web con Css3 de forma más rápida y refactorizable utilizo \textbf{Sass}. Sass es un lenguaje de preprocesado de Css, que te permite escribir Css de forma más cómoda, permitiendote declarar variables,mixins, herencia de clases, etc. Hay diversas formas de utilizar Sass en tu proyecto. Mediante un programa como Prepros, mediante un automatizador de tareas como Grunt, o mediante un terminal con los comandos de Sass. Para el proyecto yo he optado usar el terminal para ejecutar Sass, ya que su ejecución es mucho más ligera y consume menos RAM que con programas como Prepros. Para que empezar a usar Sass en el proyecto, dentro de nuestra carpeta padre donde se encuentre el css, se crea una carpeta sass donde se incluirán todos los ficheros .scss. Con el terminal situado en la carpeta padre escribimos sass --watch sass(nombre de la carpeta donde se encuentran los ficheros .scss). Al compilarlo, nos generará un fichero style.css que será el estilo a usar.
-
-\vspace{5 mm}
-
-Para añadir el dinamismo a la web, se ha optado por utilizar un framework de Javascript como \textbf{JQuery} que permite simplificar la manera de interactuar con los documentos HTML, manipular el DOM, desarrollar animaciones y agregar peticiones AJAX. Además de que JQuery es software libre.
-
-\vspace{5 mm}
-
-Como última tecnología Front-End se utiliza la API de Google Maps, indispensable para el sitio web ya que la principal proposición de valor de la aplicación es la geolocalización de recetas, y para su representación necesitamos la API de Google.
-
-
-\subsection{Back-End(Servidor)}
-
-Después de barajar diversos lenguajes para desarrollar el back-end de la aplicación, finalmente me decanté por PHP. Además de ser el lenguaje más utlizado para el desarrollo web, es uno de los lenguajes más potentes y flexibles, pudiendo ser utilizado en la mayoría de los servidores web y sistemas operativos. Además PHP esta publicado bajo licencia de software libre, por lo que no supone ningun coste.
-
-
-\vspace{5 mm}
-
-Para montar la arquitectura MVC en la aplicación, utilizo el framwework Laravel. Laravel agiliza el desarrollo de las aplicaciones web, permitiendo multitud de funcionalidades. Con este framework, desarrollado de forma elegante y simple se evita la creación de código espagueti, faciltando su refactorización y/o su modificación. Algunas de las carácterísticas de Laravel: 
-
-
-\begin{itemize}
-
-\item \textbf{Plantillas}: Laravel utiliza platillas Blade. Blade permite tener un sitema de vistas modular de forma que se tenga que repetir la menor cantidad de código. Para ello se genera una plantilla base o layout, que es donde se representa la estructura de la web y se volcará el contenido para cada página. Mediante la directiva include(nombre\_template), se podrá incluir una vista parcial de contenido HTML, esta directiva se utiliza para contenido que no cambia por ejemplo para incluir la cabecera o el footer de la aplicación. Luego mediante la sentencia yield(nombre\_template) permitiremos crear una futura sección en el HTML que se definirá en las vistas que son heredadas de este template. Mediante la sentencia extends(nombre\_template) le diremos a Laravel que vistas se van a usar como futuras secciones. Con estas sentencias se conseguirá volcar el contenido especifíco para cada página de la web duplicando el menor numero de codigo HTML y de forma más modular.
-
-\item \textbf{ORM}: Es una implementación de registro activo para trabajar con la base de datos de forma que cada tabla de la base de datos tiene un Modelo correspondiente asociado con el mismo nombre. Esta implementación te permite también métodos predefinidos para llamar a la base de datos como save(),create(),get(),find().
-
-\item \textbf{Caché}: Laravel, cuenta con un robusto sistema de caché, el cual se puede ajustar, para que se produzca una carga rápida de la web y generar una mejor experiencia al usuario.
-
-\item \textbf{MiddleWare}: Usa HTTP Middleware, que proporcionan un correcto mecanismo para filtrar las peticiones en la aplicación. Un ejemplo de middleware que incluye laravel, es el usado para verificar si el usuario esta autenticado en la aplicación.
-
-\end{itemize}
-
-\vspace{5 mm}
-
-Para la base de datos, se utiliza el sistema de gestión relacional MySQL, ya que es uno de los sistemas más utilizados y con mayor documentación para el desarrollo web. Además, de la perfecta integración con Laravel.
-
 \section{Modelo de Datos}
 
 Como se ha comentado en el apartado anterior, el modelo de datos elegido para almacenar la información es el modelo relacional MySQL. El modelo relacional se fundamenta en el uso de relaciones, estas relaciones se pueden considerar como un conjunto de datos. Para mostrar una forma más visual esas relaciones se conceptualizan en forma de tablas, que estan formadas por registros y campos. En la figura \ref{tablas_bd} se representa mediante un modelo entidad-relacion los conjuntos de datos para la aplicación. Todas las tablas continene un campo Id que es el identificador de cada tabla(clave primaria) y tienen la clausula de auto-incremento por lo que cada vez que se agregue una fila, MySQL nos generará otro identificador incrementandolo en 1 valor.
+
 
 \begin{figure}
 \begin{center}
