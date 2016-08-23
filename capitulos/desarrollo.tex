@@ -6,7 +6,7 @@
 
 \subsection{Funciones del sistema}
 
-\displayquote{``La aplicación que se va a desarrollar tiene como objetivo recoger información de las diferentes redes sociales, almacenarlos en una base de datos y mostrarlos en nuestro sitio web. Esos datos almacenados,son una fuente de información fiable que nos permite conocer que se esta concinando en el mundo en este momento. Para ello se deberá tener en cuenta la gestión de:''}
+La aplicación que se va a desarrollar tiene como objetivo recoger información de las diferentes redes sociales, almacenarlos en una base de datos y mostrarlos en nuestro sitio web. Esos datos almacenados,serán una fuente de información fiable que permitirá conocer que se esta concinando en el mundo en este momento. Para ello se deberá tener en cuenta la gestión de:
 
 
 \vspace{5 mm}
@@ -45,7 +45,7 @@ Toda la información proveniente de Twitter es guardada en la base de datos de l
 \begin{figure}
 \begin{center}
 \includegraphics[width=1.0\textwidth]{imagenes/estructura-tweet.png}
-\caption{Estrucutra de un tweet}
+\caption{Un tweet}
 \label{tweet}
 \end{center}
 \end{figure}
@@ -130,29 +130,221 @@ Con el análisis de la estructura de un Tweet realizado, se procede a buscar inf
 
 \vspace{5 mm}
 
-Para el caso de Njoycooking, se pretendía inicialmente buscar Tweets en español de la zona de la península Ibérica que tuvieran la palabra receta, cocina o comida en el Tweet. Para ello Twitter proporciona los siguientes parametros:
+Para el caso de Njoycooking, se pretendía inicialmente buscar Tweets en español de la zona de la península Ibérica que tuvieran la palabra receta, cocina o comida en el Tweet. Para ello utilizaremos los siguientes parametros que Twitter proporciona:
 
 \begin{itemize}
 
-\item \textbf{q}: Parámetro para realizar un consulta de búsqueda por palabras.
+\item \textbf{q}: parámetro para realizar un consulta de búsqueda por palabras.
 
-\item \textbf{geocode}: Parámetro que permite encontrar Tweets de usuarios localizados en un radio alrededor de un punto central proporcionado en latitud/longitud. Por ejemplo para buscar Tweets de la peninsula establecemos el centro en Madrid que en coordenadas lat/long es (39.8952506,-3.46863775058), y le decimos el radio de alcance, aproximadamente unos  500km.
+\item \textbf{geocode}: parámetro que permite encontrar Tweets de usuarios localizados en un radio alrededor de un punto central proporcionado en latitud/longitud. Por ejemplo para buscar Tweets de la peninsula establecemos el centro en Madrid que en coordenadas lat/long es (39.8952506,-3.46863775058), y le decimos el radio de alcance, aproximadamente unos  500km.
 
-\item \textbf{lang}: Parámetro que restringe la búsqueda de Tweets al idioma dado. Si solo utilizaramos el parámetro geocode twitter también nos sacaría resultados de Tweets en portugues, para ello se añade este parámetro indicandole que busque por el idioma español(es).
+\item \textbf{lang}: parámetro que restringe la búsqueda de Tweets al idioma dado. Si solo utilizaramos el parámetro geocode twitter también nos sacaría resultados de Tweets en portugues, para ello se añade este parámetro indicandole que busque por el idioma español(es).
 
-\item \textbf{count}: Parámetro que sirve para definir el número de Tweets a devolver por consulta. Por defecto son 15 y se puede buscar hasta un máximo de 100.
+\item \textbf{count}: parámetro que sirve para definir el número de Tweets a devolver por consulta. Por defecto son 15 y se puede buscar hasta un máximo de 100.
 
 
-\item \textbf{until}: Devuelve los Tweets creados antes de la fecha dada. Este parámetro no tiene mucho sentido que se utilize, ya que lo que se pretende es buscar los últimos Tweets en tiempo real y no buscar por una fecha determinada.
+\item \textbf{until}: devuelve los Tweets creados antes de la fecha dada. Este parámetro no tiene mucho sentido que se utilize, ya que lo que se pretende es buscar los últimos Tweets en tiempo real y no buscar por una fecha determinada.
 
-\item \textbf{result\_type}: Parámetro para especificar el tipo de resultado de búsqueda. Los tipos son mixed,recent,popular. Para la aplicación interesa el tipo de resultados recent, ya que nos devuelve los Tweets más recientes. 
+\item \textbf{result\_type}: parámetro para especificar el tipo de resultado de búsqueda. Los tipos son mixed,recent,popular. Para la aplicación interesa el tipo de resultados recent, ya que nos devuelve los Tweets más recientes. 
 
 \end{itemize}
 
 
 \subsection{Google Maps}
 
+ En la actualidad, con el auge de los dispositivos móviles, cada vez es más fácil encontrar el restaurante deseado o la tienda preferida con una sola búsqueda en nuestro smartphone. A los negocios locales les interesa tener visibilidad en internet para poder darse a conocer con facilidad y tener un mayor número de clientes. Aquí es donde entra en juego Google Maps, herramienta que permite representar de manera precisa en un mapa un negocio, punto de interés o edificio emblemático de una ciudad.
 
+\vspace{5 mm}
+
+Google maps es una de las herramientas más potentes actuales para la geolocalización y por tanto es la más utilizada. Porporciona un API que te permite incluir un mapa en tu sitio web, personalizar iconos y estilos del mapa y además manejar los eventos. La estructura de la API de Maps es la siguiente:
+
+\vspace{5 mm}
+
+\textbf{Eventos}
+
+\vspace{5 mm}
+
+ \textbf{Eventos de usuario}: Sirven para controlar las acciones que realizan los usuarios y especificar como se va a comportar la página ante ellos. Algunos de los eventos de usuario disponibles en la API de maps son los siguientes:
+
+\begin{itemize}
+
+\item click: Click izquierdo sobre el elemento.
+
+\item rightclick: Click derecho sobre el elemento.
+
+\item dbclick: Doble click sobre el elemento.
+
+\item drag: Arrastrar sobre el elemento.
+
+\item mouseover: El ratón está sobre el elemento que tiene el evento.
+
+\item mouseout: El ratón esta fuera del elemento que tiene el evento.
+
+\end{itemize}
+
+\textbf{Eventos de cambios de estado}: Sirven para controlar las modificaciones de las propiedades de los objetos de la API. Se pueden interceptar estos eventos mediante el controlador addListener().
+
+\vspace{5 mm}
+
+\textbf{Tipos de Mapa}
+
+\vspace{5 mm}
+
+Existen cuatro tipos de mapas básicos disponibles en la API de Google Maps. Los mapas básicos son:
+
+\begin{itemize}
+
+\item MapTypeId.ROADMAP: Vista del mapa de carreteras. Predeterminado.
+
+\item MapTypeId.SATELLITE: Imágenes del satélite de Google Earth.
+
+\item MapTypeId.HYBRID: Combina las vistas de satélite y del mapa de carreteras.
+
+\item MapTypeId.TERRAIN: Mapa basado en información terrestre.
+
+\end{itemize}
+
+\vspace{5 mm}
+
+Para personalizar los mapas básicos la API te permite cambiar la visualización de elementos como carreteras, áreas de edificios y parques utiliando estilos. Cada elemento del mapa se especifica mediante el tipo MapTypeStyleFeatureType. Las funciones se especifican con la sintaxis featureType: 'característica'. Las características disponibles son:
+
+\begin{itemize}
+
+\item road: selecciona las carreteras(autovías,locales).
+
+\item landscape: selecciona los elementos naturales(bosques,terrenos).
+
+\item poi: selecciona los puntos de interés(negocios,ayuntamientos,parques).
+
+\item administrative: selecciona las áreas administrativas(países,províncias,localidades,etc).
+
+\item transit: selecciona toda las estaciones de tránsito de transportes públicos(autobús,aeropuerto,etc).
+
+\item water: selecciona las zonas de agua(mares, lagos, ríos).
+
+\end{itemize}
+
+\vspace{5 mm}
+
+Cada una de las funciones de características del mapa se compone de varios elementos. Los tipos de elementos disponibles son:
+
+\begin{itemize}
+
+\item all: selecciona todos los elementos de la función.
+
+\item geometry: selecciona todos los elementos geométricos.
+
+\begin{itemize}
+
+\item geometry.fill: selecciona el relleno de la geometría.
+
+\item geometry.stroke: selecciona el trazo de la geometría.
+
+
+\end{itemize}
+
+\item labels: selecciona las etiquetas de texto asociadas.
+
+\begin{itemize}
+
+\item labels.icon: selecciona únicamente el icono que se muestra dentro de la etiqueta.
+
+\item labels.text: selecciona el texto de la etiqueta.
+
+\item labels.text.fill: selecciona el relleno de la etiqueta.
+
+\item labels.text.stroke: selecciona únicamente el trazo del texto del a etiqueta.
+
+\end{itemize}
+
+\end{itemize}
+
+\vspace{5 mm}
+
+Una vez seleccionado la caracteística y su correspondiente elemento que se quiere personalizar, se aplican los parámetros de estilo que son opciones del tipo MapTypeStyler y son las que modifican la apariencia de la característica. Las opciones de estilo disponibles son:
+
+\begin{itemize}
+
+\item lightness: valor entre -100(negro) y 100(blanco) indica el porcentaje de brillo del elemento.
+
+\item saturation: valor entre -100 y 100 indica el porcentaje de intensidad.
+
+\item visibility: especicifica si el elemento aparece en el mapa(on/off) y la forma en la que aparece(simplified). Mediante la visibilidad simplified se eliminan algunas funciones de estilo del elemento.
+
+\item color: color del elemento(cadena RGB hexadecimal).
+
+\item hue: color básico(cadena RGB hexadecimal).
+
+\item gamma: valor entre 0.01 y 10.0, se usan para modificar el contraste en varios elementos.
+
+\end{itemize}
+
+\vspace{5 mm}
+
+\textbf{Marcadores}
+
+Los marcadores son unos de los elementos más utilizados y relevantes de la API de Google ya que representan una ubicación exacta en un punto del mapa. Los marcadores son objetos del tipo \textquote{Marker} y se incializan mediante el constructor google.maps.Marker. Al construir un marcador un marcador se especifican sus propiedades iniciales:
+
+\begin{itemize}
+
+\item position: Objeto de tipo LatLng(latitud,longitud) que define el punto inicial del marcador.
+
+\item map: Mapa donde debe representarse el marcador.
+
+\end{itemize}
+
+Para mostrar contenido en el mapa la API proporciona los objeto InfoWindow que muestran la información en una ventana emergente. Las InfoWindow van asociadas a un marcador y sus parámetros iniciales son:
+
+\begin{itemize}
+
+\item content: contiene una cadena de texto o una estructura de elementos donde se muestra la información.
+
+\item position: objeto Latlng donde se fija la ventana de información. Normalmente la posición se asocia a un marcador(en este caso, la posición se basa en la del marcador).
+
+\item maxWidth: ancho máximo de la InfoWindow en píxeles.
+
+\item pixelOffset: compensación de la esquina de la ventana de información a la posición donde se fija la ventana.
+
+\end{itemize}
+
+\vspace{5 mm}
+
+\textbf{GeoCodificación}
+
+Google Maps proporciona la clase Geocoder, esta clase permite convertir direcciones reales a coordenadas geográficas, para así poder usar esas coordenadas para posicionar marcadores en el mapa. El Geocoder tiene restricciones permite realizar 2,500 peticiones diarías y 50 por segundo, si se quiere ampliar el número de peticiones se debe ampliar al servicio premium.
+
+\vspace{5 mm}
+
+Para generar un objeto de geocodificación se inicializa mediante google.maps.Geocoder y el método geocode() inicializa la petición. Al inicializar el geocodifacdor le podemos pasar los siguientes parámetros:
+
+\begin{itemize}
+
+\item address: la dirección que quieres geocodificar.
+
+\item bounds(opcional): establece un cuadro delimitador. 
+
+\item region(opcional): código de la región. Este parámetro no restringe los resultados del geocodificador solo influye en la búsqueda del resultado.
+
+\end{itemize}
+
+El resultado de de la geocodificación es un objeto que contiene varios elementos: 
+
+\begin{itemize}
+
+\item location: objeto LatLng que contiene las coordenas de latitud y longitud.
+
+\item location\_type: guarda información adicional acerca de la localización específica. Los valores soportados son: ROOFTOP indicando que el resultado devuelto es geocódigo preciso. RANGE\_INTERPOLATED reflejando que el resultado es una aproximación entre dos puntos. GEOMETRIC\_CENTER indicando que el resultado devuelto es un centro geométrico. APROXIMATE indicando que el resultado refleja un vaor aproximado,
+
+\begin{itemize}
+
+\item place\_id: identificador único del lugar geocodificado.
+
+
+\end{itemize} 
+
+\item postcode\_localities[]: array que contiene todas las localidades contenidas en el codigo postal.
+
+\end{itemize}
 
 \section{Especificación de Requisitos}
 
@@ -166,75 +358,75 @@ Para ordenar los requisitos funcionales, se ha considerado que la forma más ade
 
 
 %Requisito 1 usuario
-\begin{table}[h!]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
 Identificador & FB-U-01 \\ \hline
 Actor involucrado & Usuario \\ \hline
 Nombre & Ver listado de entradas \\ \hline
-Descripción & Desde la página de blog o un buscador se podrá acceder a ver un listado de las entradas del blog. Cada elemento del listado contendrá una foto de la entrada, un titulo y un resumen \\ \hline
-Requisitos lógicos & Podrán existir una serie de datos generados por usuarios,como comentarios. \\ \hline
+Descripción & Desde la página de blog o un buscador se podrá acceder a ver un listado de las entradas del blog. Cada elemento del listado contendrá una foto de la entrada, un título y un resumen \\ \hline
+Requisitos lógicos & La información estará normalizada, existiendo una serie de datos comunes a todas las entradas, pero podrán existir ciertos datos adicionales según el tipo de entrada. También podrán existir una serie de datos generados por usuarios, como valoraciones y comentarios. \\ \hline
 \end{tabular}
 \end{table}
 
 
 %Requisito 2 usuario
-\begin{table}[h!]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
 Identificador & FB-U-02 \\ \hline
 Actor involucrado & Usuario \\ \hline
 Nombre & Ver detalle de entrada \\ \hline
-Descripción & En el detalle de la entrada,  \\ \hline
-Requisitos lógicos & La información estará normalizada, existiendo una serie de datos comunes a todas las entradas, pero podrán existir ciertos datos adicionales según el tipo de entrada. También podrán existir una serie de datos generados por usuarios, como valoraciones y comentarios. \\ \hline
+Descripción & En el detalle de la entrada, se mostrará una información relativa a la notícia tal como su título, descripción e imagen. \\ \hline
+Requisitos lógicos & Igual que en el requisito FB-U-01 \\ \hline
 \end{tabular}
 \end{table}
 
 
 %Requisito 3 usuario
-\begin{table}[h!]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
 Identificador & FB-U-03 \\ \hline
 Actor involucrado & Usuario \\ \hline
 Nombre & Comentar Entrada\\ \hline
-Descripción & En el detalle de la entrada,  \\ \hline
-Requisitos lógicos & La información estará normalizada, existiendo una serie de datos comunes a todas las entradas, pero podrán existir ciertos datos adicionales según el tipo de entrada. También podrán existir una serie de datos generados por usuarios, como valoraciones y comentarios. \\ \hline
+Descripción & El usuario podrá añadir un comentario opinando sobre la noticia.  \\ \hline
+Requisitos lógicos & Para los usuarios no registrados será necesario ademas del comentario añadir un nombre de usuario. \\ \hline
 \end{tabular}
 \end{table}
 
 %Requisito 4 usuario
-\begin{table}[h!]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
 Identificador & FB-U-04 \\ \hline
 Actor involucrado & Usuario \\ \hline
 Nombre & Ver listado de tweets\\ \hline
-Descripción & En el mapa de la aplicación se geoposicionarán los tweets  \\ \hline
-Requisitos lógicos & Los tweets \\ \hline
+Descripción & Solicitar datos de los tweets geoposicionados \\ \hline
+Requisitos lógicos & En el geoposicionado de cada tweet se mostrará la imagen(si tiene) el nombre del usuario que ha escrito el tweet, su contenido y un enlace a la web del autor(si tiene).\\ \hline
 \end{tabular}
 \end{table}
 
 
 %Requisito 5 usuario
-\begin{table}[h!]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
 Identificador & FB-U-05 \\ \hline
 Actor involucrado & Usuario \\ \hline
 Nombre & Filtrar listado de tweets\\ \hline
-Descripción & En el detalle de la entrada,  \\ \hline
-Requisitos lógicos & La información estará normalizada, existiendo una serie de datos comunes a todas las entradas, pero podrán existir ciertos datos adicionales según el tipo de entrada. También podrán existir una serie de datos generados por usuarios, como valoraciones y comentarios. \\ \hline
+Descripción & El usuario podrá filtrar los tweets que aparecen en el mapa según unos parámetros.  \\ \hline
+Requisitos lógicos & Los parámetros aceptados son  \\ \hline
 \end{tabular}
 \end{table}
 
 %Requisito 6 usuario
-\begin{table}[h!]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
@@ -246,8 +438,21 @@ Requisitos lógicos & Para loguearse será necesario introducir los campos de us
 \end{tabular}
 \end{table}
 
+%Requisito 7 usuario
+\begin{table}[!htbp]
+\centering
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline
+Identificador & FS-U-01 \\ \hline
+Actor involucrado & Usuario \\ \hline
+Nombre & Valorar la entrada\\ \hline
+Descripción & El usuario podrá valorar la entrada mediante una puntuación que podrá asignar en el detalle de la entrada  \\ \hline
+Requisitos lógicos & La puntuación tendrá unos valores númericos del 1 al 5.\\ \hline
+\end{tabular}
+\end{table}
+
 %Requisito 1 admin
-\begin{table}[h!]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
@@ -260,7 +465,7 @@ Descripción & En la sección de ver entradas, el administrador tendrá la opci�
 \end{table}
 
 %Requisito 2 admin
-\begin{table}[h!]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
@@ -272,21 +477,8 @@ Requisitos lógicos & La gestión del contenido implica la modificación de los 
 \end{tabular}
 \end{table}
 
-%Requisito 3 admin
-\begin{table}[h!]
-\centering
-\begin{tabular}{|p{3cm}|p{10cm}|}
-\hline
-Identificador & FB-A-03 \\ \hline
-Actor involucrado & Administrador \\ \hline
-Nombre & Moderar comentarios\\ \hline
-Descripción & En el detalle de la entrada, se mostrarán los comentarios asociados a la entrada que el administrador podrá moderar si sobrepasan las normas de comportamiento. \\ \hline
-Requisitos lógicos & La información estará normalizada, existiendo una serie de datos comunes a todas las entradas, pero podrán existir ciertos datos adicionales según el tipo de entrada. También podrán existir una serie de datos generados por usuarios, como valoraciones y comentarios. \\ \hline
-\end{tabular}
-\end{table}
-
- %Requisito 4 admin
-\begin{table}[h!]
+%Requisito 4 admin
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|}
 \hline
@@ -294,7 +486,32 @@ Identificador & FB-A-04 \\ \hline
 Actor involucrado & Administrador \\ \hline
 Nombre & Moderar comentarios\\ \hline
 Descripción & En el detalle de la entrada, se mostrarán los comentarios asociados a la entrada que el administrador podrá moderar si sobrepasan las normas de comportamiento. \\ \hline
-Requisitos lógicos & La información estará normalizada, existiendo una serie de datos comunes a todas las entradas, pero podrán existir ciertos datos adicionales según el tipo de entrada. También podrán existir una serie de datos generados por usuarios, como valoraciones y comentarios. \\ \hline
+Requisitos lógicos & La moderación del comentario implica la edición de su contenido o su borrado. \\ \hline
+\end{tabular}
+\end{table}
+
+ %Requisito 5 admin
+\begin{table}[!htbp]
+\centering
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline
+Identificador & FB-A-05 \\ \hline
+Actor involucrado & Administrador \\ \hline
+Nombre & Gestionar Información Mapa\\ \hline
+Descripción & El administrador podrá gestionar toda la información relativa a la página del mapa. \\ \hline
+Requisitos lógicos & La gestión de la información del mapa implica: La elección por parte del administrador de la palabra clave para la búsqueda tweets y selección del tiempo con el que se actualiza la página del mapa de tweets. \\ \hline
+\end{tabular}
+\end{table}
+
+ %Requisito 6 admin
+\begin{table}[!htbp]
+\centering
+\begin{tabular}{|p{3cm}|p{10cm}|}
+\hline
+Identificador & FB-A-06 \\ \hline
+Actor involucrado & Administrador \\ \hline
+Nombre & Logout\\ \hline
+Descripción & El administrador cerrará su sesión, mediante un logout que encontrará en el menú principal de la web.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -305,25 +522,25 @@ Requisitos lógicos & La información estará normalizada, existiendo una serie 
 \begin{figure}
 \begin{center}
 \includegraphics[width=16cm]{imagenes/casos-de-uso.png}
-\caption{Casos de uso}
+\caption{Casos de uso generales para NjoyCooking}
 \label{casos_uso}
 \end{center}
 \end{figure}
 \end{landscape}
 
-Para mostrar las actividades se utilizará una representación mediante casos de uso. Los casos de uso se han segmentado para cada rol de la aplicación. En la figura \ref{casos_uso}  se representan los casos de uso para cada rol que se explicarán a continuación:
+Para mostrar las actividades se utilizará una representación mediante casos de uso. Los casos de uso se han segmentado para cada rol de la aplicación. En la figura \ref{casos_uso}  se representan los casos de uso generales para cada rol que se explicarán a continuación:
 
 \vspace{5 mm}
 
-El \textbf{usuario no registrado}, es el rol por defecto en la aplicación cuando el usuario no tiene ninguna acreditación en la web y carece de permisos. El usuario no registrado podrá solicitar los datos de la aplicación para visualizar el contenido. Por ejemplo podrá solicitar los datos del mapa de tweets o del blog. Tambíen podrá filtrar la información de los datos solicitados, por palabras clave o categorías. Este usuario podrá también publicar comentarios en el blog.
+El \textbf{usuario no registrado}. Es el rol por defecto en la aplicación cuando el usuario no tiene ninguna acreditación en la web y carece de permisos. El usuario no registrado podrá solicitar los datos de la aplicación para visualizar el contenido. Por ejemplo podrá solicitar los datos del mapa de tweets o del blog. Tambíen podrá filtrar la información de los datos solicitados, por palabras clave o categorías. Este usuario podrá también publicar comentarios en el blog.
 
 \vspace{5 mm}
 
-El \textbf{colaborador}, este rol, además de poder realizar las mismas funciones que el usuario no registrado, tiene unos permisos añadidos. Este usuario tiene la función extra de publicar contenido en el blog. Un usuario colaborador, podrá crear noticias que luego aparecerán en el blog. Podrá actualizar las noticias, pero únicamente aquellas que hayan sido creadas por él. No tendrá permisos para borrar contenido del blog.
+El \textbf{colaborador}. Este rol, además de poder realizar las mismas funciones que el usuario no registrado, tiene unos permisos añadidos. Este usuario tiene la función extra de publicar contenido en el blog. Un usuario colaborador, podrá crear noticias que luego aparecerán en el blog. Podrá actualizar las noticias, pero únicamente aquellas que hayan sido creadas por él. No tendrá permisos para borrar contenido del blog.
 
 \vspace{5 mm}
 
-Por último esta el \textbf{administrador}, el rol de administrador, es el de superusuario, ya que posee todos los permisos. El administrador es el encargado de gestionar todo el contenido de la web. Dentro del contenido se encuentran los tres principales modelos de datos. El primer modelo de datos son los \textquote{Tweets}, el administrador se encargará de gestionar la frecuencia con la que se actualiza el mapa de tweets, para tener representada la información actualizada. Otra función será modificar la recolección de tweets en base a una palabra clave, que el administrador introducirá manualmente. El siguiente modelo son las noticias, el administrador podrá generar contenido en el blog, creando o borrando cualquier tipo de contenido, tanto propio como de un colaborador. El administrador también podrá moderar los comentarios de las entradas del blog. Por último el último el último modelo de datos serían los usuarios. El administrador gestionará los datos de los usuarios de la aplicación, siendo el encargado tanto de dar de alta a los colaboradores generando un usuario y contraseña como darlos de baja. Toda la gestión del contenido implica crear,borrar o actualizar información de forma que se ha representado mediante un caso de uso: CBA.
+Por último esta el \textbf{administrador}. El rol de administrador, es el de superusuario, ya que posee todos los permisos. El administrador es el encargado de gestionar todo el contenido de la web. Dentro del contenido se encuentran los tres principales modelos de datos. El primer modelo de datos son los \textquote{Tweets}. El administrador se encargará de gestionar la frecuencia con la que se actualiza el mapa de tweets para tener representada la información actualizada. Otra función será modificar la recolección de tweets en base a una palabra clave, que el administrador introducirá manualmente. El siguiente modelo son las noticias, el administrador podrá generar contenido en el blog, creando o borrando cualquier tipo de contenido, tanto propio como de un colaborador. El administrador también podrá moderar los comentarios de las entradas del blog. Finalmente el último modelo de datos serán los usuarios. El administrador gestionará los datos de los usuarios de la aplicación, siendo el encargado tanto de dar de alta a los colaboradores generando un usuario y contraseña como darlos de baja. Toda la gestión del contenido implica crear, borrar o actualizar información de forma que se ha representado mediante el caso de uso CBA.
 
 
 \section{Diseño de Arquitectura}
@@ -340,7 +557,7 @@ Por último esta el \textbf{administrador}, el rol de administrador, es el de su
 
 
 
-La rama de la ingenieria del software se preocupa por crear productos robustos y de calidad. Una de las principales soluciones para conseguir esos objetivos, es la arquitectura basada en capas, que separa el código en función de sus responsabilidades.Una de las arquitecturas más populares basada en capas para el desarrollo de aplicaciones web, es la arquitectura MVC(Modelo-Vista-Controlador). En la figura \ref{arquitectura} se muestra un esquema de la arquitectura de la aplicación.
+La rama de ingenieria del software se preocupa por crear productos robustos y de calidad. Una de las principales soluciones para conseguir esos objetivos es la arquitectura basada en capas, que separa el código en función de sus responsabilidades. Una de las arquitecturas más populares basada en capas para el desarrollo de aplicaciones web, es la arquitectura MVC(Modelo-Vista-Controlador). En la figura \ref{arquitectura} se muestra un esquema de la arquitectura de la aplicación.
 
 \begin{itemize}
 
@@ -352,7 +569,7 @@ La rama de la ingenieria del software se preocupa por crear productos robustos y
 
 \end{itemize}
 
- EL flujo de la información en la aplicación sería el siguiente: El usuario accederá a una ruta a través del navegador. Cada ruta de la aplicación se corresponde con una vista, que a su vez esta asociada a un controlador. En el controlador correspondiente se llama a las distintas clases de los modelos. Los modelos conectan con la base de datos, esta le devuelve la información, y es recibida y procesada por los controladores que la envían a la vista para que se visualize en el navegador. 
+ El flujo de la información en la aplicación sería el siguiente. El usuario accederá a una ruta a través del navegador. Cada ruta de la aplicación se corresponde con una vista, que a su vez esta asociada a un controlador. En el controlador correspondiente se llama a las distintas clases de los modelos. Los modelos conectan con la base de datos, esta le devuelve la información, y es recibida y procesada por los controladores que la envían a la vista para que se visualize en el navegador. 
 
 
 %El diagrama de la figura \ref{logo_mvc}
@@ -364,7 +581,7 @@ Crear una aplicación web basada en la arquitectura MVC nos ofrece ciertas venta
 
 \section{Modelo de Datos}
 
-Como se ha comentado en el apartado anterior, el modelo de datos elegido para almacenar la información es el modelo relacional MySQL. El modelo relacional se fundamenta en el uso de relaciones, estas relaciones se pueden considerar como un conjunto de datos. Para mostrar una forma más visual esas relaciones se conceptualizan en forma de tablas, que estan formadas por registros y campos. En la figura \ref{tablas_bd} se representa mediante un modelo entidad-relacion los conjuntos de datos para la aplicación. Todas las tablas continene un campo Id que es el identificador de cada tabla(clave primaria) y tienen la clausula de auto-incremento por lo que cada vez que se agregue una fila, MySQL nos generará otro identificador incrementandolo en 1 valor.
+Como se ha comentado en el apartado anterior, el modelo de datos elegido para almacenar la información es el modelo relacional MySQL. El modelo relacional se fundamenta en el uso de relaciones, estas relaciones se pueden considerar como un conjunto de datos. Para mostrar una forma más visual esas relaciones se conceptualizan en forma de tablas, que estan formadas por registros y campos. En la figura \ref{tablas_bd} se representa mediante un modelo entidad-relacion los conjuntos de datos para la aplicación. Todas las tablas contienen un campo Id que es el identificador de cada tabla(clave primaria) y tienen la clausula de auto-incremento por lo que cada vez que se agregue una fila, MySQL generará otro identificador incrementandolo en 1 valor.
 
 
 \begin{figure}
@@ -410,11 +627,11 @@ Como se ha comentado en el apartado anterior, el modelo de datos elegido para al
 
 \vspace{5 mm}
 
-La primera tabla, y más básica es la tabla de Menus, en ella encontramos todos los datos correspondientes al menu de navegación de la aplicación,esta tabla esta pensada para que el menú sea más dinamico y se pueda gestionar de forma más fácil sin modificar código. COmo se observa en la figura \ref{menu_bd}, la tabla de Menú se compone de los siguientes elementos:
+La primera tabla, y más básica, es la tabla de \textquote{Menus}, en ella encontramos todos los datos correspondientes al menú de navegación de la aplicación,esta tabla esta pensada para que el menú sea más dinamico y se pueda gestionar de forma más fácil sin modificar código. Como se observa en la figura \ref{menu_bd}, la tabla de \textquote{Menus} se compone de los siguientes elementos:
 
 \begin{itemize}
 
-\item \textbf{Titulo}: Este es el titulo del menú, y el que aparecerá en la web en la navegación.
+\item \textbf{Título}: Este es el titulo del menú, y el que aparecerá en la web en la navegación.
 \item \textbf{Descripcion}: Campo para añadir texto introductorio, acerca de la sección.
 \item \textbf{Slug}: El slug corresponde al trozo de la url que aparecerá para esa sección de la web en la aplicación.
 \item \textbf{Campos de MetaAtributos}: MetaKeywords,MetaDescription,MetaTitle, los metas para cada sección del menú. Estos campos son importantes para un buen posicionamiento SEO.
@@ -424,7 +641,7 @@ La primera tabla, y más básica es la tabla de Menus, en ella encontramos todos
 
 \vspace{5 mm}
 
-En la figura \ref{users_bd}, se muestra la tabla de Usuarios y su relacion con los Roles de la aplicación. Se pretendía que un usuario tuviera un único rol y que un rol pudiera ser adoptado por muchos usuarios. Para representar esa relación se añade un clave ajena en la tabla usuarios generando una relacion uno a muchos y así permitiendonos cumplir las condiciones dictadas previamente.Para la tabla de Usuarios, se generan los siguientes campos:
+En la figura \ref{users_bd}, se muestra la tabla de Usuarios y su relación con los Roles de la aplicación. Se pretendía que un usuario tuviera un único rol y que un rol pudiera ser adoptado por muchos usuarios. Para representar esa relación se añade un clave ajena en la tabla usuarios generando una relacion uno a muchos y así permitiendonos cumplir las condiciones dictadas previamente. Para la tabla de Usuarios, se generan los siguientes campos:
 
 \begin{itemize}
 
