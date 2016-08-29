@@ -62,3 +62,153 @@ Para montar la arquitectura MVC en la aplicación, se utiliza el framwework Lara
 \vspace{5 mm}
 
 Para la base de datos, se utiliza el sistema de gestión relacional MySQL, ya que es uno de los sistemas más utilizados y con mayor documentación para el desarrollo web. Además, de la perfecta integración con Laravel.
+
+\subsection{Estructura de la aplicación}
+
+Para comenzar a desarrollar el proyecto, primero se debe instalar Laravel. Para ello se utiliza un manejador de dependencias como composer que nos permite instalar los paquetes y librerías de forma automática sin la necesidad de hacerlo de forma manual. Mediante nuestro terminal escribimos el siguiente código para instalar composer en el ordenador: curl -sS https://getcomposer.org/installer | php. Una vez instalado, para generar un proyecto con laravel escribimos en el terminal el siguiente comando: composer create-project laravel/laravel nombre-proyecto.
+
+\vspace{5 mm}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/estructura-laravel.png}
+\caption{Proyecto de Laravel}
+\label{laravel}
+\end{center}
+\end{figure}
+
+Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro composer ha generado una estructura de directorios(figura \ref{laravel}) que es como organiza Laravel el código de la aplicación. A continuación se detallan brevemente cada una de ellas:
+
+
+\begin{itemize}
+
+\item \textbf{app}: el directorio app es donde se encontrará la mayor parte del código personal del back-end de la aplicación. Desde los modelos de datos de la aplicación, hasta los controladores pasando por el middleware.
+
+\item \textbf{config}: aqui se encuentran los ficheros de configuración de Laravel y de la aplicación. Por ejemplo en el fichero app.php se especifican parametros tales como la zona horaria y el idioma de la aplicación. También se definen los providers, que son cada uno de los objetos o instancias que se cargarán en el proyecto. 
+
+\item \textbf{database}: aquí se encuentran todos los ficheros relacionados con la base de datos de la aplicación. Dentro encontramos tres subdirectorios:
+
+- factories: aquí se incluyen los ficheros que generan automaticamente nuevos datos en tu base de datos para testear la aplicación, sin necesidad de generarlos manualmente.
+
+- migrations: las migraciones son un tipo de control de versiones para la base de datos. A través de estos ficheros se puede modificar la base de datos.
+
+- seeds: permiten poblar la base de datos con datos de prueba. Los seeds pueden utilizar factories para poblar la base de datos o introudcirlos manualmente.
+
+\item \textbf{public}: en este directorio se encuentran los directorios con ficheros estáticos como son las hojas de estilo(css), los ficheros javascript(js) y las imágenes(images).
+
+\item \textbf{resources}: en resource encontramos subdirectorios donde se encuentran las vistas  en formato blade.php de la aplicación(views) y los archivos de idiomas de la aplicación, para poder pasar de un idioma a otro en la aplicación(lang).
+
+\item \textbf{storage}: se encuentran varios subdirectorios que contiene el cache de la aplicación, sesiones, etc.
+
+\item \textbf{vendor}: este directorio contiene todo el core de Laravel y los componentes instalados.
+
+\end{itemize}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/estructura-sass.png}
+\caption{Estructura Sass}
+\label{sass}
+\end{center}
+\end{figure}
+
+\textbf{Estructura Sass} 
+
+Como se comenta previamente, se utiliza Sass para maquetar la web. Este lenguaje de preprocesado de Css te permite organizar el ccs y hacerlo más modular de forma que puedes generar varios ficheros .scss y compilarlos en un único fichero css que es el que se utilizará en la aplicación. Para ello uso una carpeta sass que se incluye en la carpeta public del proyecto donde incluyo todos los directorios con los ficheros sass. Una de las formas de refactorizar más el código Sass, es generar un fichero .scss para cada página web de la aplicación de modo que en futuros cambios resulte todavía más sencillo modificar el estilo. Como se observa en la figura \ref{sass} la estructura sass es al siguiente:
+
+
+\begin{itemize}
+
+\item \textbf{base}: en el directorio base se encuentran los ficheros scss con los elementos más básicos de la aplicación. Las tipografías usadas, los formatos de texto de los encabezados y párrafos, etc.
+
+\item \textbf{config}: en este directorio encontramos los siguientes ficheros.
+
+- variables: scss donde se declaran las variables que se usan en las hojas de estilo tales como colores de la aplicación, las fuentes usadas.
+
+- functions: aquí se encuentran los mixins de sass que se pueden utilizar. Los mixins no son más que funciones que te permiten reutilizar estilos.
+
+- animations: en este directorio se incluyen los ficheros scss con animaciones hechas con css incluidas en la aplicación.
+
+\item \textbf{ui}: en el directorio ui(user interface) se incluyen los ficheros scss que modifiquen las propiedades css de elementos de la interfaz gráfica de la aplicación como botones,formularios, etc.
+
+\item \textbf{modules}: debido a que la aplicación esta basada en la filosofía mobile first en esta carpeta se incluyen todos lo ficheros scss de las páginas de la aplicación en resolución móvil(de 0 a 768px de resolución de pantalla).
+
+\item \textbf{mediaqueries}: en esta carpeta se incluyen los ficheros scss para las resoluciones de tablet y ordenador de escritorio. Para esta resolución se han marcado las resolución de 768px a 1024px(tablet) y para escritorio las resoluciones de 1024px a 1600px y mayores de 1600px. Para cada resolución habrá un subdirectorio con el nombre de la resolución donde se incluirán sus ficheros scss correspondientes.
+
+
+\end{itemize}
+
+\vspace{5 mm}
+
+\section{Sprints}
+
+Una instalado el framework Laravel y comprendida su estructura se procede a desarrollar la aplicación. Para realizar el proyecto, como se especifica previamente se utiliza la metodología Scrum. El proyecto se divide en los siguientes sprints:
+
+
+\subsection{Diseño y maquetación de la interfaz}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/landing.png}
+\caption{Landing}
+\label{landing}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/mapa.png}
+\caption{Mapa}
+\label{mapa}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/listado-blog.png}
+\caption{Listado de noticias}
+\label{listado-blog}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/detalle-blog.png}
+\caption{Detalle de noticia}
+\label{detalle-blog}
+\end{center}
+\end{figure}
+
+Inicialmente se llevan a cabo unos bocetos de la web mediante mockups para saber como se va a organizar el contenido de la aplicación.
+
+\vspace{5 mm}
+
+Cualquier empresa que se encuentre en el mundo de las aplicaciones web sabe que una landing, es la mejor forma de promocionar el producto o marca que se quiere dara conocer. Por eso a la página inicial donde el usuario accederá será una landing donde se mostrará información acerca de los servicios que ofrece la web.
+
+\vspace{5 mm}
+
+Como se observa en el boceto(figura \ref{landing}) la landing tiene un diseño sencillo y usable. En esta página se mostrarán una series de secciones informativas acerca de los contenidos disponibles de la web y otras informaciones relevantes. Las secciones irán acompañadas de una imagen de fondo, un texto informativo y un botón que te dirige a la página correspondiente.
+
+\vspace{5 mm}
+
+La cabecera de la landing, que será común a todas las páginas de la web, tendrá un diseño responsive para todas las resoluciones. El menú será desplegable de forma que al pulsar sobre el icono de  la hamburguesa se verán todas las secciones por las que se podrá navegar por la web. Este menú mobile se ha aplicado para la resolución de escritorio ya que favorecía a conseguir una mayor limpieza de la interfaz,no empeoraba su usabilidad y le daba un aspecto más minimalista. Además de este menú en la cabecera encontraremos el logo de la web y un buscador global de la web. Esta cabecerá siempre estará fija para favorecer la usabilidad al usuario.
+
+\vspace{5 mm}
+
+Por último, el footer o pie de página, otro elemento común a todas las páginas. En esta sección se mostrarán las distintas redes sociales de la empresa, los textos legales(copyright,privacidad) y el logo de la web.
+
+
+\vspace{5 mm}
+
+La siguiente página, es la del mapa (figura \ref{mapa}). En esta página se mostraban un mapa con los marcadores de las recetas geoposiconadas. El diseño de esta página es muy sencillo ya que además de los elementos comunes de cabecera y pie, en el contenido se muestra un elemento con el mapa que va a mostrar la información.
+
+\vspace{5 mm}
+
+La próxima sección, es la sección del blog que se compone de dos páginas: el listado de noticias y el detalle de noticia. En el listado de noticias(figura \ref{listado-blog}), el primer elemento que se mostrará será un encabezado con una foto y descripción de la sección del blog. A continuación se mostrarán un listado con las diferentes noticias del blog y en cada una se mostrará un foto, un título y un resumen. Para esta sección la disposición de los elementos de la notícia en movil cambiará colocando los elementos en una sola columna en vez de dos como se muestran en tablet y pc.
+
+\vspace{5 mm}
+
+En el detalle de la receta(figura \ref{detalle-blog}) se muestra toda la información asociada a esa noticia.
+
+
+
