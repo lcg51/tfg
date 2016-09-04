@@ -145,7 +145,7 @@ Como se comenta previamente, se utiliza Sass para maquetar la web. Este lenguaje
 Una instalado el framework Laravel y comprendida su estructura se procede a desarrollar la aplicación. Para realizar el proyecto, como se especifica previamente se utiliza la metodología Scrum. El proyecto se divide en los siguientes sprints:
 
 
-\subsection{Diseño y maquetación de la interfaz}
+\subsection{Diseño de la interfaz}
 
 \begin{figure}
 \begin{center}
@@ -179,6 +179,14 @@ Una instalado el framework Laravel y comprendida su estructura se procede a desa
 \end{center}
 \end{figure}
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/listado-admin.png}
+\caption{Listado de elementos}
+\label{listado-admin}
+\end{center}
+\end{figure}
+
 Inicialmente se llevan a cabo unos bocetos de la web mediante mockups para saber como se va a organizar el contenido de la aplicación.
 
 \vspace{5 mm}
@@ -208,7 +216,75 @@ La próxima sección, es la sección del blog que se compone de dos páginas: el
 
 \vspace{5 mm}
 
-En el detalle de la receta(figura \ref{detalle-blog}) se muestra toda la información asociada a esa noticia.
+En el detalle de la receta(figura \ref{detalle-blog}) se muestra toda la información asociada a esa noticia. El primer elemento que aparece es el encabezado de la noticia donde se muestra su título y una foto de fondo. A continuación se muestra en dos columnas la información de la receta, una columna con un primer bloque de información y la segunda con la imagen principal de la noticia. Después se muestran los demás bloques de información en una sola columna y por último se muestran otra fotos asociadas a la noticia. Al final de la noticia se muestra un formulario para escribir comentarios asociados a la noticia y un listado con los comentarios que tiene la noticia. La estructura del contenido cambia para la resolución móvil mostrando todo el contenido en una columna.
+
+\vspace{5 mm}
+
+Si el usuario que accede a la página esta registrado, aparecerán nuevas secciones disponibles. Estas secciones serán vistas como listados de elementos(figura \ref{listado-admin}), se usaran para mostrar cualquier tipo de datos que visualice el usuario registrado. La información se listará en una disposición de tabla, con el contenido del elemento(id,titulo,etc) y un botón para ver el detalle. La presentación de este contenido es mucho más simple, que el listado para los usuarios no registrados, ya que esta sección tiene que ser mucho más pragmática y menos visual.
+
+\vspace{5 mm}
+
+\textbf{Paleta de Colores}
+
+\vspace{5 mm}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/paleta.png}
+\caption{Paleta de Colores}
+\label{paleta}
+\end{center}
+\end{figure}
+
+Para la aplicación se ha seleccionado una paleta de colores(\ref{paleta}) con el programa spectrum. Se ha elegido una gama de azules y grises oscuros que dan un aspecto de seriedad y confianza. También se utilizan una series de colores mas vivos como el verde y el rojo que se utilizan para los botones, pequeños detalles y resaltar los textos para dar una aspecto más vivo.
+
+
+\subsection{Implementación de la arquitectura}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/implementacion-arquitectura.png}
+\caption{Arquitectura específica}
+\label{implement-arch}
+\end{center}
+\end{figure}
+
+En el segundo sprint del proyecto, se lleva acabo un esquema específico de la arquitectura usada para la aplicación. En este esquema de arquitectura ya no es tan general, se especifican detalladamente cada una de las capas de la arquitectura,se enumeran cada uno de los elementos que se va a componer y se detallan cada una de las APIs externas empleadas.
+
+\vspace{5 mm}
+
+En la figura \ref{implement-arch} se observa un esquema detallado de como se ha implementado la arquitectura de la aplicación. A continuación se procede a profundizar en cada una de las capas de la arquitectura.
+
+\vspace{5 mm}
+
+El usuario que navegue por la aplicación, accederá a las diferentes páginas de la web por medio de una ruta que introduzca en el navegador. Una vez introducida la ruta comienza el flujo de información de la aplicación.
+
+\vspace{5 mm}
+
+Con la ruta introducida, la aplicación nos manda al controlador correspondiente para obtener la información. Para organizar mejor la información, se crean tres controladores:
+
+\begin{itemize}
+
+\item \textbf{SiteController}: El controlador para manejar la información del usuario no registrado. Este controlador tendrá métodos para renderizar las partes de la web que son visibles para todo tipo de usuario, desde la landing page hasta el mapa, pasando por el blog
+
+\item \textbf{AdminController}: Controlador que maneja el contenido que visualiza el administrador. Las páginas de listado de contenido y detalle que se usa el administrador para manipular la información se manejaran mediante este controlador 
+
+\item \textbf{AjaxController}: en este controlador se manejarán todos los datos realizados con peticiones ajax. Apartados como los comentarios, utilizarán peticiones ajax para guardar la información en la base de datos y no tener que recargar la página.
+
+\end{itemize}
+
+
+En los controladores se hace uso de los diferentes modelos de datos de la aplicación. Los modelos generalmente se corresponden con una tabla de la base de datos. Para cada objeto de datos se crea la clase php(el Modelo) donde se encuentran los métodos que insertan, borran o actualizan la información de su tabla correspondiente. Por ejemplo, el modelo Tweets es la clase donde están definidos los métodos que guardan toda la información de los tweets recogidos.
+
+\vspace{5 mm}
+
+
+Para comprobar la autenticación del cliente, y que cualquier usuario no pueda acceder a partes de la web que solo están disponibles para el administrador, se implementa una capa intermedia entre los controladores y los modelos llamada middleware.
+
+
+
+
+
 
 
 
