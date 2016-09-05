@@ -249,6 +249,14 @@ Para la aplicación se ha seleccionado una paleta de colores(\ref{paleta}) con e
 \end{center}
 \end{figure}
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/layout.png}
+\caption{Layout}
+\label{layout}
+\end{center}
+\end{figure}
+
 En el segundo sprint del proyecto, se lleva acabo un esquema específico de la arquitectura usada para la aplicación. En este esquema de arquitectura ya no es tan general, se especifican detalladamente cada una de las capas de la arquitectura,se enumeran cada uno de los elementos que se va a componer y se detallan cada una de las APIs externas empleadas.
 
 \vspace{5 mm}
@@ -265,9 +273,9 @@ Con la ruta introducida, la aplicación nos manda al controlador correspondiente
 
 \begin{itemize}
 
-\item \textbf{SiteController}: El controlador para manejar la información del usuario no registrado. Este controlador tendrá métodos para renderizar las partes de la web que son visibles para todo tipo de usuario, desde la landing page hasta el mapa, pasando por el blog
+\item \textbf{SiteController}: el controlador para manejar la información del usuario no registrado. Este controlador tendrá métodos para renderizar las partes de la web que son visibles para todo tipo de usuario, desde la landing page hasta el mapa, pasando por el blog
 
-\item \textbf{AdminController}: Controlador que maneja el contenido que visualiza el administrador. Las páginas de listado de contenido y detalle que se usa el administrador para manipular la información se manejaran mediante este controlador 
+\item \textbf{AdminController}: controlador que maneja el contenido que visualiza el administrador. Las páginas de listado de contenido y detalle que se usa el administrador para manipular la información se manejaran mediante este controlador 
 
 \item \textbf{AjaxController}: en este controlador se manejarán todos los datos realizados con peticiones ajax. Apartados como los comentarios, utilizarán peticiones ajax para guardar la información en la base de datos y no tener que recargar la página.
 
@@ -278,8 +286,45 @@ En los controladores se hace uso de los diferentes modelos de datos de la aplica
 
 \vspace{5 mm}
 
+Para obtener los datos de la API twitter, se utiliza la librería TwitterAPIExchange, facilitando la obtención de tweets y disponiendo al desarrollador de diversos métodos de búsqueda de resultados. Los datos obtenidos mediante la librería se parsean y se guardan en la base de datos de la aplicación mediante su modelo de datos(Tweet).
 
-Para comprobar la autenticación del cliente, y que cualquier usuario no pueda acceder a partes de la web que solo están disponibles para el administrador, se implementa una capa intermedia entre los controladores y los modelos llamada middleware.
+\vspace{5 mm}
+
+Una vez obtenida la información en los controladores, se le pasan los datos a la vista que corresponde para visualizar el contenido. Las vistas estan envueltas en un layout, que contiene la estructura de la aplicación y los trozos de la web que son comunes para toda la web, como la cabecera y el pie de página. En el layout de la aplicación (figura \ref{layout}) se observa su estructura. Mediante la sentencia include incrustamos los elementos comunes de la aplicación en el layout(footer y cabecera) y finalmente mediante yield se vuelca el contenido de la vista. Existen varias vistas en la aplicación y cada una tendrá sus estructura HTML y sus características propias.
+
+\vspace{5 mm}
+
+
+En la parte de cliente, una vez renderizada la vista se hace uso de la API de Google Maps mediante Javascript para generar el mapa de la aplicación y todos sus elementos(marcadores,ventanas de información). 
+
+\vspace{5 mm}
+
+Para comprobar la autenticación del cliente, y que cualquier usuario no pueda acceder a partes de la web que solo están disponibles para el administrador, se implementa una capa intermedia entre los controladores y los modelos llamada middleware. Esta capa controla que, el usuario que intenta acceder a las páginas disponibles solo para el administrador, esté registrado como usuario en la base de datos y tenga una sesión iniciada como usuario. Por el contrario si no está registrado, el usuario no podrá acceder y será redirigido a la página principal.
+
+\subsection{Maquetación}
+
+Una vez implementada la arquitectura y definidas las vistas de la aplicación, el siguiente sprint consta de la maquetación de la web.
+
+\vspace{5 mm}
+
+Previamente se estructuran todos los ficheros PHP con contenido HTML en directorios para organizar mejor la aplicación:
+
+\begin{itemize}
+
+\item \textbf{layouts}: aquí se incluye la plantilla main con la estructura de la aplicación.
+
+\item \textbf{includes}: en este directorio se incluiran los ficheros que contiene fragmentos parciales de HTML. Estos fragmentos pueden ser tanto elementos fijos de la web como la cabecera o el pie que se incrustan en la estructura principal o render parciales de una vista para estructurar mejor el contenido.
+
+\item \textbf{site}: aquí se incluyen todas las vistas de la aplicación que tienen asociadas un controlador a ellas, como puede ser la página del blog y del mapa.
+
+\item \textbf{error}: en este directorio se incluyen todas las plantillas para mostrar los errores de la web. El error más común es el 404 de la página no encontrada.
+
+\item \textbf{auth}: en la carpeta auth se incluyen los ficheros de autenticación del usuario, como el login del usuario.
+
+\end{itemize}
+
+
+
 
 
 
