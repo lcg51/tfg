@@ -69,15 +69,8 @@ Para comenzar a desarrollar el proyecto, primero se debe instalar Laravel. Para 
 
 \vspace{5 mm}
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=1.0\textwidth]{imagenes/estructura-laravel.png}
-\caption{Proyecto de Laravel}
-\label{laravel}
-\end{center}
-\end{figure}
 
-Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro composer ha generado una estructura de directorios(figura \ref{laravel}) que es como organiza Laravel el código de la aplicación. A continuación se detallan brevemente cada una de ellas:
+Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro composer ha generado una estructura de directorios que es como organiza Laravel el código de la aplicación. A continuación se detallan brevemente cada una de ellas:
 
 
 \begin{itemize}
@@ -104,17 +97,11 @@ Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro 
 
 \end{itemize}
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=1.0\textwidth]{imagenes/estructura-sass.png}
-\caption{Estructura Sass}
-\label{sass}
-\end{center}
-\end{figure}
+
 
 \textbf{Estructura Sass} 
 
-Como se comenta previamente, se utiliza Sass para maquetar la web. Este lenguaje de preprocesado de Css te permite organizar el ccs y hacerlo más modular de forma que puedes generar varios ficheros .scss y compilarlos en un único fichero css que es el que se utilizará en la aplicación. Para ello uso una carpeta sass que se incluye en la carpeta public del proyecto donde incluyo todos los directorios con los ficheros sass. Una de las formas de refactorizar más el código Sass, es generar un fichero .scss para cada página web de la aplicación de modo que en futuros cambios resulte todavía más sencillo modificar el estilo. Como se observa en la figura \ref{sass} la estructura sass es al siguiente:
+Como se comenta previamente, se utiliza Sass para maquetar la web. Este lenguaje de preprocesado de Css te permite organizar el ccs y hacerlo más modular de forma que puedes generar varios ficheros .scss y compilarlos en un único fichero css que es el que se utilizará en la aplicación. Para ello uso una carpeta sass que se incluye en la carpeta public del proyecto donde incluyo todos los directorios con los ficheros sass. Una de las formas de refactorizar más el código Sass, es generar un fichero .scss para cada página web de la aplicación de modo que en futuros cambios resulte todavía más sencillo modificar el estilo. La estructura sass es al siguiente:
 
 
 \begin{itemize}
@@ -307,7 +294,7 @@ Una vez implementada la arquitectura y definidas las vistas de la aplicación, e
 
 \vspace{5 mm}
 
-Previamente se estructuran todos los ficheros PHP con contenido HTML en directorios para organizar mejor la aplicación:
+Previamente se estructuran todos los ficheros PHP con contenido HTML en directorios para organizar mejor la aplicación y que las vistas sean más reutilizables:
 
 \begin{itemize}
 
@@ -323,13 +310,130 @@ Previamente se estructuran todos los ficheros PHP con contenido HTML en director
 
 \end{itemize}
 
+La estructura HTML de las vistas sigue una jerarquía de las etiquetas que se aplica para generar un contenido más limpio de las vistas y pasar con éxito el validador del W3C garantizando una correcta escritura de HTML.
+
+\vspace{5 mm}
 
 
+Uso de la etiqueta <section> para dividir las partes de la vista. Cada vista se puede componer de uno o más sections. Por ejemplo para la página de blog se divide con dos sections, una para el bloque de introducción del blog y otra para el listado de noticias. Dentro de cada <section> van las etiquetas que se usarán para posicionar el elemento y darle estilos como son las <div>,<ul>,<span> y <p>.
+
+\vspace{5 mm}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/jerarquia-clases.png}
+\caption{Ejemplo de jerarquía de clases}
+\label{clases-html}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/jerarquia-sass.png}
+\caption{Ejemplo de jerarquía Sass}
+\label{jerarquia-sass}
+\end{center}
+\end{figure}
+
+Cada etiqueta HTML tiene una clase asociada. Las clases son muy importantes ya que te pemiten clasificar los elementos para luego poder aplicarle unas reglas CSS comunes. La nomenclatura que se usa para las clases, es una anidación de palabras clave, seguidas de un guión(-). Por ejemplo para el bloque de la intro del blog(\ref{clases-html}) esta el <section> con la clase que contiene la anidación de palabras blogs-intro. Con esta nomenclatura se hace referencia a que es este elemento pertenece a la vista del blog(blog) y la sección de introducón(intro). Dentro de este elemento, se encuentra una etiqueta <div> que contien los elementos y por eso la nomenclatura de la clase es blogs-intro-wrapper(wrapper es una palabra inglesa que significa envoltura). Por último los dos elementos de la sección son los textos, el blogs-intro-text y blogs-intro-title para estas dos clases se le anida como última palabra text o title para aplicar las reglas a cada tipo de texto dentro del bloque de introducción.
+
+\vspace{5 mm}
+
+Aplicando esta nomenclatura de anidación de palabras clave y gracias a la posibilidades que da Sass, se crea una jerarquía de clases en Sass que permite optimizar al máximo las reglas de estilos de cada elemento evitando tener que duplicar reglas, obteniendo una visión más clara de como está organizado y facilitar modificaciones posteriores por parte de cualquier desarrolador. Un ejemplo de la jerarquía Sass sería la figura \ref{jerarquia-sass}.
 
 
+\vspace{5 mm}
+
+Para los elementos que son manipulados con jQuery, se les añade un clase extra con el prefijo js-nombre. De forma que cualquier elemento que tenga un evento de jQuery asociado, deberá ser seleccionado mediante la clase con el prefijo js. Estas clases no tendrán estilos asociados, de forma que las clases se dividirán en dos tipos: los selectores de elementos de jQuery y las clases con reglas de estilos asociados. De esta forma estará mejor clasificada la maquetación de los elementos y permitirá que las futuras restructuraciones de la web no supongan tanto trabajo, ya que si únicamente se quiere modificar la apariencia del sitio o optimizar el rendimiento de la web cambiando el código javascript, solo se tendrá que modificar una de los dos tipos de clases sin alterar la otra.
 
 
+\subsection{Programación}
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/routes.png}
+\caption{Rutas de la aplicación}
+\label{rutas-app}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/controller.png}
+\caption{Manejo de rutas en el Controller}
+\label{controller-app}
+\end{center}
+\end{figure}
+
+Una vez terminada la maquetación de las páginas, se procede a la programación del back-end de la aplicación. Este apartado es el más extenso de desarrollar por lo que se divide en tres sprints: rutas de la aplicación, lógica de negocio y acciones de los servicios.
+
+\vspace{5 mm}
+
+
+\textbf{Rutas de la aplicación}
+
+Para tener una web con un sistema de rutas amigables que faciliten la navegación del usuario y el posicionamiento del sitio, la mejor opción es generar rutas dinámicas. Mediante las rutas dinámicas el administrador del sitio podrá modificar los valores de las rutas mediante el panel de administración, modificando las urls de cada página cuando sea necesario sin la necesidad de recurrir al programador. Otros campos que el administrador también podrá modificar son los metas de cada página(MetaTitle,MetaKeywords,etc), que son otro factor importante para el posicionamiento SEO.
+
+\vspace{5 mm}
+
+Para definir las rutas, Laravel proporciona el fichero routes.php dentro del directorio app que es donde se definen todas las rutas de la aplicación. Dentro de este fichero se definen las rutas especificando el tipo de petición Http(get,post,etc)el nombre de la ruta y el controlador que usa, también podemos definir un alias que identifica la ruta aunque este cmpo es opcional. Como se observa en la figura \ref{rutas-app} se definen 4 rutas:
+
+\begin{itemize}
+
+\item \textbf{Ruta Principal}: la ruta para la pagina principal donde se mostrará la landing se define mediante el caracter "/". a esta página se accederá cuando el usuario acceda al dominio de la aplicación.
+
+\item \textbf{Rutas de Menu}: estas rutas son las páginas de la aplicación que pertenecen al modelo de datos Menu que se corresponde con el menú de navegación de la web. Se generan dinamicamente comprobando que la ruta obtenida se corresponde con la ruta definida en el modelo. Para que la ruta sea dinamica en Laravel se tiene que definir mediante llaves y dentro un nombre de variable.
+
+\item \textbf{Rutas de detalle}: las rutas de detalle son aquellas que tienen tienen como trozo de url padre una ruta de Menu. No todas las rutas de Menu tienen que tener una ruta de detalle. Esta ruta se usa en la aplicación para definir las noticias del blog de la aplicación y asi poder concatenar a la ruta del blog el nombre de la noticia.
+
+\item \textbf{Rutas de usuario registrado}: estas rutas son para la vistas de la web de la parte de administrador. También son dinámicas pero para diferenciarlas de las rutas visibles para todos los usuarios se iniciarán con la ruta /admin.
+
+
+\end{itemize} 
+
+
+Todas estas rutas se manejan en el Controller, controlador principal de la aplicación. Se comprueba que las rutas introducidas sean las correctas y en el caso de no serlo se redirige a la página de error 404 de la web(figura \ref{controller-app}). Para renderizar la vista correspondiente, se instancias de servicios dentro del Controller principal. Estos servicios contienen las acciones que renderizan la vista asociada para cada url y un constructor inicial que guarda los metadatos para cada vista.
+
+\vspace{5 mm}
+
+\textbf{Lógica de negocio}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/getTweets.png}
+\caption{Función que recibe los datos de Twitter}
+\label{getTweets-app}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/parseTweets.png}
+\caption{Función para parsear los Tweets}
+\label{parseTweets-app}
+\end{center}
+\end{figure}
+
+Es muy imporante definir los métodos que compongan la lógica de negocio en los modelos de datos de la aplicación. Laravel proporciona alguno de los métodos básicos para conectarte con la base de datos, pero ha sido necesario implementar otros métodos para el procesado de los datos.
+
+El caso más complejo de lógica es el del mapa de geoposicionamiento de recetas. Para obtener la información de Twitter se utiliza la una API rest para Laravel que proporciona varias funciones de búsqueda de información. Una vez integrada la API con el proyecto toda la información se procesa en el modelo Tweet. El método básico de este modelo es getTweets(\$query)(figura \ref{getTweets-app}) ya que en este método es donde se hace uso de la API de Twitter para obtener los resultados de la red social. Para realizar la búsquedase utiliza el método getSearch() de la API a la que se le pasa un array con los parámetros de búsqueda:
+
+\begin{itemize}
+
+\item \textbf{q}: la consulta o palabra clave sobre el que la api va a buscar los tweets. Es parámetro es dinámico ya que se pasa por parámetro en la función para que el administrador pueda modificar la palabra clave desde el dashboard.
+
+\item \textbf{count}: número de resultados que devolverá la consulta.
+
+\item \textbf{lang}: idioma en el que están los tweets.
+
+\item \textbf{geocode}: geocodificador que se le pasa por parámetro la latitud, longitud y un radio que representan el área sobre el que se van a buscar los tweets. El area utilizado es el de la península ibérica.
+
+\item \textbf{format}: el formato en el que devuelve los resultados. En este caso json.
+
+\end{itemize} 
+
+
+Al resolver la petición, devuelve los tweets con toda la información asociada. Como no se van a utilizar todos los datos obtenidos esta información se procesa con el método parseTweets()(figura \ref{parseTweets-app}). En este método se recorren uno a uno cada tweet y se obtienen los datos relevantes para insertar en la base de datos utilizando otros métodos de la clase.
 
 
 
