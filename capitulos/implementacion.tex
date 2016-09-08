@@ -256,20 +256,18 @@ El usuario que navegue por la aplicación, accederá a las diferentes páginas d
 
 \vspace{5 mm}
 
-Con la ruta introducida, la aplicación nos manda al controlador correspondiente para obtener la información. Para organizar mejor la información, se crean tres controladores:
+Con la ruta introducida, la aplicación nos manda al controlador correspondiente para obtener la información. Para organizar mejor la información, se crean dos controladores:
 
 \begin{itemize}
 
-\item \textbf{SiteController}: el controlador para manejar la información del usuario no registrado. Este controlador tendrá métodos para renderizar las partes de la web que son visibles para todo tipo de usuario, desde la landing page hasta el mapa, pasando por el blog
-
-\item \textbf{AdminController}: controlador que maneja el contenido que visualiza el administrador. Las páginas de listado de contenido y detalle que se usa el administrador para manipular la información se manejaran mediante este controlador 
+\item \textbf{Controller}: controlador principal de la aplicación, en esta clase se manejan todas las rutas de la aplicación. Inyectando dependencias de servicios en el constructor del controlador, se usan estos para cargar los contenidos de cada página.
 
 \item \textbf{AjaxController}: en este controlador se manejarán todos los datos realizados con peticiones ajax. Apartados como los comentarios, utilizarán peticiones ajax para guardar la información en la base de datos y no tener que recargar la página.
 
 \end{itemize}
 
 
-En los controladores se hace uso de los diferentes modelos de datos de la aplicación. Los modelos generalmente se corresponden con una tabla de la base de datos. Para cada objeto de datos se crea la clase php(el Modelo) donde se encuentran los métodos que insertan, borran o actualizan la información de su tabla correspondiente. Por ejemplo, el modelo Tweets es la clase donde están definidos los métodos que guardan toda la información de los tweets recogidos.
+En los controladores se hace uso de los diferentes modelos de datos de la aplicación. Los modelos generalmente se corresponden con una tabla de la base de datos. Para cada objeto de datos se crea la clase php(el Modelo) donde se encuentran los métodos que insertan, borran o actualizan la información de su tabla correspondiente. 
 
 \vspace{5 mm}
 
@@ -365,7 +363,7 @@ Para los elementos que son manipulados con jQuery, se les añade un clase extra 
 \end{center}
 \end{figure}
 
-Una vez terminada la maquetación de las páginas, se procede a la programación del back-end de la aplicación. Este apartado es el más extenso de desarrollar por lo que se divide en tres sprints: rutas de la aplicación, lógica de negocio y acciones de los servicios.
+Una vez terminada la maquetación de las páginas, se procede a la programación del back-end de la aplicación. Este apartado es el más extenso de desarrollar por lo que se divide en tres sprints: rutas de la aplicación, lógica de negocio y servicios.
 
 \vspace{5 mm}
 
@@ -435,5 +433,18 @@ El caso más complejo de lógica es el del mapa de geoposicionamiento de recetas
 
 Al resolver la petición, devuelve los tweets con toda la información asociada. Como no se van a utilizar todos los datos obtenidos esta información se procesa con el método parseTweets()(figura \ref{parseTweets-app}). En este método se recorren uno a uno cada tweet y se obtienen los datos relevantes para insertar en la base de datos utilizando otros métodos de la clase.
 
+
+\textbf{Servicios}
+
+
+Con el controlador definido manejando las rutas de la aplicación, se definen los servicios que son los que gestionan los eventos de la aplicación. Cuando el controlador llama a las diferentes acciones de los servicios estos se encargan de realizar peticiones a los modelos renderizar las vistas corresponidentes. Inicialmente hay definidos dos tipos de servicios:
+
+\begin{itemize}
+
+\item \textbf{Servicios de web}: estos son los servicios encargados de manejar los eventos de las páginas visibles de la web.
+
+\item \textbf{Servicios de admin}: manejan los eventos del dashboard de administración de contenido de la página.
+
+\end{itemize} 
 
 
