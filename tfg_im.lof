@@ -2,33 +2,33 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 1.1}{\ignorespaces T\IeC {\'e}cnicas de SEO}}{3}{figure.1.1}
 \contentsline {figure}{\numberline {\relax 1.2}{\ignorespaces Panel de analytics}}{6}{figure.1.2}
-\contentsline {figure}{\numberline {\relax 1.3}{\ignorespaces Las 3Vs de Big Data}}{8}{figure.1.3}
+\contentsline {figure}{\numberline {\relax 1.3}{\ignorespaces Las 3Vs de Big Data}}{9}{figure.1.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Un tweet}}{17}{figure.5.1}
-\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Casos de uso generales para NjoyCooking}}{31}{figure.5.2}
-\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces Arquitectura de la aplicaci\IeC {\'o}n}}{34}{figure.5.3}
-\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Conjunto de tablas}}{36}{figure.5.4}
-\contentsline {figure}{\numberline {\relax 5.5}{\ignorespaces Tabla del men\IeC {\'u}}}{37}{figure.5.5}
-\contentsline {figure}{\numberline {\relax 5.6}{\ignorespaces }}{37}{figure.5.6}
-\contentsline {figure}{\numberline {\relax 5.7}{\ignorespaces Tablas para el blog}}{38}{figure.5.7}
-\contentsline {figure}{\numberline {\relax 5.8}{\ignorespaces Tablas para el mapa}}{39}{figure.5.8}
+\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Un tweet}}{19}{figure.5.1}
+\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Casos de uso generales para NjoyCooking}}{33}{figure.5.2}
+\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces Arquitectura de la aplicaci\IeC {\'o}n}}{36}{figure.5.3}
+\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Conjunto de tablas}}{38}{figure.5.4}
+\contentsline {figure}{\numberline {\relax 5.5}{\ignorespaces Tabla del men\IeC {\'u}}}{39}{figure.5.5}
+\contentsline {figure}{\numberline {\relax 5.6}{\ignorespaces }}{39}{figure.5.6}
+\contentsline {figure}{\numberline {\relax 5.7}{\ignorespaces Tablas para el blog}}{40}{figure.5.7}
+\contentsline {figure}{\numberline {\relax 5.8}{\ignorespaces Tablas para el mapa}}{41}{figure.5.8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Landing}}{50}{figure.6.1}
-\contentsline {figure}{\numberline {\relax 6.2}{\ignorespaces Mapa}}{51}{figure.6.2}
-\contentsline {figure}{\numberline {\relax 6.3}{\ignorespaces Listado de noticias}}{52}{figure.6.3}
-\contentsline {figure}{\numberline {\relax 6.4}{\ignorespaces Detalle de noticia}}{53}{figure.6.4}
-\contentsline {figure}{\numberline {\relax 6.5}{\ignorespaces Listado de elementos}}{54}{figure.6.5}
-\contentsline {figure}{\numberline {\relax 6.6}{\ignorespaces Paleta de Colores}}{57}{figure.6.6}
-\contentsline {figure}{\numberline {\relax 6.7}{\ignorespaces Arquitectura espec\IeC {\'\i }fica}}{58}{figure.6.7}
-\contentsline {figure}{\numberline {\relax 6.8}{\ignorespaces Layout}}{59}{figure.6.8}
-\contentsline {figure}{\numberline {\relax 6.9}{\ignorespaces Ejemplo de jerarqu\IeC {\'\i }a de clases}}{63}{figure.6.9}
-\contentsline {figure}{\numberline {\relax 6.10}{\ignorespaces Ejemplo de jerarqu\IeC {\'\i }a Sass}}{64}{figure.6.10}
-\contentsline {figure}{\numberline {\relax 6.11}{\ignorespaces Rutas de la aplicaci\IeC {\'o}n}}{65}{figure.6.11}
-\contentsline {figure}{\numberline {\relax 6.12}{\ignorespaces Manejo de rutas en el Controller}}{65}{figure.6.12}
-\contentsline {figure}{\numberline {\relax 6.13}{\ignorespaces Funci\IeC {\'o}n que recibe los datos de Twitter}}{68}{figure.6.13}
-\contentsline {figure}{\numberline {\relax 6.14}{\ignorespaces Funci\IeC {\'o}n para parsear los Tweets}}{68}{figure.6.14}
+\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Landing}}{52}{figure.6.1}
+\contentsline {figure}{\numberline {\relax 6.2}{\ignorespaces Mapa}}{53}{figure.6.2}
+\contentsline {figure}{\numberline {\relax 6.3}{\ignorespaces Listado de noticias}}{54}{figure.6.3}
+\contentsline {figure}{\numberline {\relax 6.4}{\ignorespaces Detalle de noticia}}{55}{figure.6.4}
+\contentsline {figure}{\numberline {\relax 6.5}{\ignorespaces Listado de elementos}}{56}{figure.6.5}
+\contentsline {figure}{\numberline {\relax 6.6}{\ignorespaces Paleta de Colores}}{59}{figure.6.6}
+\contentsline {figure}{\numberline {\relax 6.7}{\ignorespaces Arquitectura espec\IeC {\'\i }fica}}{60}{figure.6.7}
+\contentsline {figure}{\numberline {\relax 6.8}{\ignorespaces Layout}}{61}{figure.6.8}
+\contentsline {figure}{\numberline {\relax 6.9}{\ignorespaces Ejemplo de jerarqu\IeC {\'\i }a de clases}}{65}{figure.6.9}
+\contentsline {figure}{\numberline {\relax 6.10}{\ignorespaces Ejemplo de jerarqu\IeC {\'\i }a Sass}}{66}{figure.6.10}
+\contentsline {figure}{\numberline {\relax 6.11}{\ignorespaces Rutas de la aplicaci\IeC {\'o}n}}{67}{figure.6.11}
+\contentsline {figure}{\numberline {\relax 6.12}{\ignorespaces Manejo de rutas en el Controller}}{67}{figure.6.12}
+\contentsline {figure}{\numberline {\relax 6.13}{\ignorespaces Funci\IeC {\'o}n que recibe los datos de Twitter}}{70}{figure.6.13}
+\contentsline {figure}{\numberline {\relax 6.14}{\ignorespaces Funci\IeC {\'o}n para parsear los Tweets}}{70}{figure.6.14}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 7.1}{\ignorespaces Listado de elementos}}{72}{figure.7.1}
+\contentsline {figure}{\numberline {\relax 7.1}{\ignorespaces Listado de elementos}}{74}{figure.7.1}
