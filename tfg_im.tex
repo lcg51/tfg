@@ -206,10 +206,14 @@ pdfproducer = {pdflatex}
 %input{capitulos/resultados}
 \input{capitulos/conclusiones}
 
-%%\nocite{*} %incluye TODOS los documentos de la base de datos bibliográfica sean o no citados en el texto
-%\bibliography{bibliografia/bibliografia}\addcontentsline{toc}{chapter}{Bibliografía} %sustituir bibliografía con el nombre del fichero bibtex con la bibliografía
-%\bibliographystyle{apalike}
-%
+
+\bibliographystyle{plain}
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliography{bibliografia/biblio}
+
+
+
+
 \appendix
 %\input{anexos/anexo_I}
 %\input{glosario/entradas_glosario}
