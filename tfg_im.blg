@@ -14,52 +14,55 @@ Warning--entry type for "social-targetting" isn't style-file defined
 Warning--entry type for "social-media-marketing" isn't style-file defined
 --line 42 of file bibliografia/biblio.bib
 Warning--entry type for "big-data-tools" isn't style-file defined
---line 50 of file bibliografia/biblio.bib
+--line 51 of file bibliografia/biblio.bib
+Warning--entry type for "scrum" isn't style-file defined
+--line 59 of file bibliografia/biblio.bib
 Warning--to sort, need author or key in marketing-evolution
 Warning--to sort, need author or key in SEO
 Warning--to sort, need author or key in analytics
 Warning--to sort, need author or key in social-media-marketing
 Warning--to sort, need author or key in social-targetting
+Warning--to sort, need author or key in scrum
 Warning--to sort, need author or key in big-data-tools
-You've used 6 entries,
+You've used 7 entries,
             2118 wiz_defined-function locations,
-            518 strings with 4724 characters,
-and the built_in function-call counts, 990 in all, are:
-= -- 94
-> -- 6
+            521 strings with 4781 characters,
+and the built_in function-call counts, 1149 in all, are:
+= -- 109
+> -- 7
 < -- 0
-+ -- 6
++ -- 7
 - -- 0
-* -- 36
-:= -- 115
-add.period$ -- 12
-call.type$ -- 6
-change.case$ -- 18
+* -- 41
+:= -- 132
+add.period$ -- 14
+call.type$ -- 7
+change.case$ -- 21
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 42
-empty$ -- 139
+cite$ -- 14
+duplicate$ -- 49
+empty$ -- 162
 format.name$ -- 0
-if$ -- 245
+if$ -- 285
 int.to.chr$ -- 0
-int.to.str$ -- 6
+int.to.str$ -- 7
 missing$ -- 0
-newline$ -- 27
+newline$ -- 31
 num.names$ -- 0
-pop$ -- 48
+pop$ -- 56
 preamble$ -- 1
-purify$ -- 12
+purify$ -- 14
 quote$ -- 0
-skip$ -- 44
+skip$ -- 52
 stack$ -- 0
-substring$ -- 30
-swap$ -- 6
+substring$ -- 35
+swap$ -- 7
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 24
-warning$ -- 6
+type$ -- 28
+warning$ -- 7
 while$ -- 0
-width$ -- 7
-write$ -- 48
-(There were 12 warnings)
+width$ -- 8
+write$ -- 55
+(There were 14 warnings)
