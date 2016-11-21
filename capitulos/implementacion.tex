@@ -22,15 +22,15 @@ Las dos principales e indispensables tecnologías que se usan para la parte del 
 
  \vspace{5 mm}
 
- Con la finalidad de conseguir una apariencia cuidada e intuitiva del sitio web, sin la necesidad de crear las hojas de estilos propias, se planteó la idea de usar el framework Bootstrap. Finalmente debido al objetivo de personalizar al máximo la apariencia de la web, se descartó Bootstra y se optó por añadir clases propias mediante css.
+ Con la finalidad de conseguir una apariencia cuidada e intuitiva del sitio web, sin la necesidad de crear las hojas de estilos propias, se planteó la idea de usar el framework Bootstrap. Finalmente debido al objetivo de personalizar al máximo la apariencia de la web, se descartó Bootstrap y se optó por añadir clases propias mediante css.
 
 \vspace{5 mm}
 
-Para maquetar el sitio web con CSS3 de forma más rápida y refactorizable se utiliza \textbf{Sass}. Sass es un lenguaje de preprocesado de CSS, que permite escribir CSS de forma más cómoda, posibilitando declarar variables,mixins, herencia de clases, etc. Hay diversas formas de utilizar Sass en tu proyecto. Mediante un programa como Prepros, mediante un automatizador de tareas como Grunt, o mediante un terminal con los comandos de Sass. Para el proyecto yo he optado usar el terminal para ejecutar Sass, ya que su ejecución es mucho más ligera y consume menos RAM que con programas como Prepros. Para que empezar a usar Sass en el proyecto, dentro de nuestra carpeta padre donde se encuentre el css, se crea una carpeta sass donde se incluirán todos los ficheros .scss. Con el terminal situado en la carpeta padre escribimos sass --watch sass(nombre de la carpeta donde se encuentran los ficheros .scss). Al compilarlo, generará un fichero style.css que será la hoja de estilo a usar.
+Para maquetar el sitio web con CSS3 de forma más rápida y refactorizable se utiliza \textbf{Sass}. Sass es un lenguaje de preprocesado de CSS, que permite escribir CSS de forma más cómoda, posibilitando declarar variables,mixins, herencia de clases, etc \cite{sass-doc}. Hay diversas formas de utilizar Sass en tu proyecto. Mediante un programa como Prepros, mediante un automatizador de tareas como Grunt, o mediante un terminal con los comandos de Sass. Para el proyecto yo he optado usar el terminal para ejecutar Sass, ya que su ejecución es mucho más ligera y consume menos RAM que con programas como Prepros. Para que empezar a usar Sass en el proyecto, dentro de nuestra carpeta padre donde se encuentre el css, se crea una carpeta sass donde se incluirán todos los ficheros .scss. Con el terminal situado en la carpeta padre escribimos sass --watch sass(nombre de la carpeta donde se encuentran los ficheros .scss). Al compilarlo, generará un fichero style.css que será la hoja de estilo a usar.
 
 \vspace{5 mm}
 
-Para añadir el dinamismo a la web, se ha optado por utilizar un framework de Javascript como \textbf{JQuery} que permite simplificar la manera de interactuar con los documentos HTML, manipular el DOM, desarrollar animaciones y agregar peticiones AJAX. Además de que JQuery es software libre.
+Para añadir el dinamismo a la web, se ha optado por utilizar un framework de Javascript como \textbf{JQuery} que permite simplificar la manera de interactuar con los elementos HTML mediante funciones propias. También te permite funciones propias para animaciones y peticiones HTTP. Además de que JQuery es software libre \cite{jquery-doc}.
 
 \vspace{5 mm}
 
@@ -44,18 +44,18 @@ Después de barajar diversos lenguajes para desarrollar el back-end de la aplica
 
 \vspace{5 mm}
 
-Para montar la arquitectura MVC en la aplicación, se utiliza el framwework Laravel. Laravel agiliza el desarrollo de las aplicaciones web, permitiendo multitud de funcionalidades. Con este framework, desarrollado de forma elegante y simple se evita la creación de código espagueti, faciltando su refactorización y/o su modificación. Algunas de las carácterísticas de Laravel: 
+Para montar la arquitectura MVC en la aplicación, se utiliza el framwework Laravel \cite{laravel-doc}. Laravel agiliza el desarrollo de las aplicaciones web, permitiendo multitud de funcionalidades. Con este framework, desarrollado de forma elegante y simple se evita la creación de código espagueti, faciltando su refactorización y/o su modificación. Algunas de las carácterísticas de Laravel: 
 
 
 \begin{itemize}
 
-\item \textbf{Plantillas}: Laravel utiliza platillas Blade. Blade permite tener un sitema de vistas modular de forma que se tenga que repetir la menor cantidad de código. Para ello se genera una plantilla base o layout, que es donde se representa la estructura de la web y se volcará el contenido para cada página. Mediante la directiva include(nombre\_template), se podrá incluir una vista parcial de contenido HTML, esta directiva se utiliza para contenido que no cambia por ejemplo para incluir la cabecera o el footer de la aplicación. Luego mediante la sentencia yield(nombre\_template) permitiremos crear una futura sección en el HTML que se definirá en las vistas que son heredadas de este template. Mediante la sentencia extends(nombre\_template) le diremos a Laravel que vistas se van a usar como futuras secciones. Con estas sentencias se conseguirá volcar el contenido especifíco para cada página de la web duplicando el menor numero de codigo HTML y de forma más modular.
+\item \textbf{Plantillas}. Laravel utiliza platillas Blade. Blade permite tener un sitema de vistas modular de forma que se tenga que repetir la menor cantidad de código. Para ello se genera una plantilla base o layout, que es donde se representa la estructura de la web y se volcará el contenido para cada página. Mediante la directiva include(nombre\_template), se podrá incluir una vista parcial de contenido HTML, esta directiva se utiliza para contenido que no cambia por ejemplo para incluir la cabecera o el footer de la aplicación. Luego mediante la sentencia yield(nombre\_template) permitiremos crear una futura sección en el HTML que se definirá en las vistas que son heredadas de este template. Mediante la sentencia extends(nombre\_template) le diremos a Laravel que vistas se van a usar como futuras secciones. Con estas sentencias se conseguirá volcar el contenido especifíco para cada página de la web duplicando el menor numero de codigo HTML y de forma más modular.
 
-\item \textbf{ORM}: Es una implementación de registro activo para trabajar con la base de datos de forma que cada tabla de la base de datos tiene un Modelo correspondiente asociado con el mismo nombre. Esta implementación te permite también métodos predefinidos para llamar a la base de datos como save(),create(),get(),find().
+\item \textbf{ORM}. Es una implementación de registro activo para trabajar con la base de datos de forma que cada tabla de la base de datos tiene un Modelo correspondiente asociado con el mismo nombre. Esta implementación te permite también métodos predefinidos para llamar a la base de datos como: save(),create(),get(),find() \cite{eloquent-orm}.
 
-\item \textbf{Caché}: Laravel, cuenta con un robusto sistema de caché, el cual se puede ajustar, para que se produzca una carga rápida de la web y generar una mejor experiencia al usuario.
+\item \textbf{Caché}. Laravel, cuenta con un robusto sistema de caché, el cual se puede ajustar, para que se produzca una carga rápida de la web y generar una mejor experiencia al usuario.
 
-\item \textbf{MiddleWare}: Usa HTTP Middleware, que proporcionan un correcto mecanismo para filtrar las peticiones en la aplicación. Un ejemplo de middleware que incluye laravel, es el usado para verificar si el usuario esta autenticado en la aplicación.
+\item \textbf{MiddleWare}. Usa HTTP Middleware, que proporcionan un correcto mecanismo para filtrar las peticiones en la aplicación. Un ejemplo de middleware que incluye laravel, es el usado para verificar si el usuario esta autenticado en la aplicación.
 
 \end{itemize}
 
@@ -69,17 +69,15 @@ Para comenzar a desarrollar el proyecto, primero se debe instalar Laravel. Para 
 
 \vspace{5 mm}
 
-
 Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro composer ha generado una estructura de directorios que es como organiza Laravel el código de la aplicación. A continuación se detallan brevemente cada una de ellas:
-
 
 \begin{itemize}
 
-\item \textbf{app}: el directorio app es donde se encontrará la mayor parte del código personal del back-end de la aplicación. Desde los modelos de datos de la aplicación, hasta los controladores pasando por el middleware.
+\item \textbf{app}. El directorio app es donde se encontrará la mayor parte del código personal del back-end de la aplicación. Desde los modelos de datos de la aplicación, hasta los controladores pasando por el middleware.
 
-\item \textbf{config}: aqui se encuentran los ficheros de configuración de Laravel y de la aplicación. Por ejemplo en el fichero app.php se especifican parametros tales como la zona horaria y el idioma de la aplicación. También se definen los providers, que son cada uno de los objetos o instancias que se cargarán en el proyecto. 
+\item \textbf{config}. Aquí se encuentran los ficheros de configuración de Laravel y de la aplicación. Por ejemplo en el fichero app.php se especifican parametros tales como la zona horaria y el idioma de la aplicación. También se definen los providers, que son cada uno de los objetos o instancias que se cargarán en el proyecto. 
 
-\item \textbf{database}: aquí se encuentran todos los ficheros relacionados con la base de datos de la aplicación. Dentro encontramos tres subdirectorios:
+\item \textbf{database}. Aquí se encuentran todos los ficheros relacionados con la base de datos de la aplicación. Dentro encontramos tres subdirectorios:
 
 - factories: aquí se incluyen los ficheros que generan automaticamente nuevos datos en tu base de datos para testear la aplicación, sin necesidad de generarlos manualmente.
 
@@ -87,16 +85,15 @@ Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro 
 
 - seeds: permiten poblar la base de datos con datos de prueba. Los seeds pueden utilizar factories para poblar la base de datos o introudcirlos manualmente.
 
-\item \textbf{public}: en este directorio se encuentran los directorios con ficheros estáticos como son las hojas de estilo(css), los ficheros javascript(js) y las imágenes(images).
+\item \textbf{public}. En este directorio se encuentran los directorios con ficheros estáticos como son las hojas de estilo(css), los ficheros javascript(js) y las imágenes(images).
 
-\item \textbf{resources}: en resource encontramos subdirectorios donde se encuentran las vistas  en formato blade.php de la aplicación(views) y los archivos de idiomas de la aplicación, para poder pasar de un idioma a otro en la aplicación(lang).
+\item \textbf{resources}. En resource encontramos subdirectorios donde se encuentran las vistas  en formato blade.php de la aplicación(views) y los archivos de idiomas de la aplicación, para poder pasar de un idioma a otro en la aplicación(lang).
 
-\item \textbf{storage}: se encuentran varios subdirectorios que contiene el cache de la aplicación, sesiones, etc.
+\item \textbf{storage}. Se encuentran varios subdirectorios que contiene el cache de la aplicación, sesiones, etc.
 
-\item \textbf{vendor}: este directorio contiene todo el core de Laravel y los componentes instalados.
+\item \textbf{vendor}. Este directorio contiene todo el core de Laravel y los componentes instalados.
 
 \end{itemize}
-
 
 
 \textbf{Estructura Sass} 
@@ -256,13 +253,17 @@ El usuario que navegue por la aplicación, accederá a las diferentes páginas d
 
 \vspace{5 mm}
 
-Con la ruta introducida, la aplicación nos manda al controlador correspondiente para obtener la información. Para organizar mejor la información, se crean dos controladores:
+Con la ruta introducida, la aplicación nos manda al controlador correspondiente para obtener la información. Para organizar mejor la información, se estructuran los siguientes controladores:
 
 \begin{itemize}
 
-\item \textbf{Controller}: controlador principal de la aplicación, en esta clase se manejan todas las rutas de la aplicación. Inyectando dependencias de servicios en el constructor del controlador, se usan estos para cargar los contenidos de cada página.
+\item \textbf{Controller}. Controlador principal de la aplicación, en esta clase se manejan todas las rutas de la aplicación. Este controlador comprueba que la ruta introducida sea correcta, dirigiendo al controlador de cada apartado de la página o por el contrario mostrando la página de error si la ruta es incorrecta.En el constructor de este controlador se crean instancias del resto de controladores en el constructor que luego se llaman para renderizar las distintas vistas de la web.
 
-\item \textbf{AjaxController}: en este controlador se manejarán todos los datos realizados con peticiones ajax. Apartados como los comentarios, utilizarán peticiones ajax para guardar la información en la base de datos y no tener que recargar la página.
+\item \textbf{AjaxController}. En este controlador se manejarán todos los datos realizados con peticiones ajax. Apartados como los comentarios, utilizarán peticiones ajax para guardar la información en la base de datos y no tener que recargar la página.
+
+\item \textbf{SiteController}. Contiene los métodos que manejan la información correspondiente a la parte pública de la web. El mapa, el blog y la landing se gestionan mediante este controlador.
+
+\item \textbf{AdminController}. La parte privada, es decir aquellas vistas que requieran de autenticación. La gestión de las noticias del blog, los tweets del mapa, se gestionarán con este controlador. 
 
 \end{itemize}
 
@@ -271,7 +272,7 @@ En los controladores se hace uso de los diferentes modelos de datos de la aplica
 
 \vspace{5 mm}
 
-Para obtener los datos de la API twitter, se utiliza la librería TwitterAPIExchange, facilitando la obtención de tweets y disponiendo al desarrollador de diversos métodos de búsqueda de resultados. Los datos obtenidos mediante la librería se parsean y se guardan en la base de datos de la aplicación mediante su modelo de datos(Tweet).
+Para obtener los datos de la API twitter, se utiliza la librería TwitterAPIExchange \cite{tweet-framework}, facilitando la obtención de tweets y disponiendo al desarrollador de diversos métodos de búsqueda de resultados. Los datos obtenidos mediante la librería se parsean y se guardan en la base de datos de la aplicación mediante su modelo de datos(Tweet).
 
 \vspace{5 mm}
 
@@ -355,13 +356,6 @@ Para los elementos que son manipulados con jQuery, se les añade un clase extra 
 \end{center}
 \end{figure}
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=1.0\textwidth]{imagenes/controller.png}
-\caption{Manejo de rutas en el Controller}
-\label{controller-app}
-\end{center}
-\end{figure}
 
 Una vez terminada la maquetación de las páginas, se procede a la programación del back-end de la aplicación. Este apartado es el más extenso de desarrollar por lo que se divide en tres sprints: rutas de la aplicación, lógica de negocio y servicios.
 
@@ -374,7 +368,7 @@ Para tener una web con un sistema de rutas amigables que faciliten la navegació
 
 \vspace{5 mm}
 
-Para definir las rutas, Laravel proporciona el fichero routes.php dentro del directorio app que es donde se definen todas las rutas de la aplicación. Dentro de este fichero se definen las rutas especificando el tipo de petición Http(get,post,etc)el nombre de la ruta y el controlador que usa, también podemos definir un alias que identifica la ruta aunque este cmpo es opcional. Como se observa en la figura \ref{rutas-app} se definen 4 rutas:
+Para definir las rutas, Laravel proporciona el fichero routes.php dentro del directorio app que es donde se definen todas las rutas de la aplicación. Dentro de este fichero se definen las rutas especificando el tipo de petición Http(get,post,etc)el nombre de la ruta y el controlador que usa, también podemos definir un alias que identifica la ruta aunque este campo es opcional. Como se observa en la figura \ref{rutas-app} se definen 4 rutas:
 
 \begin{itemize}
 
@@ -386,11 +380,10 @@ Para definir las rutas, Laravel proporciona el fichero routes.php dentro del dir
 
 \item \textbf{Rutas de usuario registrado}: estas rutas son para la vistas de la web de la parte de administrador. También son dinámicas pero para diferenciarlas de las rutas visibles para todos los usuarios se iniciarán con la ruta /admin.
 
-
 \end{itemize} 
 
 
-Todas estas rutas se manejan en el Controller, controlador principal de la aplicación. Se comprueba que las rutas introducidas sean las correctas y en el caso de no serlo se redirige a la página de error 404 de la web(figura \ref{controller-app}). Para renderizar la vista correspondiente, se instancias de servicios dentro del Controller principal. Estos servicios contienen las acciones que renderizan la vista asociada para cada url y un constructor inicial que guarda los metadatos para cada vista.
+Todas estas rutas se manejan en el controlador principal de la aplicación(Controller). Se comprueba que las rutas introducidas sean las correctas y en el caso de no serlo se redirige a la página de error 404 de la web. Para renderizar la vista correspondiente, se instancias de servicios dentro del Controller principal. Estos servicios contienen las acciones que renderizan la vista asociada para cada url y un constructor inicial que guarda los metadatos para cada vista.
 
 \vspace{5 mm}
 
@@ -434,17 +427,74 @@ El caso más complejo de lógica es el del mapa de geoposicionamiento de recetas
 Al resolver la petición, devuelve los tweets con toda la información asociada. Como no se van a utilizar todos los datos obtenidos esta información se procesa con el método parseTweets()(figura \ref{parseTweets-app}). En este método se recorren uno a uno cada tweet y se obtienen los datos relevantes para insertar en la base de datos utilizando otros métodos de la clase.
 
 
-\textbf{Servicios}
+\textbf{Controladores}
+
+Como se comentó previamente, existen varios controladores segun para que apartados de la web. Pero todas las rutas pasan por el controlador principal que maneja las rutas y controlan que las vistas existan.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/controller-constructor.png}
+\caption{Constructor del controlador principal}
+\label{controller-construct}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/controller-init.png}
+\caption{Método de init()}
+\label{controller-init}
+\end{center}
+\end{figure}
 
 
-Con el controlador definido manejando las rutas de la aplicación, se definen los servicios que son los que gestionan los eventos de la aplicación. Cuando el controlador llama a las diferentes acciones de los servicios estos se encargan de realizar peticiones a los modelos renderizar las vistas corresponidentes. Inicialmente hay definidos dos tipos de servicios:
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/controller-login.png}
+\caption{Método de login()}
+\label{controller-login}
+\end{center}
+\end{figure}
 
-\begin{itemize}
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/site-construct.png}
+\caption{Constructor del siteController}
+\label{site-construct}
+\end{center}
+\end{figure}
 
-\item \textbf{Servicios de web}: estos son los servicios encargados de manejar los eventos de las páginas visibles de la web.
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/site-showblog.png}
+\caption{Método shoBlog del siteController}
+\label{site-showblog}
+\end{center}
+\end{figure}
 
-\item \textbf{Servicios de admin}: manejan los eventos del dashboard de administración de contenido de la página.
+Como se observa en \ref{controller-construct}, al inicializar el controlador, se generan dos instancias de los otros dos controladores que se encargan de manejar los datos y renderizar las vistas para la parte pública y la parte de administrador.
 
-\end{itemize} 
+\vspace{5 mm}
+
+Existen dos métodos dentro de la clase que controlan las rutas, init() para la parte pública e iniDashboard() para la parte que requiere loguearse. 
+
+\vspace{5 mm}
+
+En el caso de la parte pública, en \ref{controller-init} se observa el método init(). Incialmente se le pasan los campos \$slug y \$detail que son los trozos de la url. Se comprueba que el \$slug se encuentre en la tabla de menú de la base de datos y se empieza a buscar la url para mostrar la vista correspondiente. Por defecto si a los trozos de url que se pasan estan vacíos se establecen valores predeterminados. En el caso del \$slug cuando esta vacío es que es la url de inicio y por tanto se debe imprimir la página incial de la web. Para el caso \$detail si la url esta vacía se establce a empty, de esta forma sabemos que no se ha pasado ninguna url de detalle y por tanto se renderizan las páginas que no tienen detalle, como por ejemplo la página del mapa. Si la url contiene un detalle entonces pertenece a cada noticia del blog
+
+\vspace{5 mm}
+
+El login de la aplicación se gestiona también mediante el controlador principal. En el método doLoging() se realiza la identificación del usuario en la aplicación. Como se observa en \ref{controller-login} inicialmente se validan los datos que el usuario ha introducido. En el caso de que la validación falle, devuelve al usuario a la página de login con los errores pertinentes. Si las credenciales del usuario son correctas se le redirige a la ruta de inicio del administrador.
+
+\vspace{5 mm}
+
+Las instancias de del siteController y el adminController que se usan en el controller, llaman a las diferentes funciones que gestionan los datos a mostrar para cada vista. Antes de llamar a cualquier función se inicializa la clase mediante el constructor. Un ejemplo del constructor sería \ref{site-construct} donde se observa el código al inicalizar el siteController. En el constructor obtenemos el valor de la url en la que estamos y se obtienen los metas de la página  para introducirlos en el Html. También se guardan los datos de la página.
+
+\vspace{5 mm}
+
+Con la clase inicializada, se pueden llamar a las distintas funciones disponibles. Un ejemplo podría ser el método showBlog() del siteController, que muestra el detalle de cada noticia del blog. Como se observa en la figura \ref{site-showblog} se pasa por parámetro una variable blog que contiene el blog al que hemos accedido. Se recogen los comentarios relacionados a la noticia llamando al modelo correspondiente de los comentarios. Y por último se devuelve la vista correspondiente con la información asociada, en este caso los datos del blog y los comentarios.
+
+
+
 
 

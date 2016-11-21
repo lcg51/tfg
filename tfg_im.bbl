@@ -1,8 +1,16 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{analytics}
 Analytics.
 \newblock \url{https://developers.google.com/analytics/}.
+
+\bibitem{laravel-doc}
+Documentación de laravel.
+\newblock \url{https://laravel.com/docs/5.3}.
+
+\bibitem{sass-doc}
+Documentación de sass.
+\newblock \url{http://sass-lang.com/documentation/file.SASS_REFERENCE.html}.
 
 \bibitem{big-data-tools}
 Herramientas de para gestión de big data.
@@ -34,5 +42,36 @@ Targeting de cada red social.
 \newblock
   \url{http://www.reasonwhy.es/actualidad/social-media/social-media-marketing-datos-actualizados-del-target-en-cada-plataforma-2015},
   2016.
+
+\bibitem{mvc}
+Miguel~Angel Alvarez.
+\newblock Arquitectura mvc.
+\newblock \url{http://www.desarrolloweb.com/articulos/que-es-mvc.html}.
+
+\bibitem{googleMaps-api}
+Google.
+\newblock Api de google maps.
+\newblock
+  \url{https://developers.google.com/maps/documentation/javascript/3.exp/reference?hl=es-419}.
+
+\bibitem{jquery-doc}
+JQuery.
+\newblock Documentación de jquery.
+\newblock \url{http://api.jquery.com/}.
+
+\bibitem{eloquent-orm}
+Laravel.
+\newblock Eloquent orm.
+\newblock \url{http://laraveles.com/docs/5.0/eloquent}.
+
+\bibitem{tweet-framework}
+Thujohn.
+\newblock Framework de la api twitter para laravel.
+\newblock \url{https://github.com/thujohn/twitter}.
+
+\bibitem{twitter-api}
+Twitter.
+\newblock Twitter api.
+\newblock \url{https://dev.twitter.com/docs}.
 
 \end{thebibliography}

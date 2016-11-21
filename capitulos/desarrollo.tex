@@ -34,7 +34,7 @@ Twitter es la red social de \textquote{microblogging} más conocida actualmente.
 
 \vspace{5 mm}
 
-Toda la información proveniente de Twitter es guardada en la base de datos de la aplicación. Para obtener la información, Twitter porporciona una REST API que proporciona a los desarrolladores un acceso a la lectura y escritura de toda la información disponible en la red social.
+Toda la información proveniente de Twitter es guardada en la base de datos de la aplicación. Para obtener la información, Twitter porporciona una REST API que proporciona a los desarrolladores un acceso a la lectura y escritura de toda la información disponible en la red social \cite{twitter-api}.
 
 \vspace{5 mm}
 
@@ -156,7 +156,7 @@ Para el caso de Njoycooking, se pretendía inicialmente buscar Tweets en españo
 
 \vspace{5 mm}
 
-Google maps es una de las herramientas más potentes actuales para la geolocalización y por tanto es la más utilizada. Porporciona un API que te permite incluir un mapa en tu sitio web, personalizar iconos y estilos del mapa y además manejar los eventos. La estructura de la API de Maps es la siguiente:
+Google maps es una de las herramientas más potentes actuales para la geolocalización y por tanto es la más utilizada. Porporciona un API que te permite incluir un mapa en tu sitio web, personalizar iconos y estilos del mapa y además manejar los eventos \cite{googleMaps-api}. La estructura de la API de Maps es la siguiente:
 
 \vspace{5 mm}
 
@@ -194,13 +194,13 @@ Existen cuatro tipos de mapas básicos disponibles en la API de Google Maps. Los
 
 \begin{itemize}
 
-\item MapTypeId.ROADMAP: Vista del mapa de carreteras. Predeterminado.
+\item MapTypeId.ROADMAP. Vista del mapa de carreteras. Predeterminado.
 
-\item MapTypeId.SATELLITE: Imágenes del satélite de Google Earth.
+\item MapTypeId.SATELLITE. Imágenes del satélite de Google Earth.
 
-\item MapTypeId.HYBRID: Combina las vistas de satélite y del mapa de carreteras.
+\item MapTypeId.HYBRID. Combina las vistas de satélite y del mapa de carreteras.
 
-\item MapTypeId.TERRAIN: Mapa basado en información terrestre.
+\item MapTypeId.TERRAIN. Mapa basado en información terrestre.
 
 \end{itemize}
 
@@ -556,16 +556,15 @@ Por último esta el \textbf{administrador}. El rol de administrador, es el de su
 \end{figure}
 
 
-
-La rama de ingenieria del software se preocupa por crear productos robustos y de calidad. Una de las principales soluciones para conseguir esos objetivos es la arquitectura basada en capas, que separa el código en función de sus responsabilidades. Una de las arquitecturas más populares basada en capas para el desarrollo de aplicaciones web, es la arquitectura MVC(Modelo-Vista-Controlador). En la figura \ref{arquitectura} se muestra un esquema de la arquitectura de la aplicación.
+La rama de ingenieria del software se preocupa por crear productos robustos y de calidad. Una de las principales soluciones para conseguir esos objetivos es la arquitectura basada en capas, que separa el código en función de sus responsabilidades. Una de las arquitecturas más populares basada en capas para el desarrollo de aplicaciones web, es la arquitectura MVC(Modelo-Vista-Controlador) \cite{mvc}. En la figura \ref{arquitectura} se muestra un esquema de la arquitectura de la aplicación.
 
 \begin{itemize}
 
-\item \textbf{Modelo de datos}: Capa que trabaja con los datos, contiene mecanismos para acceder a la información. A través del modelo accederemos a la base de datos donde,estará la información almacenada. Mediante los modelos también se accederá a los datos de servicios externos que posteriormente se guradarán en la base de datos.
+\item \textbf{Modelo de datos}. Capa que trabaja con los datos, contiene mecanismos para acceder a la información. A través del modelo accederemos a la base de datos donde,estará la información almacenada. Mediante los modelos también se accederá a los datos de servicios externos que posteriormente se guradarán en la base de datos.
 
-\item \textbf{Controladores}: Responde generalmente a acciones del usuario, e invoca esas peticiones al modelo. También responde al envío de datos a la vista. Los controladores son el núcleo de la aplicación, ya que es aquí donde se procesan todos lo datos antes de ser enviados a la vista. Un controlador consta de varios métodos, cada método se corresponde con una vista y hace uso de las diferentes clases de la capa de modelos de datos. 
+\item \textbf{Controladores}. Responde generalmente a acciones del usuario, e invoca esas peticiones al modelo. También responde al envío de datos a la vista. Los controladores son el núcleo de la aplicación, ya que es aquí donde se procesan todos lo datos antes de ser enviados a la vista. Un controlador consta de varios métodos, cada método se corresponde con una vista y hace uso de las diferentes clases de la capa de modelos de datos. 
 
-\item \textbf{Vistas}: Es la capa encargada de presentar la información de nuestra página. Los datos provenientes del controlador se presentan en las vistas para que luego ser renderizada por el navegador.
+\item \textbf{Vistas}. Es la capa encargada de presentar la información de nuestra página. Los datos provenientes del controlador se presentan en las vistas para que luego ser renderizada por el navegador.
 
 \end{itemize}
 
@@ -645,12 +644,12 @@ En la figura \ref{users_bd}, se muestra la tabla de Usuarios y su relación con 
 
 \begin{itemize}
 
-\item \textbf{Nombre}: Nombre del usuario, que se muestra en la web.
-\item \textbf{Email}: Correo electrónico, del usuario. Tanto este campo como el nombre sirven de login para el usuario.
-\item \textbf{Password}: Contraseña del usuario. En la base de datos se guarda un hash de la contraseña para mayor seguridad.
-\item \textbf{Creado}: Campo de fecha con la creación del usuario.
-\item \textbf{Actualizado}: Campo de fecha con la actualización del usuario.
-\item \textbf{RolId}: Clave ajena a la tabla de Rol, contiene el Id del Rol.
+\item \textbf{Nombre}. Nombre del usuario, que se muestra en la web.
+\item \textbf{Email}. Correo electrónico, del usuario. Tanto este campo como el nombre sirven de login para el usuario.
+\item \textbf{Password}. Contraseña del usuario. En la base de datos se guarda un hash de la contraseña para mayor seguridad.
+\item \textbf{Creado}. Campo de fecha con la creación del usuario.
+\item \textbf{Actualizado}. Campo de fecha con la actualización del usuario.
+\item \textbf{RolId}. Clave ajena a la tabla de Rol, contiene el Id del Rol.
 
 \end{itemize}
 
@@ -665,14 +664,14 @@ Para la página del Blog \ref{blog_bd} tenemos el esquema relacional con tres ta
 
 \begin{itemize}
 
-\item \textbf{Título}: Título de la noticia.
-\item \textbf{Resumen}: Campo de texto para mostrar un resumen en el listado de noticias.
-\item \textbf{Contenido}: Contenido de la noticia.
-\item \textbf{Fecha}: Campo de Fecha con la creación de la noticia.
-\item \textbf{Url}: Url amigable que aparece en la ruta de la noticia.
-\item \textbf{Imagen}: Campo de texto para la imagen principal de la noticia.
-\item \textbf{Quitar}: Campo quitar, para poder dejar de visualizar la noticia sin necesidad de borrarla de la base de datos.
-\item \textbf{CategoríaId}: Clave ajena. Id de la categoría a la que pertenece la noticia.
+\item \textbf{Título}. Título de la noticia.
+\item \textbf{Resumen}. Campo de texto para mostrar un resumen en el listado de noticias.
+\item \textbf{Contenido}. Contenido de la noticia.
+\item \textbf{Fecha}. Campo de Fecha con la creación de la noticia.
+\item \textbf{Url}. Url amigable que aparece en la ruta de la noticia.
+\item \textbf{Imagen}. Campo de texto para la imagen principal de la noticia.
+\item \textbf{Quitar}. Campo quitar, para poder dejar de visualizar la noticia sin necesidad de borrarla de la base de datos.
+\item \textbf{CategoríaId}. Clave ajena. Id de la categoría a la que pertenece la noticia.
 
 \end{itemize}
 
@@ -682,10 +681,10 @@ Tuplas para la tabla de comentarios:
 
 \begin{itemize}
 
-\item \textbf{Usuario}: Usuario que comenta la noticia.
-\item \textbf{Comentario}: Campo de texto con el comentario sobre la noticia.
-\item \textbf{Apto}: Campo para moderar el comentario y que sea valido para mostrar. Por defecto vale 1, no se muestra, cuando se cambia a cero se valida y se muestra.
-\item \textbf{BlogId}: Clave ajena con el Id de la noticia al que pertence el comentario.
+\item \textbf{Usuario}. Usuario que comenta la noticia.
+\item \textbf{Comentario}. Campo de texto con el comentario sobre la noticia.
+\item \textbf{Apto}. Campo para moderar el comentario y que sea valido para mostrar. Por defecto vale 1, no se muestra, cuando se cambia a cero se valida y se muestra.
+\item \textbf{BlogId}. Clave ajena con el Id de la noticia al que pertence el comentario.
 
 
 \end{itemize}
@@ -697,16 +696,16 @@ Para el mapa de tweets se generan tres tablas(figura \ref{map_bd}). La principal
 
 \begin{itemize}
 
-\item \textbf{Título}: Título del tweet.
-\item \textbf{Descripción}: Campo de texto que contiene el tweet.
-\item \textbf{Usuario}: Usuario que ha escrito el tweet
-\item \textbf{Url}: Enlace que se encuentra en el tweet y que te lleva a una página externa.
-\item \textbf{Imagen}: Imagen del tweet.
-\item \textbf{Lat}: Coordenada de latitud en el mapa.
-\item \textbf{Long}: Coordenada de longitud en el mapa.
-\item \textbf{FechaAlta}: Fecha de registro del tweet.
-\item \textbf{FechaTweet}: Fecha de creación del tweet.
-\item \textbf{Location}: Campo que guarda una localización.
+\item \textbf{Título}. Título del tweet.
+\item \textbf{Descripción}. Campo de texto que contiene el tweet.
+\item \textbf{Usuario}. Usuario que ha escrito el tweet
+\item \textbf{Url}. Enlace que se encuentra en el tweet y que te lleva a una página externa.
+\item \textbf{Imagen}. Imagen del tweet.
+\item \textbf{Lat}. Coordenada de latitud en el mapa.
+\item \textbf{Long}. Coordenada de longitud en el mapa.
+\item \textbf{FechaAlta}. Fecha de registro del tweet.
+\item \textbf{FechaTweet}. Fecha de creación del tweet.
+\item \textbf{Location}. Campo que guarda una localización.
 
 \end{itemize}
 
