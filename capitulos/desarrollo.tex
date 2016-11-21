@@ -6,21 +6,24 @@
 
 \subsection{Funciones del sistema}
 
-La aplicación que se va a desarrollar tiene como objetivo recoger información de las diferentes redes sociales, almacenarlos en una base de datos y mostrarlos en nuestro sitio web. Esos datos almacenados,serán una fuente de información fiable que permitirá conocer que se esta concinando en el mundo en este momento. Para ello se deberá tener en cuenta la gestión de:
-
-
-\vspace{5 mm}
-
-\begin{itemize}
-
-\item Control de Acceso: En la aplicación existirán 3 tipos de roles:
+La aplicación que se va a desarrollar tiene como objetivo recoger información de las diferentes redes sociales, almacenarlos en una base de datos y
+mostrarlos en nuestro sitio web. Esos datos almacenados,serán una fuente de información fiable que permitirá conocer que se esta concinando en el mundo
+en este momento. Para ello se deberá tener en cuenta la gestión de:
 
 \begin{itemize}
-\item Administrador: Tendrá el control de gestionar la información proveniente de las API's.El Filtrado de los datos o la frecuencia con la que realiza las peticiones la aplicación con las API's.
+
+\item \textbf{Gestión de Usuarios}. En la aplicación, se podrán dar de alta usuarios. Existirán tres tipos de roles de usuario:
+
+\begin{itemize}
+\item \textbf{Administrador}. Tendrá el control de gestionar la información proveniente de las API's.El Filtrado de los datos o la frecuencia con la que realiza las peticiones la aplicación con las API's.
 También podrá gestionar el contenido del sistema
-\item Colaborador: Podrá publicar contenido en la aplicación.
-\item Usuario no registrado: Tendrá acceso a la visualización de los datos de la aplicación. 
+\item \textbf{Colaborador}. Podrá publicar contenido en la aplicación.
+\item \textbf{Usuario no registrado}. Tendrá acceso a la visualización de los datos de la aplicación.
 \end{itemize}
+
+\item \textbf{Obtención de datos}. Se podrá consultar información en detalle sobre un elemento de la web.
+
+\item \textbf{Búsqueda}. Existirán varios métodos que permitirán al usuario filtrar la información deseada.
 
 \end{itemize}
 
@@ -30,11 +33,14 @@ Para el desarrollo de la aplicación se lleva a cabo previamente un análisis de
 
 \subsection{Twitter}
 
-Twitter es la red social de \textquote{microblogging} más conocida actualmente. Esta red social tiene mas de 500 millones de usuarios, generando un número aproximado de 65 millones de tweets al dia. Es por ello que se optó por Twitter, ya que es una gran fuente de información.
+Twitter es la red social de \textquote{microblogging} más conocida actualmente. Esta red social tiene más de 500 millones de usuarios, generando un número aproximado de 65 millones de tweets al dia.
+Es por ello que se optó por Twitter, ya que es una gran fuente de información en tiempo real.
 
 \vspace{5 mm}
 
-Toda la información proveniente de Twitter es guardada en la base de datos de la aplicación. Para obtener la información, Twitter porporciona una REST API que proporciona a los desarrolladores un acceso a la lectura y escritura de toda la información disponible en la red social \cite{twitter-api}.
+Toda la información proveniente de Twitter es guardada en la base de datos de la aplicación. Para obtener la información,
+Twitter porporciona una REST API que proporciona a los desarrolladores un acceso a la lectura y escritura de toda la información disponible
+en la red social \cite{twitter-api}.
 
 \vspace{5 mm}
 
@@ -54,73 +60,73 @@ La REST API de Twitter nos proporciona los datos en formato JSON listos para ser
 
 \begin{itemize}
 
-\item \textbf{created\_at}: Fecha de creación del Tweet, contiene el dia, mes, hora, zona horaria y año cuando se ha creado el Tweet.
-\item \textbf{id}: Identificador único del Tweet
-\item \textbf{id\_str}: El identificador del Tweet en formato de cadena de texto. Este campo esta creado para ciertos lenguajes que no soportan enteros mayores de 53 bits, como es el caso de Javascript.
-\item \textbf{text}: Contiene la información del Tweet(máximo de 140 caracteres).
-\item \textbf{truncated}: Booleano que especifíca si el valor del campo text está cortado. El texto truncado terminará con los tres puntos suspensivos.
+\item \textbf{created\_at}. Fecha de creación del Tweet, contiene el dia, mes, hora, zona horaria y año cuando se ha creado el Tweet.
+\item \textbf{id}. Identificador único del Tweet
+\item \textbf{id\_str}. El identificador del Tweet en formato de cadena de texto. Este campo esta creado para ciertos lenguajes que no soportan enteros mayores de 53 bits, como es el caso de Javascript.
+\item \textbf{text}. Contiene la información del Tweet(máximo de 140 caracteres).
+\item \textbf{truncated}. Booleano que especifíca si el valor del campo text está cortado. El texto truncado terminará con los tres puntos suspensivos.
 \item \textbf{entities}: Proporciona metadatos asociados al contenido del tweet. Entities es un objeto que contiene los siguientes elementos:
 
 \begin{itemize}
 
-\item \textbf{hashtags}: Representa un array con los hashtags parseados en el contenido del tweet. Cada hastag contiene un campo de texto con el contenido del hashtag y un array de enteros indicando la posicion inicial y final que ocupa en el Tweet.
+\item \textbf{hashtags}. Representa un array con los hashtags parseados en el contenido del tweet. Cada hastag contiene un campo de texto con el contenido del hashtag y un array de enteros indicando la posicion inicial y final que ocupa en el Tweet.
 
-\item \textbf{media}: Array de objetos que representa el contenido multimedia subido en el Tweet. Este array contiene la url para mostrar a los clientes(display\_url). Una versión expandida de la url(expanded\_url). El id del fichero y el id en formato de cadena de texto(id\_str). Un array con los indíces de la posiciones inicial y final de la url en el texto. Una url apuntando directamente al fichero subido(media\_url) y una url para páginas https(media\_url\_https). Un objeto con los tamaños disponibles para el fichero(sizes).Para aquellos tweets que tiene contenido multimedia asociado a otros tweets, se guarda un identificador que apunta al Tweet con el contenido original(source\_status\_id). El tipo de fichero(type) y la url incrustada en el contenido del Tweet(url).
+\item \textbf{media}. Array de objetos que representa el contenido multimedia subido en el Tweet. Este array contiene la url para mostrar a los clientes(display\_url). Una versión expandida de la url(expanded\_url). El id del fichero y el id en formato de cadena de texto(id\_str). Un array con los indíces de la posiciones inicial y final de la url en el texto. Una url apuntando directamente al fichero subido(media\_url) y una url para páginas https(media\_url\_https). Un objeto con los tamaños disponibles para el fichero(sizes).Para aquellos tweets que tiene contenido multimedia asociado a otros tweets, se guarda un identificador que apunta al Tweet con el contenido original(source\_status\_id). El tipo de fichero(type) y la url incrustada en el contenido del Tweet(url).
 
-\item  \textbf{url}: Contiene un array de objetos que representan las urls incluidas en el texto. Contiene la url de visualización, la url expandida y los indices donde se encuentra la url.
+\item  \textbf{url}. Contiene un array de objetos que representan las urls incluidas en el texto. Contiene la url de visualización, la url expandida y los indices donde se encuentra la url.
 
-\item \textbf{user\_mentions}: Representa otros usuarios de twitter mencionados en el texto del tweet. Este array tiene el id del usuario mencionado, el id en string, los indices y el nombre(name).
+\item \textbf{user\_mentions}. Representa otros usuarios de twitter mencionados en el texto del tweet. Este array tiene el id del usuario mencionado, el id en string, los indices y el nombre(name).
 
 \end{itemize}
 
 
-\item \textbf{metadata}: Array de objetos metadatos asociados al tweet.
+\item \textbf{metadata}. Array de objetos metadatos asociados al tweet.
 
 \begin{itemize}
 
-\item \textbf{iso\_language\_code}: Codificación iso del lenguaje del tweet.
+\item \textbf{iso\_language\_code}. Codificación iso del lenguaje del tweet.
 
-\item \textbf{result\_type}: Especifica el tipo de resultado de tweet que quieres recibir. El valor por defecto es recent que devuelve un resultado con los tweets más recientes. También están los valores popular que devuelve los tweets más populares y mixed que incluye ambos tipos mencionados anteriormente.
+\item \textbf{result\_type}. Especifica el tipo de resultado de tweet que quieres recibir. El valor por defecto es recent que devuelve un resultado con los tweets más recientes. También están los valores popular que devuelve los tweets más populares y mixed que incluye ambos tipos mencionados anteriormente.
 
 \end{itemize}
 
 
-\item \textbf{in\_reply\_to\_status\_id}: Si el tweet es una respuesta de otro tweet, este campo tendrá el id del tweet orginal.
+\item \textbf{in\_reply\_to\_status\_id}. Si el tweet es una respuesta de otro tweet, este campo tendrá el id del tweet orginal.
 
-\item \textbf{in\_reply\_to\_user\_id}: Contendrá el id del usuario del Tweet original.
+\item \textbf{in\_reply\_to\_user\_id}. Contendrá el id del usuario del Tweet original.
 
-\item \textbf{user}: Contiene un array de objetos con toda la información relativa a el usuario que ha publicado el Tweet.
+\item \textbf{user}. Contiene un array de objetos con toda la información relativa a el usuario que ha publicado el Tweet.
 
 \begin{itemize}
 
-\item \textbf{id}: id del usuario que pública el Tweet.
+\item \textbf{id}. id del usuario que pública el Tweet.
 
-\item \textbf{name}: Nombre del usuario.
+\item \textbf{name}. Nombre del usuario.
 
-\item \textbf{location}: Cadena de caracteres con el sitio geaográfico al que pertenece el usuario.
+\item \textbf{location}. Cadena de caracteres con el sitio geaográfico al que pertenece el usuario.
 
-\item \textbf{description}: Pequeño resumen descriptivo sobre el usuario.
+\item \textbf{description}. Pequeño resumen descriptivo sobre el usuario.
 
-\item \textbf{url}: Url proporcionada por el usuario asociada con su perfil.
+\item \textbf{url}. Url proporcionada por el usuario asociada con su perfil.
 
-\item \textbf{followers\_count}: Número de seguidores que tiene el usuario.
+\item \textbf{followers\_count}. Número de seguidores que tiene el usuario.
 
-\item \textbf{friends\_count}: Número de personas a las que sigue el usuario.
+\item \textbf{friends\_count}. Número de personas a las que sigue el usuario.
 
-\item \textbf{protected}: Indica si la cuenta del usuario esta protegida, es decir que sus Tweets solo pueden ser vistos con el consentimiento del usuario.
+\item \textbf{protected}. Indica si la cuenta del usuario esta protegida, es decir que sus Tweets solo pueden ser vistos con el consentimiento del usuario.
 
-\item \textbf{geo\_enabled}: Indica si el usuario a activado la posibilidad de geoetiquetar sus Tweets, es decir, agregar información geográfica en los metadatos del tweet.
+\item \textbf{geo\_enabled}. Indica si el usuario a activado la posibilidad de geoetiquetar sus Tweets, es decir, agregar información geográfica en los metadatos del tweet.
 
 
 \end{itemize}
 
-\item \textbf{coordinates}: Representa la posicion geográfica del Tweet. El array de coordenadas esta en geoJSON, donde la longitud es el primer elemento del array y la latitud el segundo.
+\item \textbf{coordinates}. Representa la posicion geográfica del Tweet. El array de coordenadas esta en geoJSON, donde la longitud es el primer elemento del array y la latitud el segundo.
 
-\item \textbf{place}: Cuando el Tweet esta asociado a un lugar, pero no necesariamente es orginado de ahí.
+\item \textbf{place}. Cuando el Tweet esta asociado a un lugar, pero no necesariamente es orginado de ahí.
 
-\item \textbf{retweet\_count}: Numero de veces que el Tweet ha sido retweeteado.
+\item \textbf{retweet\_count}. Numero de veces que el Tweet ha sido retweeteado.
 
-\item \textbf{lang}: Idioma en el que esta escrito el Tweet. 
+\item \textbf{lang}. Idioma en el que esta escrito el Tweet.
 
 \end{itemize}
 
@@ -145,7 +151,7 @@ Para el caso de Njoycooking, se pretendía inicialmente buscar Tweets en españo
 
 \item \textbf{until}: devuelve los Tweets creados antes de la fecha dada. Este parámetro no tiene mucho sentido que se utilize, ya que lo que se pretende es buscar los últimos Tweets en tiempo real y no buscar por una fecha determinada.
 
-\item \textbf{result\_type}: parámetro para especificar el tipo de resultado de búsqueda. Los tipos son mixed,recent,popular. Para la aplicación interesa el tipo de resultados recent, ya que nos devuelve los Tweets más recientes. 
+\item \textbf{result\_type}: parámetro para especificar el tipo de resultado de búsqueda. Los tipos son mixed,recent,popular. Para la aplicación interesa el tipo de resultados recent, ya que nos devuelve los Tweets más recientes.
 
 \end{itemize}
 
@@ -321,13 +327,13 @@ Para generar un objeto de geocodificación se inicializa mediante google.maps.Ge
 
 \item address: la dirección que quieres geocodificar.
 
-\item bounds(opcional): establece un cuadro delimitador. 
+\item bounds(opcional): establece un cuadro delimitador.
 
 \item region(opcional): código de la región. Este parámetro no restringe los resultados del geocodificador solo influye en la búsqueda del resultado.
 
 \end{itemize}
 
-El resultado de de la geocodificación es un objeto que contiene varios elementos: 
+El resultado de de la geocodificación es un objeto que contiene varios elementos:
 
 \begin{itemize}
 
@@ -340,7 +346,7 @@ El resultado de de la geocodificación es un objeto que contiene varios elemento
 \item place\_id: identificador único del lugar geocodificado.
 
 
-\end{itemize} 
+\end{itemize}
 
 \item postcode\_localities[]: array que contiene todas las localidades contenidas en el codigo postal.
 
@@ -516,6 +522,22 @@ Descripción & El administrador cerrará su sesión, mediante un logout que enco
 \end{table}
 
 
+\subsection{Requisitos no funcionales}
+
+\textbf{Usabilidad}. La aplicación deberá ser fácil de comprender y manejar de cara al usuario. Para ello contarará con un diseño responsive adaptado a las distintas resoluciones de  los diferentes dispositivos, además de una interfaz cuidada e intuitiva.
+
+\vspace{5mm}
+
+\textbf{Escalabilidad}. Las funcionalidades de la web se deberán poder ampliar con facilidad. Además la aplicación deberá ser capaz de hacerse más grande sin perder calidad.
+
+\vspace{5mm}
+
+\textbf{Rendimiento}. La web deberá ser capaz de soportar un número elevado de conexiones sin resentirse y responder de manera fluida a todas las peticiones realizadas.
+
+\vspace{5mm}
+
+\textbf{Seguridad}. Todos los usuarios registrados se autenticarán mediante el uso de un token genreado aletoriamente. Cualquier dato vulnerable del usuario, como por ejemplo la contraseña, se almacenará cifrado en la base de datos.
+
 \section{Casos de Uso}
 
 \begin{landscape}
@@ -555,23 +577,20 @@ Por último esta el \textbf{administrador}. El rol de administrador, es el de su
 \end{center}
 \end{figure}
 
-
 La rama de ingenieria del software se preocupa por crear productos robustos y de calidad. Una de las principales soluciones para conseguir esos objetivos es la arquitectura basada en capas, que separa el código en función de sus responsabilidades. Una de las arquitecturas más populares basada en capas para el desarrollo de aplicaciones web, es la arquitectura MVC(Modelo-Vista-Controlador) \cite{mvc}. En la figura \ref{arquitectura} se muestra un esquema de la arquitectura de la aplicación.
 
 \begin{itemize}
 
 \item \textbf{Modelo de datos}. Capa que trabaja con los datos, contiene mecanismos para acceder a la información. A través del modelo accederemos a la base de datos donde,estará la información almacenada. Mediante los modelos también se accederá a los datos de servicios externos que posteriormente se guradarán en la base de datos.
 
-\item \textbf{Controladores}. Responde generalmente a acciones del usuario, e invoca esas peticiones al modelo. También responde al envío de datos a la vista. Los controladores son el núcleo de la aplicación, ya que es aquí donde se procesan todos lo datos antes de ser enviados a la vista. Un controlador consta de varios métodos, cada método se corresponde con una vista y hace uso de las diferentes clases de la capa de modelos de datos. 
+\item \textbf{Controladores}. Responde generalmente a acciones del usuario, e invoca esas peticiones al modelo. También responde al envío de datos a la vista. Los controladores son el núcleo de la aplicación, ya que es aquí donde se procesan todos lo datos antes de ser enviados a la vista. Un controlador consta de varios métodos, cada método se corresponde con una vista y hace uso de las diferentes clases de la capa de modelos de datos.
 
 \item \textbf{Vistas}. Es la capa encargada de presentar la información de nuestra página. Los datos provenientes del controlador se presentan en las vistas para que luego ser renderizada por el navegador.
 
 \end{itemize}
 
- El flujo de la información en la aplicación sería el siguiente. El usuario accederá a una ruta a través del navegador. Cada ruta de la aplicación se corresponde con una vista, que a su vez esta asociada a un controlador. En el controlador correspondiente se llama a las distintas clases de los modelos. Los modelos conectan con la base de datos, esta le devuelve la información, y es recibida y procesada por los controladores que la envían a la vista para que se visualize en el navegador. 
+ El flujo de la información en la aplicación sería el siguiente. El usuario accederá a una ruta a través del navegador. Cada ruta de la aplicación se corresponde con una vista, que a su vez esta asociada a un controlador. En el controlador correspondiente se llama a las distintas clases de los modelos. Los modelos conectan con la base de datos, esta le devuelve la información, y es recibida y procesada por los controladores que la envían a la vista para que se visualize en el navegador.
 
-
-%El diagrama de la figura \ref{logo_mvc}
 
 \vspace{5 mm}
 
@@ -718,12 +737,3 @@ Para clasificar el contenido de los tweets, se crea la tabla Tags, que son los d
 \vspace{5 mm}
 
 Según como esta especificado, un tweet puede tener uno o más tags, y pueden pertenecer varios tweets a un tag. Por tanto es una relación muchos a muchos, para cumplir esta relación se crea una tabla adicional(Tag\_Tweets), que contiene los identificadores(es decir las claves primarias) de las dos tablas relacionadas(Tweet y Tag).
-
-
-
-
-
-
-
-
-

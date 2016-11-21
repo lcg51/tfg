@@ -8,31 +8,31 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Un tweet}}{19}{figure.5.1}
-\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Casos de uso generales para NjoyCooking}}{33}{figure.5.2}
-\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces Arquitectura de la aplicaci\IeC {\'o}n}}{36}{figure.5.3}
-\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Conjunto de tablas}}{38}{figure.5.4}
-\contentsline {figure}{\numberline {\relax 5.5}{\ignorespaces Tabla del men\IeC {\'u}}}{39}{figure.5.5}
-\contentsline {figure}{\numberline {\relax 5.6}{\ignorespaces }}{39}{figure.5.6}
-\contentsline {figure}{\numberline {\relax 5.7}{\ignorespaces Tablas para el blog}}{40}{figure.5.7}
-\contentsline {figure}{\numberline {\relax 5.8}{\ignorespaces Tablas para el mapa}}{41}{figure.5.8}
+\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Casos de uso generales para NjoyCooking}}{34}{figure.5.2}
+\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces Arquitectura de la aplicaci\IeC {\'o}n}}{37}{figure.5.3}
+\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Conjunto de tablas}}{39}{figure.5.4}
+\contentsline {figure}{\numberline {\relax 5.5}{\ignorespaces Tabla del men\IeC {\'u}}}{40}{figure.5.5}
+\contentsline {figure}{\numberline {\relax 5.6}{\ignorespaces }}{40}{figure.5.6}
+\contentsline {figure}{\numberline {\relax 5.7}{\ignorespaces Tablas para el blog}}{41}{figure.5.7}
+\contentsline {figure}{\numberline {\relax 5.8}{\ignorespaces Tablas para el mapa}}{42}{figure.5.8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Landing}}{52}{figure.6.1}
-\contentsline {figure}{\numberline {\relax 6.2}{\ignorespaces Mapa}}{53}{figure.6.2}
-\contentsline {figure}{\numberline {\relax 6.3}{\ignorespaces Listado de noticias}}{54}{figure.6.3}
-\contentsline {figure}{\numberline {\relax 6.4}{\ignorespaces Detalle de noticia}}{55}{figure.6.4}
-\contentsline {figure}{\numberline {\relax 6.5}{\ignorespaces Listado de elementos}}{56}{figure.6.5}
-\contentsline {figure}{\numberline {\relax 6.6}{\ignorespaces Paleta de Colores}}{59}{figure.6.6}
-\contentsline {figure}{\numberline {\relax 6.7}{\ignorespaces Arquitectura espec\IeC {\'\i }fica}}{60}{figure.6.7}
-\contentsline {figure}{\numberline {\relax 6.8}{\ignorespaces Layout}}{61}{figure.6.8}
-\contentsline {figure}{\numberline {\relax 6.9}{\ignorespaces Ejemplo de jerarqu\IeC {\'\i }a de clases}}{65}{figure.6.9}
-\contentsline {figure}{\numberline {\relax 6.10}{\ignorespaces Ejemplo de jerarqu\IeC {\'\i }a Sass}}{66}{figure.6.10}
-\contentsline {figure}{\numberline {\relax 6.11}{\ignorespaces Rutas de la aplicaci\IeC {\'o}n}}{67}{figure.6.11}
-\contentsline {figure}{\numberline {\relax 6.12}{\ignorespaces Funci\IeC {\'o}n que recibe los datos de Twitter}}{69}{figure.6.12}
-\contentsline {figure}{\numberline {\relax 6.13}{\ignorespaces Funci\IeC {\'o}n para parsear los Tweets}}{70}{figure.6.13}
-\contentsline {figure}{\numberline {\relax 6.14}{\ignorespaces Constructor del controlador principal}}{71}{figure.6.14}
-\contentsline {figure}{\numberline {\relax 6.15}{\ignorespaces M\IeC {\'e}todo de init()}}{72}{figure.6.15}
-\contentsline {figure}{\numberline {\relax 6.16}{\ignorespaces M\IeC {\'e}todo de login()}}{73}{figure.6.16}
-\contentsline {figure}{\numberline {\relax 6.17}{\ignorespaces Constructor del siteController}}{74}{figure.6.17}
-\contentsline {figure}{\numberline {\relax 6.18}{\ignorespaces M\IeC {\'e}todo shoBlog del siteController}}{75}{figure.6.18}
+\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Landing}}{54}{figure.6.1}
+\contentsline {figure}{\numberline {\relax 6.2}{\ignorespaces Mapa}}{55}{figure.6.2}
+\contentsline {figure}{\numberline {\relax 6.3}{\ignorespaces Listado de noticias}}{56}{figure.6.3}
+\contentsline {figure}{\numberline {\relax 6.4}{\ignorespaces Detalle de noticia}}{57}{figure.6.4}
+\contentsline {figure}{\numberline {\relax 6.5}{\ignorespaces Listado de elementos}}{58}{figure.6.5}
+\contentsline {figure}{\numberline {\relax 6.6}{\ignorespaces Paleta de Colores}}{61}{figure.6.6}
+\contentsline {figure}{\numberline {\relax 6.7}{\ignorespaces Arquitectura espec\IeC {\'\i }fica}}{62}{figure.6.7}
+\contentsline {figure}{\numberline {\relax 6.8}{\ignorespaces Layout}}{63}{figure.6.8}
+\contentsline {figure}{\numberline {\relax 6.9}{\ignorespaces Ejemplo de jerarqu\IeC {\'\i }a de clases}}{67}{figure.6.9}
+\contentsline {figure}{\numberline {\relax 6.10}{\ignorespaces Ejemplo de jerarqu\IeC {\'\i }a Sass}}{68}{figure.6.10}
+\contentsline {figure}{\numberline {\relax 6.11}{\ignorespaces Rutas de la aplicaci\IeC {\'o}n}}{69}{figure.6.11}
+\contentsline {figure}{\numberline {\relax 6.12}{\ignorespaces Funci\IeC {\'o}n que recibe los datos de Twitter}}{71}{figure.6.12}
+\contentsline {figure}{\numberline {\relax 6.13}{\ignorespaces Funci\IeC {\'o}n para parsear los Tweets}}{72}{figure.6.13}
+\contentsline {figure}{\numberline {\relax 6.14}{\ignorespaces Constructor del controlador principal}}{73}{figure.6.14}
+\contentsline {figure}{\numberline {\relax 6.15}{\ignorespaces M\IeC {\'e}todo de init()}}{74}{figure.6.15}
+\contentsline {figure}{\numberline {\relax 6.16}{\ignorespaces M\IeC {\'e}todo de login()}}{75}{figure.6.16}
+\contentsline {figure}{\numberline {\relax 6.17}{\ignorespaces Constructor del siteController}}{76}{figure.6.17}
+\contentsline {figure}{\numberline {\relax 6.18}{\ignorespaces M\IeC {\'e}todo shoBlog del siteController}}{77}{figure.6.18}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 7.1}{\ignorespaces Listado de elementos}}{79}{figure.7.1}
+\contentsline {figure}{\numberline {\relax 7.1}{\ignorespaces Listado de elementos}}{81}{figure.7.1}
