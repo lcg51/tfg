@@ -1,5 +1,20 @@
 \chapter{Conclusiones}
 
+\section{Resultados}
+
+\section{Problemas Encontrados}
+
+El principal problema, a la hora de desarrollar el proyecto ha sido el uso de datos de geolocalización en la aplicación. Debido a temas de privacidad por parte de los usuarios, un porcentaje superior al 90\% no tenía activada la geolocalización en su aplicación de Twitter. De modo que para representar la información en el mapa de la aplicación, se obtenía la ciudad del usuario al que pertenecía el Tweet.
+
+\vspace{5 mm}
+
+De esta forma los tweets que eran de la misma ciudad se solapaban en un mismo punto (las coordenadas centrales de la ciudad). De modo que para que se visualizarán los datos en el mapa sin solapamiento se decidió por generar dos números aleatorios, uno para la latitud y otro para la longitud, que estuviera dentro del rango de los limites de la ciudad delimitados por Google Maps.
+
+\vspace{5 mm}
+
+Este método consiguió solucionar la forma de visualizar los datos en el mapa. Aunque los datos no se podrían considerar 100\% fiables, ya que se falsean los datos. No se puede saber con exactitud la proveniencia de los tweets. Un ejemplo de este caso sería el de un usuario de Alicante, que podría estar twitteando desde Madrid.
+
+
 \section{Mejoras y ampliaciones}
 
 La principal mejora a implementar se encuentra en el rediseño de la arquitectura de la aplicación. Para conseguir una web con más dinamismo e interacción con el usuario se utilizará el framework de javascript Angularjs.Además Este framework, permite generar un patrón de MVC que permite programar el front-end de la aplicación más modular y tener el código mejor estructurado.
@@ -19,18 +34,6 @@ Existen muchas herramientas de Big Data, y están especializadas en un área, se
   \item \textbf{Oracle data mining},herramienta de mineria de datos muy potente. Permite hacer predicciones acerca de los datos y crear modelos para descubrir el comportamiento del cliente.
   \item \textbf{Chartio}, herramienta de visualización. Te permite crear potentes gráficas y paneles de visualización de datos en unos pocos clicks.
 \end{itemize}
-
-\section{Problemas Encontrados}
-
-El principal problema, a la hora de desarrollar el proyecto ha sido el uso de datos de geolocalización en la aplicación. Debido a temas de privacidad por parte de los usuarios, un porcentaje superior al 90\% no tenía activada la geolocalización en su aplicación de Twitter. De modo que para representar la información en el mapa de la aplicación, se obtenía la ciudad del usuario al que pertenecía el Tweet.
-
-\vspace{5 mm}
-
-De esta forma los tweets que eran de la misma ciudad se solapaban en un mismo punto(las coordenadas centrales de la ciudad). De modo que para que se visualizarán los datos en el mapa sin solapamiento se decidió por generar dos números aleatorios, uno para la latitud y otro para la longitud, que estuviera dentro del rango de los limites de la ciudad delimitados por Google Maps.
-
-\vspace{5 mm}
-
-Este método consiguió solucionar la forma de visualizar los datos en el mapa. Aunque los datos no se podrían considerar 100\% fiables, ya que se falsean los datos. No se puede saber con exactitud la proveniencia de los tweets. Un ejemplo de este caso sería el de un usuario de Alicante, que podría estar twitteando desde Madrid.
 
 \section{Modelo de negocio}
 
