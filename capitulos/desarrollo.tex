@@ -39,7 +39,7 @@ Es por ello que se optó por Twitter, ya que es una gran fuente de información 
 \vspace{5 mm}
 
 Toda la información proveniente de Twitter es guardada en la base de datos de la aplicación. Para obtener la información,
-Twitter porporciona una REST API que proporciona a los desarrolladores un acceso a la lectura y escritura de toda la información disponible
+Twitter habilita una REST API que proporciona a los desarrolladores un acceso a la lectura y escritura de gran parte de la información disponible
 en la red social \cite{twitter-api}.
 
 \vspace{5 mm}
@@ -48,19 +48,21 @@ en la red social \cite{twitter-api}.
 
 \vspace{5 mm}
 
+\begin{landscape}
 \begin{figure}
 \begin{center}
-\includegraphics[width=1.0\textwidth]{imagenes/estructura-tweet.png}
+\includegraphics[width=16cm]{imagenes/estructura-tweet.png}
 \caption{Un tweet}
 \label{tweet}
 \end{center}
 \end{figure}
+\end{landscape}
 
 La REST API de Twitter nos proporciona los datos en formato JSON listos para ser procesados. Un Tweet, contiene una estructura(ver figura \ref{tweet}) elaborada con toda la información relacionada. La estructura de un Tweet consta de los siguientes elementos:
 
 \begin{itemize}
 
-\item \textbf{created\_at}. Fecha de creación del Tweet, contiene el dia, mes, hora, zona horaria y año cuando se ha creado el Tweet.
+\item \textbf{created\_at}. Fecha de creación del Tweet, contiene el día, mes, hora, zona horaria y año de cuando se ha creado el Tweet.
 \item \textbf{id}. Identificador único del Tweet
 \item \textbf{id\_str}. El identificador del Tweet en formato de cadena de texto. Este campo esta creado para ciertos lenguajes que no soportan enteros mayores de 53 bits, como es el caso de Javascript.
 \item \textbf{text}. Contiene la información del Tweet(máximo de 140 caracteres).
@@ -132,7 +134,9 @@ La REST API de Twitter nos proporciona los datos en formato JSON listos para ser
 
 \vspace{5 mm}
 
-Con el análisis de la estructura de un Tweet realizado, se procede a buscar información en Twitter sobre datos relevantes para la aplicación. Para encontrar los datos relevantes que se ajusten a los requisitos para la aplicación, la API de Twitter proporciona unas opciones de búsqueda que permiten buscar los Tweets por palabras clave, idioma, localización y número.
+Con el análisis de la estructura de un Tweet realizado, se procede a buscar información en Twitter sobre datos relevantes para la aplicación.
+Para encontrar los datos relevantes que se ajusten a los requisitos para la aplicación, la API de Twitter proporciona unas opciones de búsqueda que
+permiten buscar los Tweets por palabras clave, idioma, localización y número.
 
 \vspace{5 mm}
 
@@ -158,7 +162,8 @@ Para el caso de Njoycooking, se pretendía inicialmente buscar Tweets en españo
 
 \subsection{Google Maps}
 
- En la actualidad, con el auge de los dispositivos móviles, cada vez es más fácil encontrar el restaurante deseado o la tienda preferida con una sola búsqueda en nuestro smartphone. A los negocios locales les interesa tener visibilidad en internet para poder darse a conocer con facilidad y tener un mayor número de clientes. Aquí es donde entra en juego Google Maps, herramienta que permite representar de manera precisa en un mapa un negocio, punto de interés o edificio emblemático de una ciudad.
+ En la actualidad, con el auge de los dispositivos móviles, cada vez es más fácil encontrar el restaurante deseado o la tienda preferida con
+ una sola búsqueda en nuestro smartphone. A los negocios locales les interesa tener visibilidad en internet para poder darse a conocer con facilidad y tener un mayor número de clientes. Aquí es donde entra en juego Google Maps, herramienta que permite representar de manera precisa en un mapa un negocio, punto de interés o edificio emblemático de una ciudad.
 
 \vspace{5 mm}
 
