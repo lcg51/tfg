@@ -2,35 +2,35 @@
 
 \section{Software}
 
-Para diseñar una interfaz de usuario real, en la que poder basarme para luego representarla mediante HTML y CSS, se utilizan diversos programas de diseño web.
+Para diseñar una interfaz de usuario real, con la que establecer la base para posteriormente representarla mediante HTML y CSS, se utilizan diversos programas de diseño web.
 
 \begin{itemize}
 
-\item \textbf{Sketch}: Sketch es una aplicación de diseño vectorial, que te permite diseñar interfaces para aplicaciones móviles o web de una manera sencilla y con una gran potencia.
-\item \textbf{Illustrator}: Esta herramienta de adobe tan famosa, te permite el diseño de logotipos de forma vectorial,
-\item \textbf{Spectrum}: Programa sencillo que te permite crear paletas de colores, de forma que puedas seleccionar colores complementarios o de gama monocromática y utilizarlos para la interfaz de la aplicación.
+\item \textbf{Sketch}: Sketch es una aplicación de diseño vectorial, que permite diseñar interfaces para aplicaciones móviles o web de una manera sencilla y con una gran potencia.
+\item \textbf{Illustrator}: Esta herramienta de ADOBE , permite el diseño de logotipos de forma vectorial,
+\item \textbf{Spectrum}: Programa sencillo que permite crear paletas de colores, de forma que se puedan seleccionar colores complementarios o de gama monocromática y utilizarlos para la interfaz de la aplicación.
 
 \end{itemize}
 
 \section{Tecnologías}
 
-Para la realización de la aplicación web, se ha llevado a cabo un análisis de las tecnologías disponibles, y se han seleccionado las que mejor se adaptaban a las necesidades del proyecto.
+Para la realización de la aplicación web, se ha llevado a cabo un análisis de las tecnologías disponibles y se han seleccionado las que mejor se adaptaban a las necesidades del proyecto.
 
 \subsection{Front-End(Cliente)}
 
-Las dos principales e indispensables tecnologías que se usan para la parte del cliente son el lenguaje de etiquetas HTML5 y las hojas de etilos CSS3. Estas son dos de las tecnologías fundamentales en las que se basa el desarrollo web.
+Las dos principales e indispensables tecnologías que se usan para la parte del cliente son: el lenguaje de etiquetas HTML5 y las hojas de etilos CSS3. Estas son dos de las tecnologías fundamentales en las que se basa el desarrollo web.
 
  \vspace{5 mm}
 
- Con la finalidad de conseguir una apariencia cuidada e intuitiva del sitio web, sin la necesidad de crear las hojas de estilos propias, se planteó la idea de usar el framework Bootstrap. Finalmente debido al objetivo de personalizar al máximo la apariencia de la web, se descartó Bootstrap y se optó por añadir clases propias mediante css.
+Con la finalidad de conseguir una apariencia cuidada e intuitiva del sitio web, sin la necesidad de crear las hojas de estilos propias, se consideró la idea de usar el framework Bootstrap. Sin embargo, debido al objetivo de personalizar al máximo la apariencia de la web y a que Bootstrat no permitía muchos grados de libertad en ello, se descartó este framework y se optó por añadir clases propias mediante css.
 
 \vspace{5 mm}
 
-Para maquetar el sitio web con CSS3 de forma más rápida y refactorizable se utiliza \textbf{Sass}. Sass es un lenguaje de preprocesado de CSS, que permite escribir CSS de forma más cómoda, posibilitando declarar variables,mixins, herencia de clases, etc \cite{sass-doc}. Hay diversas formas de utilizar Sass en tu proyecto. Mediante un programa como Prepros, mediante un automatizador de tareas como Grunt, o mediante un terminal con los comandos de Sass. Para el proyecto yo he optado usar el terminal para ejecutar Sass, ya que su ejecución es mucho más ligera y consume menos RAM que con programas como Prepros. Para que empezar a usar Sass en el proyecto, dentro de nuestra carpeta padre donde se encuentre el css, se crea una carpeta sass donde se incluirán todos los ficheros .scss. Con el terminal situado en la carpeta padre escribimos sass --watch sass(nombre de la carpeta donde se encuentran los ficheros .scss). Al compilarlo, generará un fichero style.css que será la hoja de estilo a usar.
+Para maquetar el sitio web con CSS3 de forma más rápida y refactorizable se utiliza \textbf{Sass}. Sass es un lenguaje de preprocesado de CSS, que permite escribir CSS de forma más cómoda, posibilitando declarar variables,mixins, herencia de clases, etc \cite{sass-doc}. Hay diversas formas de utilizar Sass en un proyecto. Mediante un programa como Prepros, mediante un automatizador de tareas como Grunt, o mediante un terminal con los comandos de Sass. Para el proyecto se ha optado usar el terminal para ejecutar Sass, ya que su ejecución es mucho más ligera y consume menos RAM que con programas como Prepros. Para que empezar a usar Sass en el proyecto, dentro de nuestra carpeta ``padre'' donde se encuentre el css, se crea una carpeta sass donde se incluirán todos los ficheros .scss. Con el terminal situado en la carpeta padre se escribe sass --watch sass(nombre de la carpeta donde se encuentran los ficheros .scss). Finalmente, al compilarlo, se generará un fichero style.css que será la hoja de estilo a usar.
 
 \vspace{5 mm}
 
-Para añadir el dinamismo a la web, se ha optado por utilizar un framework de Javascript como \textbf{JQuery} que permite simplificar la manera de interactuar con los elementos HTML mediante funciones propias. También te permite funciones propias para animaciones y peticiones HTTP. Además de que JQuery es software libre \cite{jquery-doc}.
+Para añadir el dinamismo a la web, se ha optado por utilizar un framework de Javascript como \textbf{JQuery} que permite simplificar la manera de interactuar con los elementos HTML mediante funciones propias. También permite funciones propias para animaciones y peticiones HTTP. Además, JQuery es software libre \cite{jquery-doc}.
 
 \vspace{5 mm}
 
@@ -39,19 +39,19 @@ Como última tecnología Front-End se utiliza la API de Google Maps, indispensab
 
 \subsection{Back-End(Servidor)}
 
-Después de barajar diversos lenguajes para desarrollar el back-end de la aplicación, finalmente se eleigió PHP. Además de ser el lenguaje más utlizado para el desarrollo web, es uno de los lenguajes más potentes y flexibles, pudiendo ser utilizado en la mayoría de los servidores web y sistemas operativos. Además PHP esta publicado bajo licencia de software libre, por lo que no supone ningun coste.
+Después de barajar diversos lenguajes para desarrollar el back-end de la aplicación, finalmente se eligió PHP. Además de ser el lenguaje más utlizado para el desarrollo web, es uno de los lenguajes más potentes y flexibles, pudiendo ser utilizado en la mayoría de los servidores web y sistemas operativos. Además PHP esta publicado bajo licencia de software libre, por lo que no supone ningun coste.
 
 
 \vspace{5 mm}
 
-Para montar la arquitectura MVC en la aplicación, se utiliza el framwework Laravel \cite{laravel-doc}. Laravel agiliza el desarrollo de las aplicaciones web, permitiendo multitud de funcionalidades. Con este framework, desarrollado de forma elegante y simple se evita la creación de código espagueti, faciltando su refactorización y/o su modificación. Algunas de las carácterísticas de Laravel: 
+Para montar la arquitectura MVC en la aplicación, se utiliza el framwework Laravel \cite{laravel-doc}. Laravel agiliza el desarrollo de las aplicaciones web, permitiendo multitud de funcionalidades. Con este framework, desarrollado de forma elegante y simple se evita la creación de código espagueti, facilitando su refactorización y/o su modificación. Algunas de las características de Laravel: 
 
 
 \begin{itemize}
 
-\item \textbf{Plantillas}. Laravel utiliza platillas Blade. Blade permite tener un sitema de vistas modular de forma que se tenga que repetir la menor cantidad de código. Para ello se genera una plantilla base o layout, que es donde se representa la estructura de la web y se volcará el contenido para cada página. Mediante la directiva include(nombre\_template), se podrá incluir una vista parcial de contenido HTML, esta directiva se utiliza para contenido que no cambia por ejemplo para incluir la cabecera o el footer de la aplicación. Luego mediante la sentencia yield(nombre\_template) permitiremos crear una futura sección en el HTML que se definirá en las vistas que son heredadas de este template. Mediante la sentencia extends(nombre\_template) le diremos a Laravel que vistas se van a usar como futuras secciones. Con estas sentencias se conseguirá volcar el contenido especifíco para cada página de la web duplicando el menor numero de codigo HTML y de forma más modular.
+\item \textbf{Plantillas}. Laravel utiliza platillas Blade. Blade permite tener un sitema de vistas modular de forma que se tenga que repetir la menor cantidad de código. Para ello se genera una plantilla base o layout, que es donde se representa la estructura de la web y se volcará el contenido para cada página. Mediante la directiva include(nombre\_template), se podrá incluir una vista parcial de contenido HTML, esta directiva se utiliza para contenido que no cambia, por ejemplo para incluir la cabecera o el footer de la aplicación. Luego mediante la sentencia yield(nombre\_template), permitiremos crear una futura sección en el HTML que se definirá en las vistas que son heredadas de este template. Mediante la sentencia extends(nombre\_template) le diremos a Laravel que vistas se van a usar como futuras secciones. Con estas sentencias se conseguirá volcar el contenido especifíco para cada página de la web duplicando el menor numero de codigo HTML y de forma más modular.
 
-\item \textbf{ORM}. Es una implementación de registro activo para trabajar con la base de datos de forma que cada tabla de la base de datos tiene un Modelo correspondiente asociado con el mismo nombre. Esta implementación te permite también métodos predefinidos para llamar a la base de datos como: save(),create(),get(),find() \cite{eloquent-orm}.
+\item \textbf{ORM}. Es una implementación de registro activo para trabajar con la base de datos de forma que cada tabla de la base de datos tiene un Modelo correspondiente asociado con el mismo nombre. Esta implementación permite también métodos predefinidos para llamar a la base de datos como: save(),create(),get(),find() \cite{eloquent-orm}.
 
 \item \textbf{Caché}. Laravel, cuenta con un robusto sistema de caché, el cual se puede ajustar, para que se produzca una carga rápida de la web y generar una mejor experiencia al usuario.
 
@@ -98,7 +98,7 @@ Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro 
 
 \textbf{Estructura Sass} 
 
-Como se comenta previamente, se utiliza Sass para maquetar la web. Este lenguaje de preprocesado de Css te permite organizar el ccs y hacerlo más modular de forma que puedes generar varios ficheros .scss y compilarlos en un único fichero css que es el que se utilizará en la aplicación. Para ello uso una carpeta sass que se incluye en la carpeta public del proyecto donde incluyo todos los directorios con los ficheros sass. Una de las formas de refactorizar más el código Sass, es generar un fichero .scss para cada página web de la aplicación de modo que en futuros cambios resulte todavía más sencillo modificar el estilo. La estructura sass es al siguiente:
+Como se comenta previamente, se utiliza Sass para maquetar la web. Este lenguaje de preprocesado de Css permite organizar el ccs y hacerlo más modular de forma que se pueden generar varios ficheros .scss y compilarlos en un único fichero css que es el que se utilizará en la aplicación. Para ello se usa una carpeta sass que se incluye en la carpeta public del proyecto donde se incluyen todos los directorios con los ficheros sass. Una de las formas de refactorizar más el código Sass, es generar un fichero .scss para cada página web de la aplicación de modo que en futuros cambios resulte todavía más sencillo modificar el estilo. La estructura Sass es al siguiente:
 
 
 \begin{itemize}
@@ -109,7 +109,7 @@ Como se comenta previamente, se utiliza Sass para maquetar la web. Este lenguaje
 
 - variables: scss donde se declaran las variables que se usan en las hojas de estilo tales como colores de la aplicación, las fuentes usadas.
 
-- functions: aquí se encuentran los mixins de sass que se pueden utilizar. Los mixins no son más que funciones que te permiten reutilizar estilos.
+- functions: aquí se encuentran los mixins de sass que se pueden utilizar. Los mixins no son más que funciones que permiten reutilizar estilos.
 
 - animations: en este directorio se incluyen los ficheros scss con animaciones hechas con css incluidas en la aplicación.
 
@@ -179,7 +179,7 @@ Cualquier empresa que se encuentre en el mundo de las aplicaciones web sabe que 
 
 \vspace{5 mm}
 
-Como se observa en el boceto(figura \ref{landing}) la landing tiene un diseño sencillo y usable. En esta página se mostrarán una series de secciones informativas acerca de los contenidos disponibles de la web y otras informaciones relevantes. Las secciones irán acompañadas de una imagen de fondo, un texto informativo y un botón que te dirige a la página correspondiente.
+Como se observa en el boceto(figura \ref{landing}) la landing tiene un diseño sencillo y usable. En esta página se mostrarán una series de secciones informativas acerca de los contenidos disponibles de la web y otras informaciones relevantes. Las secciones irán acompañadas de una imagen de fondo, un texto informativo y un botón que dirige a la página correspondiente.
 
 \vspace{5 mm}
 
@@ -334,7 +334,7 @@ Uso de la etiqueta <section> para dividir las partes de la vista. Cada vista se 
 \end{center}
 \end{figure}
 
-Cada etiqueta HTML tiene una clase asociada. Las clases son muy importantes ya que te pemiten clasificar los elementos para luego poder aplicarle unas reglas CSS comunes. La nomenclatura que se usa para las clases, es una anidación de palabras clave, seguidas de un guión(-). Por ejemplo para el bloque de la intro del blog(\ref{clases-html}) esta el <section> con la clase que contiene la anidación de palabras blogs-intro. Con esta nomenclatura se hace referencia a que es este elemento pertenece a la vista del blog(blog) y la sección de introducón(intro). Dentro de este elemento, se encuentra una etiqueta <div> que contien los elementos y por eso la nomenclatura de la clase es blogs-intro-wrapper(wrapper es una palabra inglesa que significa envoltura). Por último los dos elementos de la sección son los textos, el blogs-intro-text y blogs-intro-title para estas dos clases se le anida como última palabra text o title para aplicar las reglas a cada tipo de texto dentro del bloque de introducción.
+Cada etiqueta HTML tiene una clase asociada. Las clases son muy importantes ya que pemiten clasificar los elementos para luego poder aplicarle unas reglas CSS comunes. La nomenclatura que se usa para las clases, es una anidación de palabras clave, seguidas de un guión(-). Por ejemplo para el bloque de la intro del blog(\ref{clases-html}) esta el <section> con la clase que contiene la anidación de palabras blogs-intro. Con esta nomenclatura se hace referencia a que es este elemento pertenece a la vista del blog(blog) y la sección de introducón(intro). Dentro de este elemento, se encuentra una etiqueta <div> que contien los elementos y por eso la nomenclatura de la clase es blogs-intro-wrapper(wrapper es una palabra inglesa que significa envoltura). Por último los dos elementos de la sección son los textos, el blogs-intro-text y blogs-intro-title para estas dos clases se le anida como última palabra text o title para aplicar las reglas a cada tipo de texto dentro del bloque de introducción.
 
 \vspace{5 mm}
 
