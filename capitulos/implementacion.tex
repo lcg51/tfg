@@ -44,7 +44,7 @@ Después de barajar diversos lenguajes para desarrollar el back-end de la aplica
 
 \vspace{5 mm}
 
-Para montar la arquitectura MVC en la aplicación, se utiliza el framwework Laravel \cite{laravel-doc}. Laravel agiliza el desarrollo de las aplicaciones web, permitiendo multitud de funcionalidades. Con este framework, desarrollado de forma elegante y simple se evita la creación de código espagueti, facilitando su refactorización y/o su modificación. Algunas de las características de Laravel: 
+Para montar la arquitectura MVC en la aplicación, se utiliza el framwework Laravel \cite{laravel-doc}. Laravel agiliza el desarrollo de las aplicaciones web, permitiendo multitud de funcionalidades. Con este framework, desarrollado de forma elegante y simple se evita la creación de código espagueti, facilitando su refactorización y/o su modificación. Algunas de las características de Laravel:
 
 
 \begin{itemize}
@@ -75,7 +75,7 @@ Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro 
 
 \item \textbf{app}. El directorio app es donde se encontrará la mayor parte del código personal del back-end de la aplicación. Desde los modelos de datos de la aplicación, hasta los controladores pasando por el middleware.
 
-\item \textbf{config}. Aquí se encuentran los ficheros de configuración de Laravel y de la aplicación. Por ejemplo en el fichero app.php se especifican parametros tales como la zona horaria y el idioma de la aplicación. También se definen los providers, que son cada uno de los objetos o instancias que se cargarán en el proyecto. 
+\item \textbf{config}. Aquí se encuentran los ficheros de configuración de Laravel y de la aplicación. Por ejemplo en el fichero app.php se especifican parametros tales como la zona horaria y el idioma de la aplicación. También se definen los providers, que son cada uno de los objetos o instancias que se cargarán en el proyecto.
 
 \item \textbf{database}. Aquí se encuentran todos los ficheros relacionados con la base de datos de la aplicación. Dentro encontramos tres subdirectorios:
 
@@ -96,7 +96,7 @@ Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro 
 \end{itemize}
 
 
-\textbf{Estructura Sass} 
+\textbf{Estructura Sass}
 
 Como se comenta previamente, se utiliza Sass para maquetar la web. Este lenguaje de preprocesado de Css permite organizar el ccs y hacerlo más modular de forma que se pueden generar varios ficheros .scss y compilarlos en un único fichero css que es el que se utilizará en la aplicación. Para ello se usa una carpeta sass que se incluye en la carpeta public del proyecto donde se incluyen todos los directorios con los ficheros sass. Una de las formas de refactorizar más el código Sass, es generar un fichero .scss para cada página web de la aplicación de modo que en futuros cambios resulte todavía más sencillo modificar el estilo. La estructura Sass es al siguiente:
 
@@ -263,12 +263,12 @@ Con la ruta introducida, la aplicación nos manda al controlador correspondiente
 
 \item \textbf{SiteController}. Contiene los métodos que manejan la información correspondiente a la parte pública de la web. El mapa, el blog y la landing se gestionan mediante este controlador.
 
-\item \textbf{AdminController}. La parte privada, es decir aquellas vistas que requieran de autenticación. La gestión de las noticias del blog, los tweets del mapa, se gestionarán con este controlador. 
+\item \textbf{AdminController}. La parte privada, es decir aquellas vistas que requieran de autenticación. La gestión de las noticias del blog, los tweets del mapa, se gestionarán con este controlador.
 
 \end{itemize}
 
 
-En los controladores se hace uso de los diferentes modelos de datos de la aplicación. Los modelos generalmente se corresponden con una tabla de la base de datos. Para cada objeto de datos se crea la clase php(el Modelo) donde se encuentran los métodos que insertan, borran o actualizan la información de su tabla correspondiente. 
+En los controladores se hace uso de los diferentes modelos de datos de la aplicación. Los modelos generalmente se corresponden con una tabla de la base de datos. Para cada objeto de datos se crea la clase php(el Modelo) donde se encuentran los métodos que insertan, borran o actualizan la información de su tabla correspondiente.
 
 \vspace{5 mm}
 
@@ -281,7 +281,7 @@ Una vez obtenida la información en los controladores, se le pasan los datos a l
 \vspace{5 mm}
 
 
-En la parte de cliente, una vez renderizada la vista se hace uso de la API de Google Maps mediante Javascript para generar el mapa de la aplicación y todos sus elementos(marcadores,ventanas de información). 
+En la parte de cliente, una vez renderizada la vista se hace uso de la API de Google Maps mediante Javascript para generar el mapa de la aplicación y todos sus elementos(marcadores,ventanas de información).
 
 \vspace{5 mm}
 
@@ -380,14 +380,37 @@ Para definir las rutas, Laravel proporciona el fichero routes.php dentro del dir
 
 \item \textbf{Rutas de usuario registrado}: estas rutas son para la vistas de la web de la parte de administrador. También son dinámicas pero para diferenciarlas de las rutas visibles para todos los usuarios se iniciarán con la ruta /admin.
 
-\end{itemize} 
+\end{itemize}
 
 
 Todas estas rutas se manejan en el controlador principal de la aplicación(Controller). Se comprueba que las rutas introducidas sean las correctas y en el caso de no serlo se redirige a la página de error 404 de la web. Para renderizar la vista correspondiente, se instancias de servicios dentro del Controller principal. Estos servicios contienen las acciones que renderizan la vista asociada para cada url y un constructor inicial que guarda los metadatos para cada vista.
 
 \vspace{5 mm}
 
-\textbf{Lógica de negocio}
+\textbf{Modelos}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{imagenes/getGeocode.png}
+\caption{Función que Obtiene los datos de Geolocalización de una ciudad}
+\label{getCordinates-app}
+\end{center}
+\end{figure}
+
+En esta capa se accede a los datos para ser modificados mediante los modelos datos y utilizando una herramienta de Laravel como ORM, facilita la conexión
+con la base de datos. Estos métodos de ORM sustituyen a sentencias SQL. Por ejemplo: la función get() de una clase que extiende de la clase Model de Laravel
+obtendría todos los registros de la tabla que se corresponde con ese modelo. En SQL el equivalente sería hacer un SELECT * FROM Tabla.
+
+
+En los modelos además de conectarse con la base de datos, también hay métodos que conectan con API externas para recoger datos. Es el caso del método getCoordinates()
+(figura \ref{getCordinates-app}) donde se llama a la API de Google Maps enviando un string con la localización de una ciudad y obteniendo sus datos de
+geolocalización.
+
+
+\textbf{Controladores}
+
+En esta capa se encuentra la mayor parte de la lógica de la aplicación.Como se comentó previamente, existen varios controladores según para que
+apartados de la web. Pero todas las rutas pasan por el controlador principal que las maneja y controla que existan para mostrar la vista correspondiente.
 
 \begin{figure}
 \begin{center}
@@ -404,32 +427,6 @@ Todas estas rutas se manejan en el controlador principal de la aplicación(Contr
 \label{parseTweets-app}
 \end{center}
 \end{figure}
-
-Es muy imporante definir los métodos que compongan la lógica de negocio en los modelos de datos de la aplicación. Laravel proporciona alguno de los métodos básicos para conectarte con la base de datos, pero ha sido necesario implementar otros métodos para el procesado de los datos.
-
-El caso más complejo de lógica es el del mapa de geoposicionamiento de recetas. Para obtener la información de Twitter se utiliza la una API rest para Laravel que proporciona varias funciones de búsqueda de información. Una vez integrada la API con el proyecto toda la información se procesa en el modelo Tweet. El método básico de este modelo es getTweets(\$query)(figura \ref{getTweets-app}) ya que en este método es donde se hace uso de la API de Twitter para obtener los resultados de la red social. Para realizar la búsquedase utiliza el método getSearch() de la API a la que se le pasa un array con los parámetros de búsqueda:
-
-\begin{itemize}
-
-\item \textbf{q}: la consulta o palabra clave sobre el que la api va a buscar los tweets. Es parámetro es dinámico ya que se pasa por parámetro en la función para que el administrador pueda modificar la palabra clave desde el dashboard.
-
-\item \textbf{count}: número de resultados que devolverá la consulta.
-
-\item \textbf{lang}: idioma en el que están los tweets.
-
-\item \textbf{geocode}: geocodificador que se le pasa por parámetro la latitud, longitud y un radio que representan el área sobre el que se van a buscar los tweets. El area utilizado es el de la península ibérica.
-
-\item \textbf{format}: el formato en el que devuelve los resultados. En este caso json.
-
-\end{itemize} 
-
-
-Al resolver la petición, devuelve los tweets con toda la información asociada. Como no se van a utilizar todos los datos obtenidos esta información se procesa con el método parseTweets()(figura \ref{parseTweets-app}). En este método se recorren uno a uno cada tweet y se obtienen los datos relevantes para insertar en la base de datos utilizando otros métodos de la clase.
-
-
-\textbf{Controladores}
-
-Como se comentó previamente, existen varios controladores segun para que apartados de la web. Pero todas las rutas pasan por el controlador principal que maneja las rutas y controlan que las vistas existan.
 
 \begin{figure}
 \begin{center}
@@ -476,25 +473,52 @@ Como se observa en \ref{controller-construct}, al inicializar el controlador, se
 
 \vspace{5 mm}
 
-Existen dos métodos dentro de la clase que controlan las rutas, init() para la parte pública e iniDashboard() para la parte que requiere loguearse. 
+Existen dos métodos dentro de la clase que controlan las rutas, init() para la parte pública e iniDashboard() para la parte que requiere loguearse.
 
 \vspace{5 mm}
 
-En el caso de la parte pública, en \ref{controller-init} se observa el método init(). Incialmente se le pasan los campos \$slug y \$detail que son los trozos de la url. Se comprueba que el \$slug se encuentre en la tabla de menú de la base de datos y se empieza a buscar la url para mostrar la vista correspondiente. Por defecto si a los trozos de url que se pasan estan vacíos se establecen valores predeterminados. En el caso del \$slug cuando esta vacío es que es la url de inicio y por tanto se debe imprimir la página incial de la web. Para el caso \$detail si la url esta vacía se establce a empty, de esta forma sabemos que no se ha pasado ninguna url de detalle y por tanto se renderizan las páginas que no tienen detalle, como por ejemplo la página del mapa. Si la url contiene un detalle entonces pertenece a cada noticia del blog
+En el caso de la parte pública, en \ref{controller-init} se observa el método init(). Incialmente se le pasan los campos \$slug y \$detail que son los trozos de la url.
+Se comprueba que el \$slug se encuentre en la tabla de menú de la base de datos y se empieza a buscar la url para mostrar la vista correspondiente. Por defecto si a los trozos de url que se pasan estan vacíos se establecen valores predeterminados. En el caso del \$slug cuando esta vacío es que es la url de inicio y por tanto se debe imprimir la página incial de la web. Para el caso \$detail si la url esta vacía se establce a empty, de esta forma sabemos que no se ha pasado ninguna url de detalle y por tanto se renderizan las páginas que no tienen detalle, como por ejemplo la página del mapa. Si la url contiene un detalle entonces pertenece a cada noticia del blog
 
 \vspace{5 mm}
 
-El login de la aplicación se gestiona también mediante el controlador principal. En el método doLoging() se realiza la identificación del usuario en la aplicación. Como se observa en \ref{controller-login} inicialmente se validan los datos que el usuario ha introducido. En el caso de que la validación falle, devuelve al usuario a la página de login con los errores pertinentes. Si las credenciales del usuario son correctas se le redirige a la ruta de inicio del administrador.
+El login de la aplicación se gestiona también mediante el controlador principal. En el método doLoging() se realiza la identificación del usuario en la
+aplicación. Como se observa en \ref{controller-login} inicialmente se validan los datos que el usuario ha introducido. En el caso de que la validación falle, devuelve al usuario a la página de login con los errores pertinentes. Si las credenciales del usuario son correctas se le redirige a la ruta de inicio del administrador.
 
 \vspace{5 mm}
 
-Las instancias de del siteController y el adminController que se usan en el controller, llaman a las diferentes funciones que gestionan los datos a mostrar para cada vista. Antes de llamar a cualquier función se inicializa la clase mediante el constructor. Un ejemplo del constructor sería \ref{site-construct} donde se observa el código al inicalizar el siteController. En el constructor obtenemos el valor de la url en la que estamos y se obtienen los metas de la página  para introducirlos en el Html. También se guardan los datos de la página.
+Las instancias de del siteController y el adminController que se usan en el controller, llaman a las diferentes funciones que gestionan los datos a
+mostrar para cada vista. Antes de llamar a cualquier función se inicializa la clase mediante el constructor. Un ejemplo del constructor sería \ref{site-construct} donde se observa el código al inicalizar el siteController. En el constructor obtenemos el valor de la url en la que estamos y se obtienen los metas de la página  para introducirlos en el Html. También se guardan los datos de la página.
 
 \vspace{5 mm}
 
-Con la clase inicializada, se pueden llamar a las distintas funciones disponibles. Un ejemplo podría ser el método showBlog() del siteController, que muestra el detalle de cada noticia del blog. Como se observa en la figura \ref{site-showblog} se pasa por parámetro una variable blog que contiene el blog al que hemos accedido. Se recogen los comentarios relacionados a la noticia llamando al modelo correspondiente de los comentarios. Y por último se devuelve la vista correspondiente con la información asociada, en este caso los datos del blog y los comentarios.
+Con la clase inicializada, se pueden llamar a las distintas funciones disponibles. Un ejemplo podría ser el método showBlog() del siteController,
+ que muestra el detalle de cada noticia del blog. Como se observa en la figura \ref{site-showblog} se pasa por parámetro una variable blog que contiene
+ el blog al que hemos accedido. Se recogen los comentarios relacionados a la noticia llamando al modelo correspondiente de los comentarios. Y por último
+ se devuelve la vista correspondiente con la información asociada, en este caso los datos del blog y los comentarios.
+
+ El caso más complejo de lógica es el del mapa de geoposicionamiento de recetas. Para obtener la información de Twitter se utiliza la una API rest
+ para Laravel que proporciona varias funciones de búsqueda de información. Una vez integrada la API con el proyecto toda la información se procesa en el
+ modelo Tweet. El método básico de este modelo es getTweets(\$query)(figura \ref{getTweets-app}) ya que en este método es donde se hace uso de la API
+ de Twitter para obtener los resultados de la red social. Para realizar la búsquedase utiliza el método getSearch() de la API a la que se le pasa un
+ array con los parámetros de búsqueda:
 
 
+ \begin{itemize}
+
+ \item \textbf{q}: la consulta o palabra clave sobre el que la api va a buscar los tweets. Es parámetro es dinámico ya que se pasa por parámetro en la función para que el administrador pueda modificar la palabra clave desde el dashboard.
+
+ \item \textbf{count}: número de resultados que devolverá la consulta.
+
+ \item \textbf{lang}: idioma en el que están los tweets.
+
+ \item \textbf{geocode}: geocodificador que se le pasa por parámetro la latitud, longitud y un radio que representan el área sobre el que se van a buscar los tweets. El area utilizado es el de la península ibérica.
+
+ \item \textbf{format}: el formato en el que devuelve los resultados. En este caso json.
+
+ \end{itemize}
 
 
-
+ Al resolver la petición, devuelve los tweets con toda la información asociada. Como no se van a utilizar todos los datos obtenidos esta información
+ se procesa con el método parseTweets()(figura \ref{parseTweets-app}). En este método se recorren uno a uno cada tweet y se obtienen los datos relevantes
+ para insertar en la base de datos utilizando otros métodos de la clase.
