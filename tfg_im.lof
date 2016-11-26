@@ -1,7 +1,7 @@
 \select@language {spanish}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 1.1}{\ignorespaces T\IeC {\'e}cnicas de SEO}}{3}{figure.1.1}
-\contentsline {figure}{\numberline {\relax 1.2}{\ignorespaces Panel de analytics}}{6}{figure.1.2}
+\contentsline {figure}{\numberline {\relax 1.2}{\ignorespaces Panel de Google Analytics}}{6}{figure.1.2}
 \contentsline {figure}{\numberline {\relax 1.3}{\ignorespaces Las tres uves del Big Data}}{9}{figure.1.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
@@ -9,24 +9,24 @@
 \contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces Estructura de un tweet}}{17}{figure.4.1}
 \contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces Casos de uso generales para NjoyCooking}}{32}{figure.4.2}
 \contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces Arquitectura de la aplicaci\IeC {\'o}n}}{34}{figure.4.3}
-\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces Conjunto de tablas}}{36}{figure.4.4}
+\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces Conjunto de tablas del modelo de datos de NjoyCooking}}{36}{figure.4.4}
 \contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces Tabla del men\IeC {\'u}}}{37}{figure.4.5}
 \contentsline {figure}{\numberline {\relax 4.6}{\ignorespaces Relaci\IeC {\'o}n de la tabla de Usuarios con la de Roles}}{37}{figure.4.6}
 \contentsline {figure}{\numberline {\relax 4.7}{\ignorespaces Relaci\IeC {\'o}n de la tabla de Blog con las Categor\IeC {\'\i }as y Comentarios}}{38}{figure.4.7}
 \contentsline {figure}{\numberline {\relax 4.8}{\ignorespaces Relaci\IeC {\'o}n de la tabla de Tweets con lo Tags}}{39}{figure.4.8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Landing}}{52}{figure.5.1}
-\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Mapa}}{53}{figure.5.2}
+\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Dise\IeC {\~n}o de la p\IeC {\'a}gina de captaci\IeC {\'o}n o Landing}}{52}{figure.5.1}
+\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces Dise\IeC {\~n}o de la p\IeC {\'a}gina del Mapa de la aplicaci\IeC {\'o}n}}{53}{figure.5.2}
 \contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces Listado de noticias}}{54}{figure.5.3}
 \contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Detalle de noticia}}{55}{figure.5.4}
 \contentsline {figure}{\numberline {\relax 5.5}{\ignorespaces Listado de elementos}}{56}{figure.5.5}
 \contentsline {figure}{\numberline {\relax 5.6}{\ignorespaces Paleta de Colores}}{59}{figure.5.6}
 \contentsline {figure}{\numberline {\relax 5.7}{\ignorespaces Arquitectura espec\IeC {\'\i }fica}}{60}{figure.5.7}
-\contentsline {figure}{\numberline {\relax 5.8}{\ignorespaces Layout}}{61}{figure.5.8}
+\contentsline {figure}{\numberline {\relax 5.8}{\ignorespaces Layout principal de la estructura HTML de la aplicaci\IeC {\'o}n}}{61}{figure.5.8}
 \contentsline {figure}{\numberline {\relax 5.9}{\ignorespaces Ejemplo de jerarqu\IeC {\'\i }a de clases}}{65}{figure.5.9}
 \contentsline {figure}{\numberline {\relax 5.10}{\ignorespaces Ejemplo de jerarqu\IeC {\'\i }a Sass}}{66}{figure.5.10}
 \contentsline {figure}{\numberline {\relax 5.11}{\ignorespaces Rutas de la aplicaci\IeC {\'o}n}}{67}{figure.5.11}
-\contentsline {figure}{\numberline {\relax 5.12}{\ignorespaces Funci\IeC {\'o}n que Obtiene los datos de Geolocalizaci\IeC {\'o}n de una ciudad}}{69}{figure.5.12}
+\contentsline {figure}{\numberline {\relax 5.12}{\ignorespaces Funci\IeC {\'o}n: recuperaci\IeC {\'o}n de datos de geolocalizaci\IeC {\'o}n de una coiudad}}{69}{figure.5.12}
 \contentsline {figure}{\numberline {\relax 5.13}{\ignorespaces Funci\IeC {\'o}n que recibe los datos de Twitter}}{70}{figure.5.13}
 \contentsline {figure}{\numberline {\relax 5.14}{\ignorespaces Funci\IeC {\'o}n para parsear los Tweets}}{71}{figure.5.14}
 \contentsline {figure}{\numberline {\relax 5.15}{\ignorespaces Constructor del controlador principal}}{71}{figure.5.15}
@@ -35,4 +35,4 @@
 \contentsline {figure}{\numberline {\relax 5.18}{\ignorespaces Constructor del siteController}}{74}{figure.5.18}
 \contentsline {figure}{\numberline {\relax 5.19}{\ignorespaces M\IeC {\'e}todo shoBlog del siteController}}{75}{figure.5.19}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Listado de elementos}}{83}{figure.6.1}
+\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Business Canvas de la aplicaci\IeC {\'o}n}}{83}{figure.6.1}
