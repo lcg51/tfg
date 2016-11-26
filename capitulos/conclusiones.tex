@@ -2,19 +2,25 @@
 
 \section{Resultados}
 
-Durante todo el periodo de desarrollo del proyecto se ha conseguido implementar la arquitectura definida en el capítulo de Desarrollo. Se ha conseguido cumplir el objetivo
-de diseñar e implementar una arquitectura robusta y que ha conseguido gestionar la información proveninente de la API de Twitter y guardarla en la base de datos de forma
-satisfactoria.
+El objetivo principal del proyecto, ``Desarrollar una herramienta, orientada para uso en marketing y promoción de un portal de cocina que permita conocer, según localización geográfica, lo que los usuarios están publicando en distintas redes sociales acerca de temas gastronómicos'' se ha cumplido.
 
-Otro de los objetivos conseguidos, ha sido conocer el uso de las APIs de Google Maps y Twitter a fondo para luego poder aplicarlas correctamente
-en la aplicación.
+Se han definido adecuadamente los requisitos, funcionalidades y casos de uso, así como la arquitectura de la de la aplicación para su posterior desarrollo.
 
-Respecto a los requisitos definidos, se han podido implementar la mayoría de los requisitos exceptuando \textbf{FS-U-01},\textbf{FB-A-03}. Para el caso de la valoracion de las
-entradas del blog(\textbf{FS-U-01}) se ha dejado para el siguiente sprint debido a ser una funcionalidad no básica de la aplicación. Para el requisito \textbf{FB-A-03}
-de mostrar los comentarios asociados a la entrada del blog se ha tenido que posponer para un siguiente sprint, debido a los requisitos \textbf{FB-U-04} y \textbf{FB-A-05} correspondientes
-al mapa de Tweets y su parte de administración han supuesto realizar mas iteraciones de las previstas. Para el caso \textbf{FB-A-03} de gestionar el contenido de la entrada, se ha
-podido completar pero con la existencia de un fallo a la hora de subir imágenes.
+Otro de los objetivos conseguidos, ha sido conocer el uso de las APIs de Google Maps y Twitter a fondo para luego poder aplicarlas correctamente en la aplicación.
 
+Durante el periodo de desarrollo del proyecto se ha conseguido implementar la arquitectura definida anteriormente. Se ha conseguido cumplir el objetivo de diseñar e implementar una arquitectura robusta y que ha conseguido gestionar la información proveninente de la API de Twitter y guardarla en la base de datos de forma satisfactoria.
+
+Respecto a los requisitos definidos, se han podido implementar la mayoría de los requisitos exceptuando \textbf{FS-U-01},\textbf{FB-A-03}: 
+
+\begin{itemize}
+\item En el caso de la valoracion de las entradas del blog (\textbf{FS-U-01}) se ha decidido posponer su realización para el siguiente sprint debido a ser una funcionalidad no básica de la aplicación. 
+
+\item El requisito \textbf{FB-A-03}, acerca de mostrar los comentarios asociados a la entrada del blog, también se ha tenido que posponer para un siguiente sprint, debido a que los requisitos \textbf{FB-U-04} y \textbf{FB-A-05}, correspondientes
+al mapa de Tweets y su parte de administración, han supuesto realizar mas iteraciones de las previstas. 
+
+Sin embargo, el requisito \textbf{FB-A-03}, en lo relativo a gestionar el contenido de la entrada, se ha podido completar parcialmente pero con la existencia de un fallo a la hora de subir imágenes.
+
+\end{itemize}
 
 Con la parte de maquetación finalizada, se lleva acabo un testeo y prueba de la aplicación en los distintos navegadores web. Se realizan testeos con los siguientes
 navegadores:
@@ -27,60 +33,45 @@ navegadores:
 
 El testeo en estos navegadores ha sido satisfactorio y responde adecuadamente a los estilos aplicados y cambios de resolución aplicados mediante CSS.
 
-En definitiva, se podría decir que se ha conseguido el objetivo principal de desarrollar un proyecto que funciona como herramienta orientada a marketing y
-como un portal de promoción de la gastronomía. Esta versión de la aplicación proporcionará un producto mínimo viable, pero se lanzará como beta, ya que
-todavía quedan bastantes funcionalidades que mejorar e implementar.
+En definitiva, se podría decir que se ha conseguido el objetivo principal de desarrollar un proyecto que funciona como herramienta orientada a marketing y como un portal de promoción de la gastronomía. Esta versión de la aplicación proporcionará un producto mínimo viable o ``MVP'' que se lanzará como beta, ya que todavía quedan bastantes funcionalidades que mejorar e implementar.
 
 \section{Problemas Encontrados}
 
-El principal problema, a la hora de desarrollar el proyecto ha sido el uso de datos de geolocalización en la aplicación. Debido a temas de privacidad por parte de los usuarios, un porcentaje superior al 90\% no tenía activada la geolocalización en su aplicación de Twitter.
-De modo que para representar la información en el mapa de la aplicación, se obtenía la ciudad del usuario al que pertenecía el Tweet.
+El principal problema, a la hora de desarrollar el proyecto ha sido el uso de datos de geolocalización en la aplicación. Debido a temas de privacidad por parte de los usuarios, un porcentaje superior al 90\% no tenía activada la geolocalización en su aplicación de Twitter. De modo que para representar la información en el mapa de la aplicación, se obtenía la ciudad del usuario al que pertenecía el Tweet.
 
 \vspace{5 mm}
 
-De esta forma los tweets que eran de la misma ciudad se solapaban en un mismo punto (las coordenadas centrales de la ciudad). De modo que para que se visualizarán los datos en el mapa sin solapamiento se
-decidió por generar dos números aleatorios, uno para la latitud y otro para la longitud, que son los que delimitarán el marcador en el mapa. Para que estuvieran dentro del rango de los límites de la ciudad
-se llamaba a la ruta \url{https://api.twitter.com/1.1/geo/search.json?query} de la API de twitter con el nombre de la ciudad y obteniendo un objeto JSON con las coordenadas que definen el área
+De esta forma los tweets que eran de la misma ciudad se solapaban en un mismo punto (las coordenadas centrales de la ciudad). De modo que para que se visualizarán los datos en el mapa sin solapamiento se decidió por generar dos números aleatorios, uno para la latitud y otro para la longitud, que son los que delimitarán el marcador en el mapa. Para que estuvieran dentro del rango de los límites de la ciudad se llamaba a la ruta \url{https://api.twitter.com/1.1/geo/search.json?query} de la API de twitter con el nombre de la ciudad y obteniendo un objeto JSON con las coordenadas que definen el área
 de esta.
 
 
-Este método consiguió solucionar el solapamiento de los marcadores en el mapa, para que se vieran todos en el mapa. Pero los datos no se podrían considerar 100\% fiables, ya que no son del todo reales
-debido a dos razones:
-
+Este método consiguió solucionar el solapamiento de los marcadores en el mapa, para que se vieran todos en el mapa. Pero los datos no se podrían considerar 100\% fiables, ya que no son del todo reales debido a dos razones:
 
 \begin{description}
 
-\item [Localización según usuario y no tweet:] Los datos de localización que se muestran en el mapa son los de la ciudad del usuario y no los del tweet. Por tanto
-los tweets de un mismo usuario siempre aparecerán sobre el mismo área de su ciudad independientemente del punto geográfico en el que se encuentre. Por tanto
-para este caso no sería del todo real la representación.
+\item [Localización según usuario y no tweet:] Los datos de localización que se muestran en el mapa son los de la ciudad del usuario y no los del tweet. Por tanto los tweets de un mismo usuario siempre aparecerán sobre el mismo área de su ciudad independientemente del punto geográfico en el que se encuentre. Debido a esto, para este caso, no sería del todo real la representación.
 
-\item [Punto exacto del tweet]: En el caso de que el usuario se encuentre en su ciudad de origen, se representarán los tweets mediante los números aleatorios de latitud
-y longitud para evitar solapamiento entre tweet de la misma ciudad. Con este método se soluciona la visualización de los tweets, pero no se obtiene la precisión cómo
-en el caso de la geolocalización. Esta problemática es menos relevante que la primera, pero también supone una pérdida de fiabilidad en la aplicación.
+\item [Punto exacto del tweet]: En el caso de que el usuario se encuentre en su ciudad de origen, se representarán los tweets mediante los números aleatorios de latitud y longitud para evitar solapamiento entre tweet de la misma ciudad. Con este método se soluciona la visualización de los tweets, pero no se obtiene la precisión cómo en el caso de la geolocalización. Esta problemática es menos relevante que la primera, pero también supone una pérdida de fiabilidad en la aplicación.
 
 \end{description}
 
 
 \section{Mejoras y ampliaciones}
 
-La principal mejora a implementar se encuentra en el rediseño de la arquitectura de la aplicación. Para conseguir una web con más dinamismo e interacción con el usuario se utilizará el
-framework de javascript Angularjs. Además este framework, permite generar un patrón de MVC que permite programar el front-end de la aplicación más modular y tener el código mejor estructurado.
+La principal mejora a implementar se encuentra en el rediseño parcial de la arquitectura de la aplicación. Para conseguir una web con más dinamismo e interacción con el usuario se utilizará el framework de javascript AngularJS. Además este framework, permitirá generar un patrón de MVC que permite programar el front-end de la aplicación más modular y tener el código mejor estructurado.
 
 \vspace{5 mm}
 
 En cuanto a la parte de back-end. Lo primero será terminar los requisitos no finalizados definidos anteriormente y solucionar bugs.
 
-Una ampliación interesante a tener en cuenta podría ser la integración de otras APIs de redes sociales en el proyecto. Ya que puede que en otras redes
-sociales los usuarios utilicen más la opción de localización y por tanto solucionar el problema surgido con Twitter.
+Una ampliación interesante a tener en cuenta podría ser la integración de otras APIs de redes sociales en el proyecto. Ya que puede que en otras redes sociales los usuarios utilicen más la opción de localización y por tanto solucionar el problema surgido con Twitter.
 
 
-Se deberá refactorizar el código de forma que sea escalable para una implementación real, donde la cantidad de información y el número
-usuarios es bastante superior al prototipo funcional.
+Se deberá refactorizar el código de forma que sea escalable para una implementación real, donde la cantidad de información y el número usuarios podrá ser bastante superior al prototipo funcional.
 
 \vspace{5 mm}
 
-También se tendrán que utilizar herramientas de Big Data, ya que actualmente los datos se gestionan desde un cliente de bases de datos \cite{big-data-tools}.
-Existen muchas herramientas de Big Data, y están especializadas en un área, se necesitarán algunas tales como:
+También sería posible integrar la utilización de herramientas de ``Big Data'', ya que actualmente los datos solo quedan almacenados y gestionados desde un cliente de bases de datos \cite{big-data-tools}. De entre las  muchas herramientas de ``Big Data'' aplicables se propone la utilización de algunas como:
 
 
 \begin{itemize}
