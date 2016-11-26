@@ -409,15 +409,42 @@ podemos definir un alias que identifica la ruta aunque este campo es opcional. S
 
 \begin{description}
 
-\item \textbf{Rutas públicas}: estas rutas son las páginas de la aplicación que muestran las páginas públicas accesibles para todo el mundo.
-Estas páginas se corresponden con el menú de navegación de la web. Se generan dinámicamente obteniendo las rutas de la tabla Menu de la base de datos.
-Para que la ruta sea dinámica en Laravel se tiene que definir mediante llaves y dentro un nombre de variable.
+\item \textbf{Rutas públicas}: estas rutas son las páginas de la aplicación que muestran las partes públicas accesibles para todo el mundo.
+La mayoría de estas páginas se corresponden con el menú de navegación de la web y se generan dinámicamente obteniendo las rutas de la tabla Menu de la base de datos.
+Para que la ruta sea dinámica en Laravel se tiene que definir mediante llaves y dentro un nombre de variable. Algunas de las rutas públicas de la
+aplicación:
 
-\item \textbf{Rutas de detalle}: las rutas de detalle son aquellas que tienen tienen como trozo de url padre una ruta de Menu. No todas las rutas de Menu
-tienen que tener una ruta de detalle. Esta ruta se usa en la aplicación para definir las notícias del blog de la aplicación y asi poder concatenar a la
-ruta del blog el nombre de la notícia.
+\begin{itemize}
 
-\item \textbf{Rutas de usuario registrado}: estas rutas son para la vistas de la web de la parte de administrador. También son dinámicas pero para diferenciarlas de las rutas visibles para todos los usuarios se iniciarán con la ruta /admin.
+\item GET /. Landing de la aplicación
+\item GET /map. Mapa con las recetas geoposicionadas.
+\item GET /blog. Blog con los consejos y recetas de cocina
+\item GET /blog/{id}. Detalle de cada post del blog.
+\item POST /login. Ruta para loguearse en la parte de administrador.
+\item POST /comment. Ruta para realizar un comentario en una entrada.
+\item POST /search. Ruta para realizar la búsqueda de tweets en el mapa.
+
+\end{itemize}
+
+\item \textbf{Rutas de usuario registrado}: estas rutas son para la vistas de la web de la parte de administrador. También son dinámicas pero para
+diferenciarlas de las rutas visibles para todos los usuarios se iniciarán con la ruta /admin.
+
+\begin{itemize}
+
+\item GET /logout. Logout de la parte de administrador.
+\item GET /admin/dashboard. Se accede al dashboard principal de la parte de admin.
+\item GET /admin/tweets. Muestra la información relativa a la getión de los Tweets
+\item GET /admin/tweets/{id}. Muestra en detalle un tweet.
+\item POST /admin/tweets/{id}. Modifica un tweet.
+\item GET /admin/posts. Muestra un listado con las entradas del blog.
+\item GET /admin/posts/{id}. Detalle de un post.
+\item POST /admin/posts/{id}. Crea o edita un post.
+\item GET /admin/comments. Listado de comentarios.
+\item GET /admin/comments/{id}. Detalle de un comentario.
+\item POST /admin/comments/{id}. Aprovar o editar comentario.
+
+
+\end{itemize}
 
 \end{description}
 
@@ -542,9 +569,9 @@ Con la clase inicializada, se pueden llamar a las distintas funciones disponible
  el blog al que hemos accedido. Se recogen los comentarios relacionados a la noticia llamando al modelo correspondiente de los comentarios. Y por último
  se devuelve la vista correspondiente con la información asociada, en este caso los datos del blog y los comentarios.
 
- El caso más complejo de lógica es el del mapa de geoposicionamiento de recetas. Para obtener la información de Twitter se utiliza la una API rest
+ Otro caso de lógica es en del mapa de geoposicionamiento de recetas. Para obtener la información de Twitter se utiliza la una API rest
  para Laravel que proporciona varias funciones de búsqueda de información. Una vez integrada la API con el proyecto toda la información se procesa en el
- modelo Tweet. El método básico de este modelo es getTweets(\$query)(figura \ref{getTweets-app}) ya que en este método es donde se hace uso de la API
+ SiteController. El método básico de este modelo es getTweets(\$query)(figura \ref{getTweets-app}) ya que en este método es donde se hace uso de la API
  de Twitter para obtener los resultados de la red social. Para realizar la búsquedase utiliza el método getSearch() de la API a la que se le pasa un
  array con los parámetros de búsqueda:
 
