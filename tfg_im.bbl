@@ -1,78 +1,69 @@
 \begin{thebibliography}{10}
 
 \bibitem{analytics}
-Analytics.
-\newblock \url{https://developers.google.com/analytics/}.
+Documentación de analytics.
+\newblock \url{https://goo.gl/dJBWi2}.
 
 \bibitem{laravel-doc}
 Documentación de laravel.
-\newblock \url{https://laravel.com/docs/5.3}.
+\newblock \url{https://goo.gl/0ihWxe}.
 
 \bibitem{sass-doc}
 Documentación de sass.
-\newblock \url{http://sass-lang.com/documentation/file.SASS_REFERENCE.html}.
+\newblock \url{https://goo.gl/wS8AkC}.
 
 \bibitem{big-data-tools}
-Herramientas de para gestión de big data.
-\newblock
-  \url{https://www.import.io/post/all-the-best-big-data-tools-and-how-to-use-them/}.
+Herramientas de gestión de big data.
+\newblock \url{https://goo.gl/FzrFwV}.
 
 \bibitem{scrum}
-Scrum.
-\newblock \url{https://proyectosagiles.org/que-es-scrum/}.
+Scrum, métodología ágil.
+\newblock \url{https://goo.gl/ixuest}.
 
 \bibitem{SEO}
 Técnicas de posicionamiento sep.
-\newblock
-  \url{http://brunovd.com/75-pasos-para-seo-y-posicionamiento-en-buscadores/},
-  2013.
+\newblock \url{https://goo.gl/KHTUA7}, 2013.
 
 \bibitem{social-media-marketing}
-Targeting de cada red social.
-\newblock \url{http://josefacchin.com/plan-de-social-media-marketing/}, 2015.
+Marketing en redes sociales.
+\newblock \url{https://goo.gl/w3Y1b2}, 2015.
 
 \bibitem{marketing-evolution}
 Evolución del marketing digital.
-\newblock
-  \url{https://www.simplilearn.com/how-social-media-changed-music-festival-scene-article},
-  2016.
+\newblock \url{https://goo.gl/8pZ049}, 2016.
 
 \bibitem{social-targetting}
 Targeting de cada red social.
-\newblock
-  \url{http://www.reasonwhy.es/actualidad/social-media/social-media-marketing-datos-actualizados-del-target-en-cada-plataforma-2015},
-  2016.
+\newblock \url{https://goo.gl/QklCgk}, 2016.
 
 \bibitem{mvc}
 Miguel~Angel Alvarez.
 \newblock Arquitectura mvc.
-\newblock
-  \url{http://librosweb.es/libro/jobeet_1_4/capitulo_4/la_arquitectura_mvc.html}.
+\newblock \url{https://goo.gl/LFw5Ep}.
 
 \bibitem{googleMaps-api}
 Google.
-\newblock Api de google maps.
-\newblock
-  \url{https://developers.google.com/maps/documentation/javascript/3.exp/reference?hl=es-419}.
+\newblock Api de google maps docs.
+\newblock \url{https://goo.gl/G39aMk}.
 
 \bibitem{jquery-doc}
 JQuery.
 \newblock Documentación de jquery.
-\newblock \url{http://api.jquery.com/}.
+\newblock \url{https://goo.gl/RFkHX5}.
 
 \bibitem{eloquent-orm}
 Laravel.
 \newblock Eloquent orm.
-\newblock \url{http://laraveles.com/docs/5.0/eloquent}.
+\newblock \url{https://goo.gl/E0aanb}.
 
 \bibitem{tweet-framework}
 Thujohn.
 \newblock Framework de la api twitter para laravel.
-\newblock \url{https://github.com/thujohn/twitter}.
+\newblock \url{https://goo.gl/srIzPB}.
 
 \bibitem{twitter-api}
 Twitter.
-\newblock Twitter api.
-\newblock \url{https://dev.twitter.com/docs}.
+\newblock Documentación de la api detwitter.
+\newblock \url{https://goo.gl/SxuXms}.
 
 \end{thebibliography}

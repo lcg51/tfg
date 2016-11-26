@@ -26,50 +26,78 @@ Con la finalidad de conseguir una apariencia cuidada e intuitiva del sitio web, 
 
 \vspace{5 mm}
 
-Para maquetar el sitio web con CSS3 de forma más rápida y refactorizable se utiliza \textbf{Sass}. Sass es un lenguaje de preprocesado de CSS, que permite escribir CSS de forma más cómoda, posibilitando declarar variables,mixins, herencia de clases, etc \cite{sass-doc}. Hay diversas formas de utilizar Sass en un proyecto. Mediante un programa como Prepros, mediante un automatizador de tareas como Grunt, o mediante un terminal con los comandos de Sass. Para el proyecto se ha optado usar el terminal para ejecutar Sass, ya que su ejecución es mucho más ligera y consume menos RAM que con programas como Prepros. Para que empezar a usar Sass en el proyecto, dentro de nuestra carpeta ``padre'' donde se encuentre el css, se crea una carpeta sass donde se incluirán todos los ficheros .scss. Con el terminal situado en la carpeta padre se escribe sass --watch sass(nombre de la carpeta donde se encuentran los ficheros .scss). Finalmente, al compilarlo, se generará un fichero style.css que será la hoja de estilo a usar.
+Para maquetar el sitio web con CSS3 de forma más rápida y refactorizable se utiliza \textbf{Sass}. Sass es un lenguaje de preprocesado de CSS, que permite
+escribir CSS de forma más cómoda, posibilitando declarar variables,mixins, herencia de clases, etc \cite{sass-doc}. Hay diversas formas de utilizar Sass
+en un proyecto. Mediante un programa como Prepros, mediante un automatizador de tareas como Grunt, o mediante un terminal con los comandos de Sass.
+Para el proyecto se ha optado usar el terminal para ejecutarlo, ya que es mucho más ligera y consume menos RAM que con programas como Prepros.
+Para que empezar a usar Sass en el proyecto, dentro de nuestra carpeta ``padre'' donde se encuentre el CSS, se crea una carpeta Sass donde se incluirán
+todos los ficheros .scss. Con el terminal situado en la carpeta padre se escribe sass --watch sass(nombre de la carpeta donde se encuentran los ficheros
+.scss). Finalmente, al compilarlo, se generará un fichero style.css que será la hoja de estilo a usar.
 
 \vspace{5 mm}
 
-Para añadir el dinamismo a la web, se ha optado por utilizar un framework de Javascript como \textbf{JQuery} que permite simplificar la manera de interactuar con los elementos HTML mediante funciones propias. También permite funciones propias para animaciones y peticiones HTTP. Además, JQuery es software libre \cite{jquery-doc}.
+Para añadir el dinamismo a la web, se ha optado por utilizar un framework de Javascript como \textbf{JQuery} que permite simplificar la manera de
+interactuar con los elementos HTML mediante funciones propias. También permite funciones propias para animaciones y peticiones HTTP. Además, JQuery
+es software libre \cite{jquery-doc}.
 
 \vspace{5 mm}
 
-Como última tecnología Front-End se utiliza la API de Google Maps, indispensable para el sitio web ya que la principal proposición de valor de la aplicación es la geolocalización de recetas, y para su representación necesitamos la API de Google.
+Como última tecnología Front-End se utiliza la API de Google Maps, indispensable para el sitio web ya que la principal proposición de valor de la
+aplicación es la geolocalización de recetas, y para su representación necesitamos la API de Google.
 
 
 \subsection{Back-End(Servidor)}
 
-Después de barajar diversos lenguajes para desarrollar el back-end de la aplicación, finalmente se eligió PHP. Además de ser el lenguaje más utlizado para el desarrollo web, es uno de los lenguajes más potentes y flexibles, pudiendo ser utilizado en la mayoría de los servidores web y sistemas operativos. Además PHP esta publicado bajo licencia de software libre, por lo que no supone ningun coste.
+Después de barajar diversos lenguajes para desarrollar el back-end de la aplicación, finalmente se eligió PHP. Además de ser el lenguaje más utlizado
+para el desarrollo web, es uno de los lenguajes más potentes y flexibles, pudiendo ser utilizado en la mayoría de los servidores web y sistemas operativos.
+Además PHP esta publicado bajo licencia de software libre, por lo que no supone ningun coste.
 
 
 \vspace{5 mm}
 
-Para montar la arquitectura MVC en la aplicación, se utiliza el framwework Laravel \cite{laravel-doc}. Laravel agiliza el desarrollo de las aplicaciones web, permitiendo multitud de funcionalidades. Con este framework, desarrollado de forma elegante y simple se evita la creación de código espagueti, facilitando su refactorización y/o su modificación. Algunas de las características de Laravel:
+Para montar la arquitectura MVC en la aplicación, se utiliza el framwework Laravel \cite{laravel-doc}. Laravel agiliza el desarrollo de las aplicaciones
+web, permitiendo multitud de funcionalidades. Con este framework, desarrollado de forma elegante y simple se evita la creación de código espagueti,
+facilitando su refactorización y/o su modificación. Algunas de las características de Laravel:
 
 
 \begin{itemize}
 
-\item \textbf{Plantillas}. Laravel utiliza platillas Blade. Blade permite tener un sitema de vistas modular de forma que se tenga que repetir la menor cantidad de código. Para ello se genera una plantilla base o layout, que es donde se representa la estructura de la web y se volcará el contenido para cada página. Mediante la directiva include(nombre\_template), se podrá incluir una vista parcial de contenido HTML, esta directiva se utiliza para contenido que no cambia, por ejemplo para incluir la cabecera o el footer de la aplicación. Luego mediante la sentencia yield(nombre\_template), permitiremos crear una futura sección en el HTML que se definirá en las vistas que son heredadas de este template. Mediante la sentencia extends(nombre\_template) le diremos a Laravel que vistas se van a usar como futuras secciones. Con estas sentencias se conseguirá volcar el contenido especifíco para cada página de la web duplicando el menor numero de codigo HTML y de forma más modular.
+\item \textbf{Plantillas}. Laravel utiliza platillas Blade. Blade permite tener un sitema de vistas modular de forma que se tenga que repetir la menor
+cantidad de código. Para ello se genera una plantilla base o layout, que es donde se representa la estructura de la web y se volcará el contenido para
+cada página. Mediante la directiva include(nombre\_template), se podrá incluir una vista parcial de contenido HTML, esta directiva se utiliza para
+contenido que no cambia, por ejemplo para incluir la cabecera o el footer de la aplicación. Luego mediante la sentencia yield(nombre\_template),
+permitiremos crear una futura sección en el HTML que se definirá en las vistas que son heredadas de este template. Mediante la sentencia
+extends(nombre\_template) le diremos a Laravel que vistas se van a usar como futuras secciones. Con estas sentencias se conseguirá volcar el
+contenido especifíco para cada página de la web duplicando el menor número de codigo HTML y de forma más modular.
 
-\item \textbf{ORM}. Es una implementación de registro activo para trabajar con la base de datos de forma que cada tabla de la base de datos tiene un Modelo correspondiente asociado con el mismo nombre. Esta implementación permite también métodos predefinidos para llamar a la base de datos como: save(),create(),get(),find() \cite{eloquent-orm}.
+\item \textbf{ORM}. Es una implementación de registro activo para trabajar con la base de datos de forma que cada tabla de la base de datos tiene un
+Modelo correspondiente asociado con el mismo nombre. Esta implementación permite también métodos predefinidos para llamar a la base de datos como:
+save(),create(),get(),find() \cite{eloquent-orm}.
 
-\item \textbf{Caché}. Laravel, cuenta con un robusto sistema de caché, el cual se puede ajustar, para que se produzca una carga rápida de la web y generar una mejor experiencia al usuario.
+\item \textbf{Caché}. Laravel, cuenta con un robusto sistema de caché, el cual se puede ajustar, para que se produzca una carga rápida de la web y
+generar una mejor experiencia al usuario.
 
-\item \textbf{MiddleWare}. Usa HTTP Middleware, que proporcionan un correcto mecanismo para filtrar las peticiones en la aplicación. Un ejemplo de middleware que incluye laravel, es el usado para verificar si el usuario esta autenticado en la aplicación.
+\item \textbf{MiddleWare}. Usa HTTP Middleware, que proporcionan un correcto mecanismo para filtrar las peticiones en la aplicación. Un ejemplo de
+middleware que incluye Laravel, es el usado para verificar si el usuario esta autenticado en la aplicación.
 
 \end{itemize}
 
 \vspace{5 mm}
 
-Para la base de datos, se utiliza el sistema de gestión relacional MySQL, ya que es uno de los sistemas más utilizados y con mayor documentación para el desarrollo web. Además, de la perfecta integración con Laravel.
+Para la base de datos, se utiliza el sistema de gestión relacional MySQL, ya que es uno de los sistemas más utilizados y con mayor documentación para el
+desarrollo web. Además, de la perfecta integración con Laravel.
 
 \subsection{Estructura de la aplicación}
 
-Para comenzar a desarrollar el proyecto, primero se debe instalar Laravel. Para ello se utiliza un manejador de dependencias como composer que nos permite instalar los paquetes y librerías de forma automática sin la necesidad de hacerlo de forma manual. Mediante nuestro terminal escribimos el siguiente código para instalar composer en el ordenador: curl -sS https://getcomposer.org/installer | php. Una vez instalado, para generar un proyecto con laravel escribimos en el terminal el siguiente comando: composer create-project laravel/laravel nombre-proyecto.
+Para comenzar a desarrollar el proyecto, primero se debe instalar Laravel. Para ello se utiliza un manejador de dependencias como composer que nos
+permite instalar los paquetes y librerías de forma automática sin la necesidad de hacerlo de forma manual. Mediante nuestro terminal escribimos el
+siguiente código para instalar composer en el ordenador: curl -sS https://getcomposer.org/installer | php. Una vez instalado, para
+generar un proyecto con Laravel escribimos en el terminal el siguiente comando: composer create-project laravel/laravel nombre-proyecto.
 
 \vspace{5 mm}
 
-Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro composer ha generado una estructura de directorios que es como organiza Laravel el código de la aplicación. A continuación se detallan brevemente cada una de ellas:
+Si vamos a la carpeta raíz con la que creamos el proyecto se observa que dentro composer ha generado una estructura de directorios que es como organiza
+Laravel el código de la aplicación. A continuación se detallan brevemente cada una de ellas:
 
 \begin{itemize}
 
@@ -98,7 +126,11 @@ Si vamos a la carpeta raiz con la que creamos el proyecto se observa que dentro 
 
 \textbf{Estructura Sass}
 
-Como se comenta previamente, se utiliza Sass para maquetar la web. Este lenguaje de preprocesado de Css permite organizar el ccs y hacerlo más modular de forma que se pueden generar varios ficheros .scss y compilarlos en un único fichero css que es el que se utilizará en la aplicación. Para ello se usa una carpeta sass que se incluye en la carpeta public del proyecto donde se incluyen todos los directorios con los ficheros sass. Una de las formas de refactorizar más el código Sass, es generar un fichero .scss para cada página web de la aplicación de modo que en futuros cambios resulte todavía más sencillo modificar el estilo. La estructura Sass es al siguiente:
+Como se comenta previamente, se utiliza Sass para maquetar la web. Este lenguaje de preprocesado de CSS permite organizarlo y hacerlo más modular de
+forma que se pueden generar varios ficheros .scss y compilarlos en un único fichero CSS que es el que se utilizará en la aplicación. Para ello se usa
+una carpeta sass que se incluye en la carpeta public del proyecto donde se incluyen todos los directorios con los ficheros .scss. Una de las formas de
+refactorizar más el código Sass, es generar un fichero .scss para cada página web de la aplicación de modo que en futuros cambios resulte todavía más
+sencillo modificar el estilo. La estructura Sass es al siguiente:
 
 
 \begin{itemize}

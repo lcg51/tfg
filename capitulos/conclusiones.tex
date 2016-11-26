@@ -9,10 +9,10 @@ satisfactoria.
 Otro de los objetivos conseguidos, ha sido conocer el uso de las APIs de Google Maps y Twitter a fondo para luego poder aplicarlas correctamente
 en la aplicación.
 
-Respecto a los requisitos definidos, se han podido implementar la mayoría de los requisitos exceptuando FS-U-01,FB-A-03. Para el caso de la valoracion de las
-entradas del blog(FS-U-01) se ha dejado para el siguiente sprint debido a ser una funcionalidad no básica de la aplicación. Para el requisito FB-A-03
-de mostrar los comentarios asociados a la entrada del blog se ha tenido que posponer para un siguiente sprint, debido a los requisitos FB-U-04 y FB-A-05 correspondientes
-al mapa de Tweets y su parte de administración han supuesto realizar mas iteraciones de las previstas. Para el caso FB-A-03 de gestionar el contenido de la entrada, se ha
+Respecto a los requisitos definidos, se han podido implementar la mayoría de los requisitos exceptuando \textbf{FS-U-01},\textbf{FB-A-03}. Para el caso de la valoracion de las
+entradas del blog(\textbf{FS-U-01}) se ha dejado para el siguiente sprint debido a ser una funcionalidad no básica de la aplicación. Para el requisito \textbf{FB-A-03}
+de mostrar los comentarios asociados a la entrada del blog se ha tenido que posponer para un siguiente sprint, debido a los requisitos \textbf{FB-U-04} y \textbf{FB-A-05} correspondientes
+al mapa de Tweets y su parte de administración han supuesto realizar mas iteraciones de las previstas. Para el caso \textbf{FB-A-03} de gestionar el contenido de la entrada, se ha
 podido completar pero con la existencia de un fallo a la hora de subir imágenes.
 
 
@@ -40,7 +40,7 @@ De modo que para representar la información en el mapa de la aplicación, se ob
 
 De esta forma los tweets que eran de la misma ciudad se solapaban en un mismo punto (las coordenadas centrales de la ciudad). De modo que para que se visualizarán los datos en el mapa sin solapamiento se
 decidió por generar dos números aleatorios, uno para la latitud y otro para la longitud, que son los que delimitarán el marcador en el mapa. Para que estuvieran dentro del rango de los límites de la ciudad
-se llamaba a la ruta \emph{https://api.twitter.com/1.1/geo/search.json?query} de la API de twitter con el nombre de la ciudad y obteniendo un objeto JSON con las coordenadas que definen el área
+se llamaba a la ruta \url{https://api.twitter.com/1.1/geo/search.json?query} de la API de twitter con el nombre de la ciudad y obteniendo un objeto JSON con las coordenadas que definen el área
 de esta.
 
 
@@ -71,7 +71,7 @@ framework de javascript Angularjs. Además este framework, permite generar un pa
 En cuanto a la parte de back-end. Lo primero será terminar los requisitos no finalizados definidos anteriormente y solucionar bugs.
 
 Una ampliación interesante a tener en cuenta podría ser la integración de otras APIs de redes sociales en el proyecto. Ya que puede que en otras redes
-sociales los usuarios utilicen más la opción de localización y por tanto solucionar el problema surgido con Twitter. 
+sociales los usuarios utilicen más la opción de localización y por tanto solucionar el problema surgido con Twitter.
 
 
 Se deberá refactorizar el código de forma que sea escalable para una implementación real, donde la cantidad de información y el número

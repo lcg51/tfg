@@ -27,6 +27,10 @@
 \definecolor{portada}{RGB}{239,206,53}
 \definecolor{base}{RGB}{35,31,32}
 \usepackage{pdfpages}
+\usepackage{breakcites}
+\usepackage{hyperref}
+\usepackage[hyphenbreaks]
+{breakurl}
 
 
 %Instrucciones para poder escribir código y mostrarlo de manera elegante:
@@ -166,7 +170,7 @@ literate={á}{{\'a}}1 {Á}{{\'A}}1 {é}{{\'e}}1 {É}{{\'e}}1 {í}{{\'i}}1  {Í}{
 }
 \makeatother
 
-\usepackage[pdfborder={000}]{hyperref} %referencia
+%\usepackage[pdfborder={000}]{hyperref} %referencia
 \hypersetup{
 pdfauthor = {\myName (email (en) ua (punto) es)},
 pdftitle = {\myTitle},

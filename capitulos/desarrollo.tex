@@ -33,8 +33,8 @@ Para el desarrollo de la aplicación se llevará a cabo previamente un análisis
 
 \subsection{Twitter}
 
-Twitter es la red social de \textquote{microblogging} más conocida actualmente. Esta red social tiene más de 500 millones de usuarios, generando un número aproximado de 65 millones de tweets al dia.
-Es por ello que se optó por Twitter, ya que es una gran fuente de información en tiempo real.
+Twitter es la red social de \textquote{microblogging} más conocida actualmente. Esta red social tiene más de 500 millones de usuarios, generando un número
+aproximado de 65 millones de tweets al dia.
 
 \vspace{5 mm}
 
@@ -52,7 +52,7 @@ en la red social \cite{twitter-api}.
 \begin{figure}
 \begin{center}
 \includegraphics[width=16cm]{imagenes/estructura-tweet.png}
-\caption{Un tweet}
+\caption{Estructura de un tweet}
 \label{tweet}
 \end{center}
 \end{figure}
@@ -115,9 +115,9 @@ La REST API de Twitter nos proporciona los datos en formato JSON listos para ser
 
 \item \textbf{friends\_count}. Número de personas a las que sigue el usuario.
 
-\item \textbf{protected}. Indica si la cuenta del usuario esta protegida, es decir que sus Tweets solo pueden ser vistos con el consentimiento del usuario.
+\item \textbf{protected}. Indica si la cuenta del usuario está protegida, es decir que sus Tweets solo pueden ser vistos con el consentimiento del usuario.
 
-\item \textbf{geo\_enabled}. Indica si el usuario a activado la posibilidad de geoetiquetar sus Tweets, es decir, agregar información geográfica en los metadatos del tweet.
+\item \textbf{geo\_enabled}. Indica si el usuario ha activado la posibilidad de geoetiquetar sus Tweets, es decir, agregar información geográfica en los metadatos del tweet.
 
 
 \end{itemize}
@@ -294,7 +294,7 @@ Una vez seleccionado la característica y su correspondiente elemento que se qui
 
 \textbf{Marcadores}
 
-Los marcadores son unos de los elementos más utilizados y relevantes de la API de Google ya que representan una ubicación exacta en un punto del mapa. Los marcadores son objetos del tipo \textquote{Marker} y se incializan mediante el constructor google.maps.Marker. Al construir un marcador un marcador se especifican sus propiedades iniciales:
+Los marcadores son unos de los elementos más utilizados y relevantes de la API de Google ya que representan una ubicación exacta en un punto del mapa. Los marcadores son objetos del tipo \textquote{Marker} y se incializan mediante el constructor google.maps.Marker. Al construir un marcador se especifican sus propiedades iniciales:
 
 \begin{itemize}
 
@@ -353,7 +353,7 @@ El resultado de de la geocodificación es un objeto que contiene varios elemento
 
 \end{itemize}
 
-\item postcode\_localities[]: array que contiene todas las localidades contenidas en el codigo postal.
+\item postcode\_localities[]: array que contiene todas las localidades contenidas en el código postal.
 
 \end{itemize}
 
@@ -404,7 +404,7 @@ Requisitos lógicos & Igual que en el requisito FB-U-01 \\ \hline
 Identificador & FB-U-03 \\ \hline
 Actor involucrado & Usuario \\ \hline
 Nombre & Comentar Entrada\\ \hline
-Descripción & El usuario podrá añadir un comentario opinando sobre la noticia.  \\ \hline
+Descripción & El usuario podrá añadir un comentario opinando sobre la notícia.  \\ \hline
 Requisitos lógicos & Para los usuarios no registrados será necesario ademas del comentario añadir un nombre de usuario. \\ \hline
 \end{tabular}
 \end{table}
@@ -538,7 +538,7 @@ Descripción & El administrador cerrará su sesión, mediante un logout que enco
 \end{tabular}
 \end{table}
 
-
+\vspace{5 mm}
 
 
 \subsection{Requisitos no funcionales}
@@ -559,29 +559,32 @@ Descripción & El administrador cerrará su sesión, mediante un logout que enco
 
 \section{Casos de Uso}
 
-\begin{landscape}
+
 \begin{figure}
 \begin{center}
-\includegraphics[width=16cm]{imagenes/casos-de-uso.png}
+\includegraphics[width=1.0\textwidth]{imagenes/casos-de-uso.png}
 \caption{Casos de uso generales para NjoyCooking}
 \label{casos_uso}
 \end{center}
 \end{figure}
-\end{landscape}
 
-Para mostrar las actividades se utilizará una representación mediante casos de uso. Los casos de uso se han segmentado para cada rol de la aplicación. En la figura \ref{casos_uso}  se representan los casos de uso generales para cada rol que se explicarán a continuación:
 
-\vspace{5 mm}
-
-El \textbf{usuario no registrado}. Es el rol por defecto en la aplicación cuando el usuario no tiene ninguna acreditación en la web y carece de permisos. El usuario no registrado podrá solicitar los datos de la aplicación para visualizar el contenido. Por ejemplo podrá solicitar los datos del mapa de tweets o del blog. Tambíen podrá filtrar la información de los datos solicitados, por palabras clave o categorías. Este usuario podrá también publicar comentarios en el blog.
+Para mostrar las actividades se utilizará una representación mediante casos de uso. Los casos de uso se han segmentado para cada rol de la aplicación.
+En la figura \ref{casos_uso}  se representan los casos de uso generales para cada rol que se explicarán a continuación:
 
 \vspace{5 mm}
 
-El \textbf{colaborador}. Este rol, además de poder realizar las mismas funciones que el usuario no registrado, tiene unos permisos añadidos. Este usuario tiene la función extra de publicar contenido en el blog. Un usuario colaborador, podrá crear noticias que luego aparecerán en el blog. Podrá actualizar las noticias, pero únicamente aquellas que hayan sido creadas por él. No tendrá permisos para borrar contenido del blog.
+El \textbf{usuario no registrado}. Es el rol por defecto en la aplicación cuando el usuario no tiene ninguna acreditación en la web y carece de permisos.
+El usuario no registrado podrá solicitar los datos de la aplicación para visualizar el contenido. Por ejemplo podrá solicitar los datos del mapa de tweets o
+del blog. Tambíen podrá filtrar la información de los datos solicitados, por palabras clave o categorías. Este usuario podrá también publicar comentarios en el blog.
 
 \vspace{5 mm}
 
-Por último esta el \textbf{administrador}. El rol de administrador, es el de superusuario, ya que posee todos los permisos. El administrador es el encargado de gestionar todo el contenido de la web. Dentro del contenido se encuentran los tres principales modelos de datos. El primer modelo de datos son los \textquote{Tweets}. El administrador se encargará de gestionar la frecuencia con la que se actualiza el mapa de tweets para tener representada la información actualizada. Otra función será modificar la recolección de tweets en base a una palabra clave, que el administrador introducirá manualmente. El siguiente modelo son las noticias, el administrador podrá generar contenido en el blog, creando o borrando cualquier tipo de contenido, tanto propio como de un colaborador. El administrador también podrá moderar los comentarios de las entradas del blog. Finalmente el último modelo de datos serán los usuarios. El administrador gestionará los datos de los usuarios de la aplicación, siendo el encargado tanto de dar de alta a los colaboradores generando un usuario y contraseña como darlos de baja. Toda la gestión del contenido implica crear, borrar o actualizar información de forma que se ha representado mediante el caso de uso CBA.
+El \textbf{colaborador}. Este rol, además de poder realizar las mismas funciones que el usuario no registrado, tiene unos permisos añadidos. Este usuario tiene la función extra de publicar contenido en el blog. Un usuario colaborador, podrá crear notícias que luego aparecerán en el blog. Podrá actualizar las notícias, pero únicamente aquellas que hayan sido creadas por él. No tendrá permisos para borrar contenido del blog.
+
+\vspace{5 mm}
+
+Por último esta el \textbf{administrador}. El rol de administrador, es el de superusuario, ya que posee todos los permisos. El administrador es el encargado de gestionar todo el contenido de la web. Dentro del contenido se encuentran los tres principales modelos de datos. El primer modelo de datos son los \textquote{Tweets}. El administrador se encargará de gestionar la frecuencia con la que se actualiza el mapa de tweets para tener representada la información actualizada. Otra función será modificar la recolección de tweets en base a una palabra clave, que el administrador introducirá manualmente. El siguiente modelo son las notícias, el administrador podrá generar contenido en el blog, creando o borrando cualquier tipo de contenido, tanto propio como de un colaborador. El administrador también podrá moderar los comentarios de las entradas del blog. Finalmente el último modelo de datos serán los usuarios. El administrador gestionará los datos de los usuarios de la aplicación, siendo el encargado tanto de dar de alta a los colaboradores generando un usuario y contraseña como darlos de baja. Toda la gestión del contenido implica crear, borrar o actualizar información de forma que se ha representado mediante el caso de uso CBA.
 
 
 \section{Diseño de Arquitectura}
@@ -613,12 +616,20 @@ La rama de ingenieria del software se preocupa por crear productos robustos y de
 
 \vspace{5 mm}
 
-Crear una aplicación web basada en la arquitectura MVC nos ofrece ciertas ventajas. Por ejemplo, se puede dividir la lógica del negocio del diseño del sistema, haciendo el proyecto más escalable. Otra ventaja, es la existencia  de muchos frameworks basados en MVC como Laravel o Yii Framework, que permiten facilitar el trabajo de los desarrolladores. La implementación de URLs amigables, el control del uso de la memoria caché o el control de los recursos del servidor son tres de las principales ventajas de usar un framework MVC.
+Crear una aplicación web basada en la arquitectura MVC nos ofrece ciertas ventajas. Por ejemplo, se puede dividir la lógica del negocio, del diseño
+del sistema haciendo el proyecto más escalable. Otra ventaja, es la existencia  de muchos frameworks basados en MVC como Laravel o Yii Framework
+ que permiten facilitar el trabajo de los desarrolladores. La implementación de URLs amigables, el control del uso de la memoria caché o el control de
+los recursos del servidor son tres de las principales ventajas de usar un framework MVC.
 
 
 \section{Modelo de Datos}
 
-Como se ha comentado en el apartado anterior, el modelo de datos elegido para almacenar la información es el modelo relacional MySQL. El modelo relacional se fundamenta en el uso de relaciones, estas relaciones se pueden considerar como un conjunto de datos. Para mostrar una forma más visual esas relaciones se conceptualizan en forma de tablas, que estan formadas por registros y campos. En la figura \ref{tablas_bd} se representa mediante un modelo entidad-relacion los conjuntos de datos para la aplicación. Todas las tablas contienen un campo Id que es el identificador de cada tabla(clave primaria) y tienen la clausula de auto-incremento por lo que cada vez que se agregue una fila, MySQL generará otro identificador incrementandolo en 1 valor.
+Como se ha comentado en el apartado anterior, el modelo de datos elegido para almacenar la información es el modelo relacional MySQL.
+El modelo relacional se fundamenta en el uso de relaciones, las relaciones se pueden considerar como un conjunto de datos.
+Para mostrar una forma más visual esas relaciones se conceptualizan en forma de tablas, que estan formadas por registros y campos. En la figura \ref{tablas_bd}
+se representa mediante un modelo entidad-relación los conjuntos de datos para la aplicación. Todas las tablas contienen un campo Id que es el identificador de
+cada tabla(clave primaria) y tienen la clausula de auto-incremento por lo que cada vez que se agregue una fila, MySQL generará otro identificador
+incrementando en 1 valor más al anterior.
 
 
 \begin{figure}
@@ -640,7 +651,7 @@ Como se ha comentado en el apartado anterior, el modelo de datos elegido para al
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.7]{imagenes/Usuarios.png}
-\caption{}
+\caption{Relación de la tabla de Usuarios con la de Roles}
 \label{users_bd}
 \end{center}
 \end{figure}
@@ -648,7 +659,7 @@ Como se ha comentado en el apartado anterior, el modelo de datos elegido para al
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.7]{imagenes/blog.png}
-\caption{Tablas para el blog}
+\caption{Relación de la tabla de Blog con las Categorías y Comentarios}
 \label{blog_bd}
 \end{center}
 \end{figure}
@@ -656,7 +667,7 @@ Como se ha comentado en el apartado anterior, el modelo de datos elegido para al
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.7]{imagenes/map.png}
-\caption{Tablas para el mapa}
+\caption{Relación de la tabla de Tweets con lo Tags}
 \label{map_bd}
 \end{center}
 \end{figure}
@@ -664,7 +675,9 @@ Como se ha comentado en el apartado anterior, el modelo de datos elegido para al
 
 \vspace{5 mm}
 
-La primera tabla, y más básica, es la tabla de \textquote{Menus}, en ella encontramos todos los datos correspondientes al menú de navegación de la aplicación,esta tabla esta pensada para que el menú sea más dinamico y se pueda gestionar de forma más fácil sin modificar código. Como se observa en la figura \ref{menu_bd}, la tabla de \textquote{Menus} se compone de los siguientes elementos:
+La primera tabla, y más básica, es la tabla de \textquote{Menus}, en ella encontramos todos los datos correspondientes al menú de navegación de la
+aplicación,esta tabla esta pensada para que el menú sea más dinámico y se pueda gestionar de forma más fácil sin modificar código. Como se observa en la
+figura \ref{menu_bd}, la tabla de \textquote{Menus} se compone de los siguientes elementos:
 
 \begin{itemize}
 
@@ -697,19 +710,19 @@ La tabla de Rol únicamente contiene el campo identificador y el tipo que hace r
 
 \vspace{5 mm}
 
-Para la página del Blog \ref{blog_bd} tenemos el esquema relacional con tres tablas: Blog,Categoría y Comentario. Cada fila de la tabla pertenece a una noticia del blog de la aplicación, cada noticia puede tener uno o más comentarios y ese comentario podrá aparecer solo en una noticia. Por tanto para cumplir esas condiciones se generan dos tablas(Blog y Comentario) con una relación uno a muchos. Las noticias pueden tener categorías, en el caso de la aplicación una noticía puede pertenecer a una categoría o ninguna, por tanto se añade una relación muchos a uno de la tabla Categoría a Blog. Las tuplas para la tabla de Blog son las siguientes:
+Para la página del Blog \ref{blog_bd} tenemos el esquema relacional con tres tablas: Blog,Categoría y Comentario. Cada fila de la tabla pertenece a una notícia del blog de la aplicación, cada notícia puede tener uno o más comentarios y ese comentario podrá aparecer solo en una notícia. Por tanto para cumplir esas condiciones se generan dos tablas(Blog y Comentario) con una relación uno a muchos. Las notícias pueden tener categorías, en el caso de la aplicación una noticía puede pertenecer a una categoría o ninguna, por tanto se añade una relación muchos a uno de la tabla Categoría a Blog. Las tuplas para la tabla de Blog son las siguientes:
 
 
 \begin{itemize}
 
-\item \textbf{Título}. Título de la noticia.
-\item \textbf{Resumen}. Campo de texto para mostrar un resumen en el listado de noticias.
-\item \textbf{Contenido}. Contenido de la noticia.
-\item \textbf{Fecha}. Campo de Fecha con la creación de la noticia.
-\item \textbf{Url}. Url amigable que aparece en la ruta de la noticia.
-\item \textbf{Imagen}. Campo de texto para la imagen principal de la noticia.
-\item \textbf{Quitar}. Campo quitar, para poder dejar de visualizar la noticia sin necesidad de borrarla de la base de datos.
-\item \textbf{CategoríaId}. Clave ajena. Id de la categoría a la que pertenece la noticia.
+\item \textbf{Título}. Título de la notícia.
+\item \textbf{Resumen}. Campo de texto para mostrar un resumen en el listado de notícias.
+\item \textbf{Contenido}. Contenido de la notícia.
+\item \textbf{Fecha}. Campo de Fecha con la creación de la notícia.
+\item \textbf{Url}. Url amigable que aparece en la ruta de la notícia.
+\item \textbf{Imagen}. Campo de texto para la imagen principal de la notícia.
+\item \textbf{Quitar}. Campo quitar, para poder dejar de visualizar la notícia sin necesidad de borrarla de la base de datos.
+\item \textbf{CategoríaId}. Clave ajena. Id de la categoría a la que pertenece la notícia.
 
 \end{itemize}
 
@@ -719,10 +732,10 @@ Tuplas para la tabla de comentarios:
 
 \begin{itemize}
 
-\item \textbf{Usuario}. Usuario que comenta la noticia.
-\item \textbf{Comentario}. Campo de texto con el comentario sobre la noticia.
+\item \textbf{Usuario}. Usuario que comenta la notícia.
+\item \textbf{Comentario}. Campo de texto con el comentario sobre la notícia.
 \item \textbf{Apto}. Campo para moderar el comentario y que sea valido para mostrar. Por defecto vale 1, no se muestra, cuando se cambia a cero se valida y se muestra.
-\item \textbf{BlogId}. Clave ajena con el Id de la noticia al que pertence el comentario.
+\item \textbf{BlogId}. Clave ajena con el Id de la notícia al que pertence el comentario.
 
 
 \end{itemize}
