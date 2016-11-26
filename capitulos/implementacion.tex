@@ -406,16 +406,17 @@ Para definir las rutas, Laravel proporciona el fichero routes.php dentro del dir
 
 \item \textbf{Ruta Principal}: la ruta para la pagina principal donde se mostrará la landing se define mediante el caracter "/". a esta página se accederá cuando el usuario acceda al dominio de la aplicación.
 
-\item \textbf{Rutas de Menu}: estas rutas son las páginas de la aplicación que pertenecen al modelo de datos Menu que se corresponde con el menú de navegación de la web. Se generan dinamicamente comprobando que la ruta obtenida se corresponde con la ruta definida en el modelo. Para que la ruta sea dinamica en Laravel se tiene que definir mediante llaves y dentro un nombre de variable.
+\item \textbf{Rutas de Menu}: estas rutas son las páginas de la aplicación que pertenecen al modelo de datos Menu que se corresponde con el menú de navegación de la web. Se generan dinamicamente comprobando que la ruta obtenida se corresponde con la ruta definida en el modelo. Para que la ruta sea dinámica en Laravel se tiene que definir mediante llaves y dentro un nombre de variable.
 
-\item \textbf{Rutas de detalle}: las rutas de detalle son aquellas que tienen tienen como trozo de url padre una ruta de Menu. No todas las rutas de Menu tienen que tener una ruta de detalle. Esta ruta se usa en la aplicación para definir las noticias del blog de la aplicación y asi poder concatenar a la ruta del blog el nombre de la noticia.
+\item \textbf{Rutas de detalle}: las rutas de detalle son aquellas que tienen tienen como trozo de url padre una ruta de Menu. No todas las rutas de Menu tienen que tener una ruta de detalle. Esta ruta se usa en la aplicación para definir las notícias del blog de la aplicación y asi poder concatenar a la ruta del blog el nombre de la notícia.
 
 \item \textbf{Rutas de usuario registrado}: estas rutas son para la vistas de la web de la parte de administrador. También son dinámicas pero para diferenciarlas de las rutas visibles para todos los usuarios se iniciarán con la ruta /admin.
 
 \end{itemize}
 
 
-Todas estas rutas se manejan en el controlador principal de la aplicación(Controller). Se comprueba que las rutas introducidas sean las correctas y en el caso de no serlo se redirige a la página de error 404 de la web. Para renderizar la vista correspondiente, se instancias de servicios dentro del Controller principal. Estos servicios contienen las acciones que renderizan la vista asociada para cada url y un constructor inicial que guarda los metadatos para cada vista.
+Todas estas rutas se manejan en el controlador principal de la aplicación(Controller). Se comprueba que las rutas introducidas sean las correctas y en el caso de no serlo se redirige a la página de error 404 de la web. Para renderizar la vista correspondiente, se instancias de servicios dentro del Controller principal.
+Estos servicios contienen las acciones que renderizan la vista asociada para cada url y un constructor inicial que guarda los metadatos para cada vista.
 
 \vspace{5 mm}
 
@@ -515,12 +516,16 @@ Se comprueba que el \$slug se encuentre en la tabla de menú de la base de datos
 \vspace{5 mm}
 
 El login de la aplicación se gestiona también mediante el controlador principal. En el método doLoging() se realiza la identificación del usuario en la
-aplicación. Como se observa en \ref{controller-login} inicialmente se validan los datos que el usuario ha introducido. En el caso de que la validación falle, devuelve al usuario a la página de login con los errores pertinentes. Si las credenciales del usuario son correctas se le redirige a la ruta de inicio del administrador.
+aplicación. Como se observa en \ref{controller-login} inicialmente se validan los datos que el usuario ha introducido. En el caso de que la validación falle,
+devuelve al usuario a la página de login con los errores pertinentes. Si las credenciales del usuario son correctas se le redirige a la ruta de inicio del
+administrador.
 
 \vspace{5 mm}
 
-Las instancias de del siteController y el adminController que se usan en el controller, llaman a las diferentes funciones que gestionan los datos a
-mostrar para cada vista. Antes de llamar a cualquier función se inicializa la clase mediante el constructor. Un ejemplo del constructor sería \ref{site-construct} donde se observa el código al inicalizar el siteController. En el constructor obtenemos el valor de la url en la que estamos y se obtienen los metas de la página  para introducirlos en el Html. También se guardan los datos de la página.
+Las instancias de la clase siteController y el adminController que se usan en el controlador principal, llaman a las diferentes funciones que gestionan la lógica
+para cada vista correspondiente con la parte pública y privada respectivamente. Antes de llamar a cualquier función se inicializa la clase mediante el constructor.
+Un ejemplo del constructor sería \ref{site-construct} donde se observa el código al inicalizar el siteController. En el constructor obtenemos
+el valor de la url en la que estamos y se obtienen los metas de la página  para introducirlos en el HTML. También se guardan los datos de la página.
 
 \vspace{5 mm}
 
