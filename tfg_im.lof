@@ -28,11 +28,11 @@
 \contentsline {figure}{\numberline {\relax 5.11}{\ignorespaces Rutas de la aplicaci\IeC {\'o}n}}{67}{figure.5.11}
 \contentsline {figure}{\numberline {\relax 5.12}{\ignorespaces Funci\IeC {\'o}n: recuperaci\IeC {\'o}n de datos de geolocalizaci\IeC {\'o}n de una coiudad}}{69}{figure.5.12}
 \contentsline {figure}{\numberline {\relax 5.13}{\ignorespaces Funci\IeC {\'o}n que recibe los datos de Twitter}}{70}{figure.5.13}
-\contentsline {figure}{\numberline {\relax 5.14}{\ignorespaces Funci\IeC {\'o}n para parsear los Tweets}}{71}{figure.5.14}
-\contentsline {figure}{\numberline {\relax 5.15}{\ignorespaces Constructor del controlador principal}}{71}{figure.5.15}
-\contentsline {figure}{\numberline {\relax 5.16}{\ignorespaces M\IeC {\'e}todo de init()}}{72}{figure.5.16}
-\contentsline {figure}{\numberline {\relax 5.17}{\ignorespaces M\IeC {\'e}todo de login()}}{73}{figure.5.17}
-\contentsline {figure}{\numberline {\relax 5.18}{\ignorespaces Constructor del siteController}}{74}{figure.5.18}
-\contentsline {figure}{\numberline {\relax 5.19}{\ignorespaces M\IeC {\'e}todo shoBlog del siteController}}{75}{figure.5.19}
+\contentsline {figure}{\numberline {\relax 5.14}{\ignorespaces Funciones: m\IeC {\'e}todo para parsear los Tweets}}{71}{figure.5.14}
+\contentsline {figure}{\numberline {\relax 5.15}{\ignorespaces Funciones: constructor del controlador principal}}{71}{figure.5.15}
+\contentsline {figure}{\numberline {\relax 5.16}{\ignorespaces Funciones: m\IeC {\'e}todo que inicializa la gesti\IeC {\'o}n de la parte p\IeC {\'u}blica)}}{72}{figure.5.16}
+\contentsline {figure}{\numberline {\relax 5.17}{\ignorespaces Funciones: m\IeC {\'e}todo que autentica la usuario}}{73}{figure.5.17}
+\contentsline {figure}{\numberline {\relax 5.18}{\ignorespaces Funciones: constructor del siteController}}{74}{figure.5.18}
+\contentsline {figure}{\numberline {\relax 5.19}{\ignorespaces Funciones: m\IeC {\'e}todo que muestra el detalle de not\IeC {\'\i }cia}}{75}{figure.5.19}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Business Canvas de la aplicaci\IeC {\'o}n}}{83}{figure.6.1}

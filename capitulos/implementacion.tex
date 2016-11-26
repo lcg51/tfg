@@ -396,23 +396,30 @@ Una vez terminada la maquetación de las páginas, se procede a la programación
 
 \textbf{Rutas de la aplicación}
 
-Para tener una web con un sistema de rutas amigables que faciliten la navegación del usuario y el posicionamiento del sitio, la mejor opción es generar rutas dinámicas. Mediante las rutas dinámicas el administrador del sitio podrá modificar los valores de las rutas mediante el panel de administración, modificando las urls de cada página cuando sea necesario sin la necesidad de recurrir al programador. Otros campos que el administrador también podrá modificar son los metas de cada página(MetaTitle,MetaKeywords,etc), que son otro factor importante para el posicionamiento SEO.
+Para tener una web con un sistema de rutas amigables que faciliten la navegación del usuario y el posicionamiento del sitio, la mejor opción es generar
+rutas dinámicas. Mediante las rutas dinámicas el administrador del sitio podrá modificar los valores de las rutas mediante el panel de administración,
+modificando las urls de cada página cuando sea necesario sin la necesidad de recurrir al programador. Otros campos que el administrador también podrá
+modificar son los metas de cada página(MetaTitle,MetaKeywords,etc), que son otro factor importante para el posicionamiento SEO.
 
 \vspace{5 mm}
 
-Para definir las rutas, Laravel proporciona el fichero routes.php dentro del directorio app que es donde se definen todas las rutas de la aplicación. Dentro de este fichero se definen las rutas especificando el tipo de petición Http(get,post,etc)el nombre de la ruta y el controlador que usa, también podemos definir un alias que identifica la ruta aunque este campo es opcional. Como se observa en la figura \ref{rutas-app} se definen 4 rutas:
+Para definir las rutas, Laravel proporciona el fichero routes.php dentro del directorio app que es donde se definen todas las rutas de la aplicación.
+Dentro de este fichero se definen las rutas especificando el tipo de petición Http(get,post,etc)el nombre de la ruta y el controlador que usa, también
+podemos definir un alias que identifica la ruta aunque este campo es opcional. Se definen tres tipos de rutas en la aplicación:
 
-\begin{itemize}
+\begin{description}
 
-\item \textbf{Ruta Principal}: la ruta para la pagina principal donde se mostrará la landing se define mediante el caracter "/". a esta página se accederá cuando el usuario acceda al dominio de la aplicación.
+\item \textbf{Rutas públicas}: estas rutas son las páginas de la aplicación que muestran las páginas públicas accesibles para todo el mundo.
+Estas páginas se corresponden con el menú de navegación de la web. Se generan dinámicamente obteniendo las rutas de la tabla Menu de la base de datos.
+Para que la ruta sea dinámica en Laravel se tiene que definir mediante llaves y dentro un nombre de variable.
 
-\item \textbf{Rutas de Menu}: estas rutas son las páginas de la aplicación que pertenecen al modelo de datos Menu que se corresponde con el menú de navegación de la web. Se generan dinamicamente comprobando que la ruta obtenida se corresponde con la ruta definida en el modelo. Para que la ruta sea dinámica en Laravel se tiene que definir mediante llaves y dentro un nombre de variable.
-
-\item \textbf{Rutas de detalle}: las rutas de detalle son aquellas que tienen tienen como trozo de url padre una ruta de Menu. No todas las rutas de Menu tienen que tener una ruta de detalle. Esta ruta se usa en la aplicación para definir las notícias del blog de la aplicación y asi poder concatenar a la ruta del blog el nombre de la notícia.
+\item \textbf{Rutas de detalle}: las rutas de detalle son aquellas que tienen tienen como trozo de url padre una ruta de Menu. No todas las rutas de Menu
+tienen que tener una ruta de detalle. Esta ruta se usa en la aplicación para definir las notícias del blog de la aplicación y asi poder concatenar a la
+ruta del blog el nombre de la notícia.
 
 \item \textbf{Rutas de usuario registrado}: estas rutas son para la vistas de la web de la parte de administrador. También son dinámicas pero para diferenciarlas de las rutas visibles para todos los usuarios se iniciarán con la ruta /admin.
 
-\end{itemize}
+\end{description}
 
 
 Todas estas rutas se manejan en el controlador principal de la aplicación(Controller). Se comprueba que las rutas introducidas sean las correctas y en el caso de no serlo se redirige a la página de error 404 de la web. Para renderizar la vista correspondiente, se instancias de servicios dentro del Controller principal.
@@ -456,7 +463,7 @@ apartados de la web. Pero todas las rutas pasan por el controlador principal que
 \begin{figure}
 \begin{center}
 \includegraphics[width=1.0\textwidth]{imagenes/parseTweets.png}
-\caption{Función para parsear los Tweets}
+\caption{Funciones: método para parsear los Tweets}
 \label{parseTweets-app}
 \end{center}
 \end{figure}
@@ -464,7 +471,7 @@ apartados de la web. Pero todas las rutas pasan por el controlador principal que
 \begin{figure}
 \begin{center}
 \includegraphics[width=1.0\textwidth]{imagenes/controller-constructor.png}
-\caption{Constructor del controlador principal}
+\caption{Funciones: constructor del controlador principal}
 \label{controller-construct}
 \end{center}
 \end{figure}
@@ -472,7 +479,7 @@ apartados de la web. Pero todas las rutas pasan por el controlador principal que
 \begin{figure}
 \begin{center}
 \includegraphics[width=1.0\textwidth]{imagenes/controller-init.png}
-\caption{Método de init()}
+\caption{Funciones: método que inicializa la gestión de la parte pública)}
 \label{controller-init}
 \end{center}
 \end{figure}
@@ -481,7 +488,7 @@ apartados de la web. Pero todas las rutas pasan por el controlador principal que
 \begin{figure}
 \begin{center}
 \includegraphics[width=1.0\textwidth]{imagenes/controller-login.png}
-\caption{Método de login()}
+\caption{Funciones: método que autentica la usuario}
 \label{controller-login}
 \end{center}
 \end{figure}
@@ -489,7 +496,7 @@ apartados de la web. Pero todas las rutas pasan por el controlador principal que
 \begin{figure}
 \begin{center}
 \includegraphics[width=1.0\textwidth]{imagenes/site-construct.png}
-\caption{Constructor del siteController}
+\caption{Funciones: constructor del siteController}
 \label{site-construct}
 \end{center}
 \end{figure}
@@ -497,12 +504,13 @@ apartados de la web. Pero todas las rutas pasan por el controlador principal que
 \begin{figure}
 \begin{center}
 \includegraphics[width=1.0\textwidth]{imagenes/site-showblog.png}
-\caption{Método shoBlog del siteController}
+\caption{Funciones: método que muestra el detalle de notícia}
 \label{site-showblog}
 \end{center}
 \end{figure}
 
-Como se observa en \ref{controller-construct}, al inicializar el controlador, se generan dos instancias de los otros dos controladores que se encargan de manejar los datos y renderizar las vistas para la parte pública y la parte de administrador.
+Como se observa en \ref{controller-construct}, al inicializar el controlador, se generan dos instancias de los otros dos controladores que se encargan de
+manejar los datos y renderizar las vistas para la parte pública y la parte de administrador.
 
 \vspace{5 mm}
 
